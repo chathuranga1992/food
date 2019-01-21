@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "143393554855",
+    "firebase_url": "https://foodsafty-5ae23.firebaseio.com",
+    "project_id": "foodsafty-5ae23",
+    "storage_bucket": "foodsafty-5ae23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143393554855:android:d37b951840338625",
+        "android_client_info": {
+          "package_name": "com.uwu.ans.foodsafty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "143393554855-ejg167hb0dub6kg5vs7iah5ngs6kk2hq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWQSEkUvy6zfcizEc7QXbnsFzwJBb5Sfs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

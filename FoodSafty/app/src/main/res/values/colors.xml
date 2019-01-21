@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorTitleText">#FF535456</color>
+    <color name="colorHintText">#FF98999D</color>
+    <color name="white">#ffffff</color>
+    <color name="fb">#3B5998</color>
+    <color name="colorWhiteFrameFill">#FFFFFF</color>
+    <color name="colorWhiteFrameStroke">#26000000</color>
+    <color name="text">#000000</color>
+    <color name="colorBackground">#00ffffff</color>
+    <color name="colorText">#000000</color>
+    <color name="colorTextHint">#51d8c7</color>
+    <color name="color_bottom_link">#FF232426</color>
+    <color name="tab_tint">#FFFFFF</color>
+
+    <color name="colorTabBarBg">#FFFFFF</color>
+    <color name="colorTabBarBgShadow">#4DFFFFFF</color>
+    <color name="colorTabBarItemSelect">#D4A25B</color>
+    <color name="colorTabBarItem">#535456</color>
+    <color name="bottom_text">#FF98999D</color>
+    <color name="colorInboxBg">#F7F7F7</color>
+    <color name="colorHelpBg">#A6000000</color>
+    <color name="float_transparent">#00000000</color>
+    <color name="colorPromoDialogTypeBg">#FFD54D53</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorPromoDistance">#535456</color>
+    <color name="colorNotification">#EE6832</color>
+    <color name="colorTextInbox">#FF535456</color>
+    <color name="colorTextBEventType">#EE6832</color>
+    <color name="colorPageIndicatorD">#D8D8D8</color>
+</resources>
