@@ -1,10 +1,5 @@
 package com.uwu.ans.foodsafty.new_record_building;
 
-import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +20,11 @@ import com.uwu.ans.foodsafty.new_record_building.domains.RiskFactors;
 import com.uwu.ans.foodsafty.new_record_building.domains.Space;
 import com.uwu.ans.foodsafty.new_record_building.domains.Structure;
 import com.uwu.ans.foodsafty.new_record_building.domains.WallMaintatance;
+
+import androidx.appcompat.app.AppCompatActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class BuildingActivity extends AppCompatActivity {
 
@@ -130,7 +130,6 @@ public class BuildingActivity extends AppCompatActivity {
     }
 
     public void setMarksFour(int marks, TextView mTextView) {
-        marks = marks + 1;
         String mStringMarks = Integer.valueOf(marks).toString();
         mTextView.setText(mStringMarks);
         setMarkViewFour(mTextView, mStringMarks);
@@ -174,36 +173,41 @@ public class BuildingActivity extends AppCompatActivity {
     @OnClick(R.id.building_next)
     public void setBuilding(View view) {
 
-        String mBuildingStructureMarks1,mBuildingStructureMarks2,mBuildingStructureMarks3,mBuildingStructureMarks4;
-        String mBuildingWallMaintanance1,mBuildingWallMaintanance2,mBuildingWallMaintanance3,mBuildingWallMaintanance4;
-        String mBuildingLightAndVentilationMarks1,mBuildingLightAndVentilationMarks2;
-        String mBuildingRiskFactorsMarks1,mBuildingRiskFactorsMarks2;
-        String mBuildingFoorStructureMarks1,mBuildingFoorStructureMarks2,mBuildingFoorStructureMarks3,mBuildingFoorStructureMarks4;
-        String mBuildingSpaceMarks1,mBuildingSpaceMarks2;
-        String mBuildinCeilingStructureMarks1,mBuildingCeilingStructureMarks2,mBuildingCeilingStructureMarks3,mBuildingCeilingStructureMarks4;
+        String mBuildingStructureMarks1, mBuildingStructureMarks2, mBuildingStructureMarks3, mBuildingStructureMarks4;
+        String mBuildingWallMaintanance1, mBuildingWallMaintanance2, mBuildingWallMaintanance3, mBuildingWallMaintanance4;
+        String mBuildingLightAndVentilationMarks1, mBuildingLightAndVentilationMarks2;
+        String mBuildingRiskFactorsMarks1, mBuildingRiskFactorsMarks2;
+        String mBuildingFoorStructureMarks1, mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4;
+        String mBuildingSpaceMarks1, mBuildingSpaceMarks2;
+        String mBuildinCeilingStructureMarks1, mBuildingCeilingStructureMarks2, mBuildingCeilingStructureMarks3, mBuildingCeilingStructureMarks4;
 
         String building_id = mDatabaseFoodSafe.push().getKey();
 
         /*Structure*/
         if (mCheckBoxBuildingStructureAdequate.isChecked()) {
+            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
             setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
+
             mBuildingStructureMarks1 = "1";
         } else {
             mBuildingStructureMarks1 = "0";
         }
         if (mCheckBoxBuildingStructureSuitable.isChecked()) {
+            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
             setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
             mBuildingStructureMarks2 = "1";
         } else {
             mBuildingStructureMarks2 = "0";
         }
         if (mCheckBoxBuildingStructurePermenant.isChecked()) {
+            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
             setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
             mBuildingStructureMarks3 = "1";
         } else {
             mBuildingStructureMarks3 = "0";
         }
         if (mCheckBoxBuildingStructureSafe.isChecked()) {
+            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
             setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
             mBuildingStructureMarks4 = "1";
         } else {
@@ -212,12 +216,14 @@ public class BuildingActivity extends AppCompatActivity {
 
         /*Light and ventilation*/
         if (mCheckBoxBuildingLightandVentilationAttractive.isChecked()) {
+            mBuildingLightAndVentilationMarksINT = mBuildingLightAndVentilationMarksINT + 1;
             setMarksTwo(mBuildingLightAndVentilationMarksINT, mTextViewMarksBuildingLightandVentilation);
             mBuildingLightAndVentilationMarks1 = "1";
         } else {
             mBuildingLightAndVentilationMarks1 = "0";
         }
         if (mCheckBoxBuildingLightandVentilationBeautiful.isChecked()) {
+            mBuildingLightAndVentilationMarksINT = mBuildingLightAndVentilationMarksINT + 1;
             setMarksTwo(mBuildingLightAndVentilationMarksINT, mTextViewMarksBuildingLightandVentilation);
             mBuildingLightAndVentilationMarks2 = "1";
         }
@@ -227,83 +233,131 @@ public class BuildingActivity extends AppCompatActivity {
 
         /*Risk Factors*/
         if (mCheckBoxBuildingRiskFactorsHazzards.isChecked()) {
+            mBuildingRiskFactorsMarksINT = mBuildingRiskFactorsMarksINT + 1;
             setMarksTwo(mBuildingRiskFactorsMarksINT, mTextViewMarksBuildingRiskFactors);
             mBuildingRiskFactorsMarks1 = "1";
-        }else {mBuildingRiskFactorsMarks1 = "0";}
+        } else {
+            mBuildingRiskFactorsMarks1 = "0";
+        }
         if (mCheckBoxBuildingRiskFactorsUnsafeStructures.isChecked()) {
+            mBuildingRiskFactorsMarksINT = mBuildingRiskFactorsMarksINT + 1;
             setMarksTwo(mBuildingRiskFactorsMarksINT, mTextViewMarksBuildingRiskFactors);
             mBuildingRiskFactorsMarks2 = "1";
-        }else{mBuildingRiskFactorsMarks2 = "0";}
+        } else {
+            mBuildingRiskFactorsMarks2 = "0";
+        }
 
 
 
         /*Wall maintenance*/
         if (mCheckBoxBuildingWallMaintananceClean.isChecked()) {
+            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
             setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
             mBuildingWallMaintanance1 = "1";
-        }else{mBuildingWallMaintanance1 = "0";}
+        } else {
+            mBuildingWallMaintanance1 = "0";
+        }
         if (mCheckBoxBuildingWallMaintananceSuitable.isChecked()) {
+            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
             setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
             mBuildingWallMaintanance2 = "1";
-        }else{mBuildingWallMaintanance2 = "0";}
+        } else {
+            mBuildingWallMaintanance2 = "0";
+        }
         if (mCheckBoxBuildingWallMaintananceNoContamination.isChecked()) {
+            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
             setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
             mBuildingWallMaintanance3 = "1";
-        }else{mBuildingWallMaintanance3 = "0";}
+        } else {
+            mBuildingWallMaintanance3 = "0";
+        }
         if (mCheckBoxBuildingWallMaintananceNoAccumilation.isChecked()) {
+            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
             setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
             mBuildingWallMaintanance4 = "1";
-        }else{mBuildingWallMaintanance4 = "0";}
+        } else {
+            mBuildingWallMaintanance4 = "0";
+        }
 
 
         /*Floor Structure*/
         if (mCheckBoxBuildingFloorStructureClean.isChecked()) {
+            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
             setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
             mBuildingFoorStructureMarks1 = "1";
-        }else{mBuildingFoorStructureMarks1 = "0";}
+        } else {
+            mBuildingFoorStructureMarks1 = "0";
+        }
         if (mCheckBoxBuildingFloorStructureNoAccumilation.isChecked()) {
+            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
             setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
             mBuildingFoorStructureMarks2 = "1";
-        }else{mBuildingFoorStructureMarks2 = "0";}
+        } else {
+            mBuildingFoorStructureMarks2 = "0";
+        }
         if (mCheckBoxBuildingFloorStructureNoContamination.isChecked()) {
+            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
             setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
             mBuildingFoorStructureMarks3 = "1";
-        }else{mBuildingFoorStructureMarks3 = "0";}
+        } else {
+            mBuildingFoorStructureMarks3 = "0";
+        }
         if (mCheckBoxBuildingFloorStructureSuitable.isChecked()) {
+            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
             setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
             mBuildingFoorStructureMarks4 = "1";
-        }else{mBuildingFoorStructureMarks4 = "0";}
+        } else {
+            mBuildingFoorStructureMarks4 = "0";
+        }
 
 
         /*Space*/
         if (mCheckBoxBuildingSpaceAdequate.isChecked()) {
+            mBuildingSpaceMarksINT = mBuildingSpaceMarksINT + 1;
             setMarksTwo(mBuildingSpaceMarksINT, mTextViewMarksBuildingSpace);
             mBuildingSpaceMarks1 = "1";
-        }else{mBuildingSpaceMarks1 = "0";}
+        } else {
+            mBuildingSpaceMarks1 = "0";
+        }
         if (mCheckBoxBuildingSpaceAppropriate.isChecked()) {
+            mBuildingSpaceMarksINT = mBuildingSpaceMarksINT + 1;
             setMarksTwo(mBuildingSpaceMarksINT, mTextViewMarksBuildingSpace);
             mBuildingSpaceMarks2 = "1";
-        }else{mBuildingSpaceMarks2 = "0";}
+        } else {
+            mBuildingSpaceMarks2 = "0";
+        }
 
 
 
         /*Ceiling Structure*/
         if (mCheckBoxBuildingCeilingStructureClean.isChecked()) {
+            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
             setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
             mBuildinCeilingStructureMarks1 = "1";
-        }else{mBuildinCeilingStructureMarks1 = "0";}
+        } else {
+            mBuildinCeilingStructureMarks1 = "0";
+        }
         if (mCheckBoxBuildingCeilingStructureNoAccumilation.isChecked()) {
+            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
             setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
             mBuildingCeilingStructureMarks2 = "1";
-        }else{mBuildingCeilingStructureMarks2 = "0";}
+        } else {
+            mBuildingCeilingStructureMarks2 = "0";
+        }
         if (mCheckBoxBuildingCeilingStructureNoContamination.isChecked()) {
+            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
             setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
             mBuildingCeilingStructureMarks3 = "1";
-        }else{mBuildingCeilingStructureMarks3 = "0";}
+        } else {
+            mBuildingCeilingStructureMarks3 = "0";
+        }
         if (mCheckBoxBuildingCeilingStructureSuitable.isChecked()) {
+            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
             setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
             mBuildingCeilingStructureMarks4 = "1";
-        }else{mBuildingCeilingStructureMarks4 = "0";}
+        } else {
+            mBuildingCeilingStructureMarks4 = "0";
+        }
 
         String mComment = mEditTextComments.getText().toString();
 
@@ -329,24 +383,23 @@ public class BuildingActivity extends AppCompatActivity {
         String mBuildingSpaceReMarks = mTextViewMarksBuildingSpace.getText().toString();
 
 
-
         FloorStructure floorStructure = new FloorStructure(mBuildingFoorStructureMarks1,
-                mBuildingFoorStructureMarks2,mBuildingFoorStructureMarks3,mBuildingFoorStructureMarks4,
-                mBuildingFloorStructureMarks,mBuildingFloorStructureReMarks);
+                mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4,
+                mBuildingFloorStructureMarks, mBuildingFloorStructureReMarks);
         CeilingStructure ceilingStructure = new CeilingStructure(mBuildinCeilingStructureMarks1,
-                mBuildingCeilingStructureMarks2,mBuildingCeilingStructureMarks3,mBuildingCeilingStructureMarks4,
-                mBuildingCeilingStructuresMarks,mBuildingCeilingStructuresReMarks);
+                mBuildingCeilingStructureMarks2, mBuildingCeilingStructureMarks3, mBuildingCeilingStructureMarks4,
+                mBuildingCeilingStructuresMarks, mBuildingCeilingStructuresReMarks);
         LightNVentilation lightNVentilation = new LightNVentilation(mBuildingLightAndVentilationMarks1
-                , mBuildingLightAndVentilationMarks2,mBuildingLightAndVentilationMarks,mBuildingLightAndVentilationReMarks);
+                , mBuildingLightAndVentilationMarks2, mBuildingLightAndVentilationMarks, mBuildingLightAndVentilationReMarks);
         RiskFactors riskFactors = new RiskFactors(mBuildingRiskFactorsMarks1,
-                mBuildingRiskFactorsMarks2,mBuildingRiskFactorsMarks,mBuildingRiskFactorsReMarks);
-        Space space = new Space(mBuildingSpaceMarks1,mBuildingSpaceMarks2,mBuildingSpaceMarks,mBuildingSpaceReMarks);
+                mBuildingRiskFactorsMarks2, mBuildingRiskFactorsMarks, mBuildingRiskFactorsReMarks);
+        Space space = new Space(mBuildingSpaceMarks1, mBuildingSpaceMarks2, mBuildingSpaceMarks, mBuildingSpaceReMarks);
         Structure structure = new Structure(mBuildingStructureMarks1,
                 mBuildingStructureMarks2, mBuildingStructureMarks3, mBuildingStructureMarks4,
-                mBuildingStructureMarks,mBuildingStructureReMarks);
+                mBuildingStructureMarks, mBuildingStructureReMarks);
         WallMaintatance wallMaintatance = new WallMaintatance(mBuildingWallMaintanance1,
-                mBuildingWallMaintanance2,mBuildingWallMaintanance3,mBuildingWallMaintanance4,
-                mBuildingWallmaintananceMarks,mBuildingWallmaintananceReMarks);
+                mBuildingWallMaintanance2, mBuildingWallMaintanance3, mBuildingWallMaintanance4,
+                mBuildingWallmaintananceMarks, mBuildingWallmaintananceReMarks);
         BuildingModel buildingModel = new BuildingModel(ceilingStructure, mComment, floorStructure,
                 building_id, lightNVentilation, building_id, riskFactors, space, structure, wallMaintatance);
 
