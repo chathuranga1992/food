@@ -12,7 +12,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin">
 
 
-   <!-- <ProgressBar
+    <ProgressBar
         android:id="@+id/food_processing_area_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="@dimen/activity_vertical_margin"
@@ -434,14 +434,14 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/cleanliness_food_processing_area_adequate"
+                    android:id="@+id/food_processing_area_cleanliness_adequate"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/adequate" />
 
                 <CheckBox
-                    android:id="@+id/cleanliness_food_processing_area_appropriate"
+                    android:id="@+id/food_processing_area_cleanliness_appropriate"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -728,6 +728,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/food_processing_area_comments"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_comments_here"/>
@@ -741,6 +742,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/food_processing_area_full_marks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/total_marks"
@@ -756,13 +758,15 @@
 
 
                 <Button
+                    android:id="@+id/food_processing_area_next_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
                     android:text="@string/next"
-                    android:layout_gravity="end"/>
+                    android:layout_gravity="end"
+                    android:onClick="setFoodPreparation"/>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>

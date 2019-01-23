@@ -144,10 +144,10 @@ public class BuildingActivity extends AppCompatActivity {
 
     public void setMarkViewFour(TextView mTextView, String mBuildingSuitabilityMarks) {
         if (mBuildingSuitabilityMarks.equals("4")) {
-            mTextView.setTextColor(Color.BLUE);
+            mTextView.setTextColor(Color.GREEN);
             mTextView.setText(getString(R.string.good));
         } else if (mBuildingSuitabilityMarks.equals("3")) {
-            mTextView.setTextColor(Color.GREEN);
+            mTextView.setTextColor(Color.BLUE);
             mTextView.setText(getString(R.string.adequate));
         } else if (mBuildingSuitabilityMarks.equals("2")) {
             mTextView.setTextColor(Color.YELLOW);
@@ -165,7 +165,7 @@ public class BuildingActivity extends AppCompatActivity {
             mTextView.setText(getString(R.string.adequate));
         } else {
             mTextView.setTextColor(Color.YELLOW);
-            mTextView.setText(getString(R.string.bearly_adequate));
+            mTextView.setText(getString(R.string.inadequate));
         }
     }
 

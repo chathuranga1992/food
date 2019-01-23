@@ -159,5 +159,6 @@
     <string name="inadequate">Inadequate</string>
     <string name="bearly_adequate">Bearly Adequate</string>
     <string name="space">Space</string>
+    <string name="food_processing_area">Food Processing Area</string>
 
 </resources>
