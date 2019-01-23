@@ -13,6 +13,15 @@ public class CeilingStructure {
     private String mRemark;
     private String mSuitable;
 
+    public CeilingStructure(String mClean, String mMarks, String mNoAccumilation, String mNoContamination, String mRemark, String mSuitable) {
+        this.mClean = mClean;
+        this.mMarks = mMarks;
+        this.mNoAccumilation = mNoAccumilation;
+        this.mNoContamination = mNoContamination;
+        this.mRemark = mRemark;
+        this.mSuitable = mSuitable;
+    }
+
     public String getClean() {
         return mClean;
     }

@@ -10,6 +10,13 @@ public class LightNVentilation {
     private String mMarks;
     private String mRemark;
 
+    public LightNVentilation(String mAdequate, String mAppropriate, String mMarks, String mRemark) {
+        this.mAdequate = mAdequate;
+        this.mAppropriate = mAppropriate;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
+
     public String getAdequate() {
         return mAdequate;
     }

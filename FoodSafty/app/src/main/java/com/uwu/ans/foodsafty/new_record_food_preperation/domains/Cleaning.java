@@ -8,9 +8,18 @@ public class Cleaning {
     private String mAdequate;
     private String mAppropriate;
     private String mDaily;
-    private String mMarks;
     private String mNoAccumilation;
+    private String mMarks;
     private String mRemark;
+
+    public Cleaning(String mAdequate, String mAppropriate, String mDaily, String mNoAccumilation, String mMarks, String mRemark) {
+        this.mAdequate = mAdequate;
+        this.mAppropriate = mAppropriate;
+        this.mDaily = mDaily;
+        this.mNoAccumilation = mNoAccumilation;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
 
     public String getAdequate() {
         return mAdequate;

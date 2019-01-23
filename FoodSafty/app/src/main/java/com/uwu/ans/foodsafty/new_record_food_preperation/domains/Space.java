@@ -10,6 +10,13 @@ public class Space {
     private String mMarks;
     private String mRemark;
 
+    public Space(String mAdequate, String mAppropriate, String mMarks, String mRemark) {
+        this.mAdequate = mAdequate;
+        this.mAppropriate = mAppropriate;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
+
     public String getAdequate() {
         return mAdequate;
     }

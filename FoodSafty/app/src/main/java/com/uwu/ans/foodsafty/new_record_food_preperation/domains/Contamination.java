@@ -13,6 +13,15 @@ public class Contamination {
     private String mMarks;
     private String mRemark;
 
+    public Contamination(String mFromGarbage, String mFromHazards, String mFromSanitires, String mFromToilets, String mMarks, String mRemark) {
+        this.mFromGarbage = mFromGarbage;
+        this.mFromHazards = mFromHazards;
+        this.mFromSanitires = mFromSanitires;
+        this.mFromToilets = mFromToilets;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
+
     public String getFromGarbage() {
         return mFromGarbage;
     }

@@ -7,11 +7,20 @@ public class WallMaintatance {
 
 
     private String mClean;
-    private String mMarks;
     private String mNoAccumilation;
     private String mNoContamination;
-    private String mRemark;
     private String mSuitable;
+    private String mMarks;
+    private String mRemark;
+
+    public WallMaintatance(String mClean, String mNoAccumilation, String mNoContamination, String mSuitable, String mMarks, String mRemark) {
+        this.mClean = mClean;
+        this.mNoAccumilation = mNoAccumilation;
+        this.mNoContamination = mNoContamination;
+        this.mSuitable = mSuitable;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
 
     public String getClean() {
         return mClean;

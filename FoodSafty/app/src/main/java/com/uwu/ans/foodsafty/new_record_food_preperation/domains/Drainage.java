@@ -7,11 +7,20 @@ public class Drainage {
 
 
     private String mAdequate;
-    private String mMarks;
     private String mNoAccumulation;
-    private String mRemark;
     private String mSafe;
     private String mSuitable;
+    private String mMarks;
+    private String mRemark;
+
+    public Drainage(String mAdequate, String mNoAccumulation, String mSafe, String mSuitable, String mMarks, String mRemark) {
+        this.mAdequate = mAdequate;
+        this.mNoAccumulation = mNoAccumulation;
+        this.mSafe = mSafe;
+        this.mSuitable = mSuitable;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
 
     public String getAdequate() {
         return mAdequate;

@@ -9,11 +9,20 @@ public class Structure {
 
 
     private String mAdequate;
-    private String mMarks;
     private String mPermanant;
-    private String mRemark;
     private String mSafe;
     private String mSuitable;
+    private String mMarks;
+    private String mRemark;
+
+    public Structure(String mAdequate, String mPermanant, String mSafe, String mSuitable, String mMarks, String mRemark) {
+        this.mAdequate = mAdequate;
+        this.mPermanant = mPermanant;
+        this.mSafe = mSafe;
+        this.mSuitable = mSuitable;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
 
     public String getAdequate() {
         return mAdequate;

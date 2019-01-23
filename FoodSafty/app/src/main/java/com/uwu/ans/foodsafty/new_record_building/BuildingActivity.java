@@ -1,5 +1,6 @@
 package com.uwu.ans.foodsafty.new_record_building;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.uwu.ans.foodsafty.new_record_building.domains.RiskFactors;
 import com.uwu.ans.foodsafty.new_record_building.domains.Space;
 import com.uwu.ans.foodsafty.new_record_building.domains.Structure;
 import com.uwu.ans.foodsafty.new_record_building.domains.WallMaintatance;
+import com.uwu.ans.foodsafty.new_record_food_preperation.FoodPreperationActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
@@ -163,8 +165,11 @@ public class BuildingActivity extends AppCompatActivity {
         if (mBuildingSuitabilityMarks.equals("2")) {
             mTextView.setTextColor(Color.GREEN);
             mTextView.setText(getString(R.string.adequate));
-        } else {
+        } else if(mBuildingSuitabilityMarks.equals("1")){
             mTextView.setTextColor(Color.YELLOW);
+            mTextView.setText(getString(R.string.bearly_adequate));
+        }else{
+            mTextView.setTextColor(Color.RED);
             mTextView.setText(getString(R.string.inadequate));
         }
     }
@@ -226,8 +231,7 @@ public class BuildingActivity extends AppCompatActivity {
             mBuildingLightAndVentilationMarksINT = mBuildingLightAndVentilationMarksINT + 1;
             setMarksTwo(mBuildingLightAndVentilationMarksINT, mTextViewMarksBuildingLightandVentilation);
             mBuildingLightAndVentilationMarks2 = "1";
-        }
-        {
+        } else {
             mBuildingLightAndVentilationMarks2 = "0";
         }
 
@@ -246,8 +250,6 @@ public class BuildingActivity extends AppCompatActivity {
         } else {
             mBuildingRiskFactorsMarks2 = "0";
         }
-
-
 
         /*Wall maintenance*/
         if (mCheckBoxBuildingWallMaintananceClean.isChecked()) {
@@ -405,5 +407,9 @@ public class BuildingActivity extends AppCompatActivity {
 
         mDatabaseFoodSafe.child(building_id).setValue(buildingModel);
 
+        /*startActivity(Intent,BuildingActivity.this,FoodPreperationActivity.class);*/
+
+        Intent intent = new Intent(BuildingActivity.this,FoodPreperationActivity.class);
+        startActivity(intent);
     }
 }

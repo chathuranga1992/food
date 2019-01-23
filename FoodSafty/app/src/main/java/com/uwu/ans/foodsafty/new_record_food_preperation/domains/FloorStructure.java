@@ -6,11 +6,20 @@ package com.uwu.ans.foodsafty.new_record_food_preperation.domains;
 public class FloorStructure {
 
     private String mClean;
-    private String mMarks;
     private String mNoAccumilation;
     private String mNoContamination;
-    private String mRemark;
     private String mSuitable;
+    private String mMarks;
+    private String mRemark;
+
+    public FloorStructure(String mClean, String mNoAccumilation, String mNoContamination, String mSuitable, String mMarks, String mRemark) {
+        this.mClean = mClean;
+        this.mNoAccumilation = mNoAccumilation;
+        this.mNoContamination = mNoContamination;
+        this.mSuitable = mSuitable;
+        this.mMarks = mMarks;
+        this.mRemark = mRemark;
+    }
 
     public String getClean() {
         return mClean;

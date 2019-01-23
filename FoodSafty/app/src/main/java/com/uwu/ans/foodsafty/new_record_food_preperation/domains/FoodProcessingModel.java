@@ -2,28 +2,50 @@
 package com.uwu.ans.foodsafty.new_record_food_preperation.domains;
 
 
-
-
 @SuppressWarnings("unused")
 public class FoodProcessingModel {
 
 
+    private String mId;
+    private String mRecordId;
     private CeilingStructure mCeilingStructure;
     private Cleaning mCleaning;
     private Cleanlines mCleanlines;
-    private String mComment;
     private Contamination mContamination;
     private Drainage mDrainage;
     private FloorStructure mFloorStructure;
     private HouseKeeping mHouseKeeping;
-    private String mId;
     private LightNVentilation mLightNVentilation;
     private PestControl mPestControl;
-    private String mRecordId;
     private Sanitation mSanitation;
     private Space mSpace;
-    private String mTotalMarks;
     private WallMaintatance mWallMaintatance;
+    private String mTotalMarks;
+    private String mComment;
+
+    public FoodProcessingModel(String mId, String mRecordId, CeilingStructure mCeilingStructure,
+                               Cleaning mCleaning, Cleanlines mCleanlines, Contamination mContamination,
+                               Drainage mDrainage, FloorStructure mFloorStructure, HouseKeeping mHouseKeeping,
+                               LightNVentilation mLightNVentilation, PestControl mPestControl,
+                               Sanitation mSanitation, Space mSpace, WallMaintatance mWallMaintatance,
+                               String mTotalMarks, String mComment) {
+        this.mId = mId;
+        this.mRecordId = mRecordId;
+        this.mCeilingStructure = mCeilingStructure;
+        this.mCleaning = mCleaning;
+        this.mCleanlines = mCleanlines;
+        this.mContamination = mContamination;
+        this.mDrainage = mDrainage;
+        this.mFloorStructure = mFloorStructure;
+        this.mHouseKeeping = mHouseKeeping;
+        this.mLightNVentilation = mLightNVentilation;
+        this.mPestControl = mPestControl;
+        this.mSanitation = mSanitation;
+        this.mSpace = mSpace;
+        this.mWallMaintatance = mWallMaintatance;
+        this.mTotalMarks = mTotalMarks;
+        this.mComment = mComment;
+    }
 
     public CeilingStructure getCeilingStructure() {
         return mCeilingStructure;

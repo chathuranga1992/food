@@ -12,6 +12,19 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uwu.ans.foodsafty.R;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.CeilingStructure;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Space;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.WallMaintatance;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Cleaning;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Cleanlines;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Contamination;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Drainage;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.FloorStructure;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.FoodProcessingModel;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.HouseKeeping;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.LightNVentilation;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.PestControl;
+import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Sanitation;
 
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
@@ -44,7 +57,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
 
     /*floor structure*/
     @BindView(R.id.food_processing_area_marks_floor_structure)
-    TextView mTextViewMarksFloorStructure;
+    TextView mTextViewMarksFoodProcessingAreaFloorStructure;
     @BindView(R.id.food_processing_area_floor_structure_clean)
     CheckBox mCheckBoxFoodProcessingAreaFloorStructureClean;
     @BindView(R.id.food_processing_area_floor_structure_no_accumulation)
@@ -56,7 +69,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
 
     /*Ceiling structure*/
     @BindView(R.id.marks_food_processing_area_ceiling_structure)
-    TextView mTextViewMarksCelingStructure;
+    TextView mTextViewMarksFoodProcessingAreaCelingStructure;
     @BindView(R.id.food_processing_area_ceiling_structure_clean)
     CheckBox mCheckBoxFoodProcessingAreaCelingStructureClean;
     @BindView(R.id.food_processing_area_ceiling_structure_no_accumulation)
@@ -68,7 +81,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
 
     /*Wall structure*/
     @BindView(R.id.marks_food_processing_area_wall_maintenance)
-    TextView mTextViewMarksWallMaintanance;
+    TextView mTextViewMarksFoodProcessingAreaWallMaintanance;
     @BindView(R.id.food_processing_area_wall_maintenance_clean)
     CheckBox mCheckBoxFoodProcessingAreaWallMaintananceClean;
     @BindView(R.id.food_processing_area_wall_maintenance_no_accumulation)
@@ -80,15 +93,15 @@ public class FoodPreperationActivity extends AppCompatActivity {
 
     /*Contamination*/
     @BindView(R.id.food_processing_area_marks_contamination)
-    TextView mTextViewMarksContamination;
+    TextView mTextViewMarksFoodProcessingAreaContamination;
     @BindView(R.id.food_processing_area_contamination_from_garbage)
-    CheckBox mCheckBoxContaminationFromGarbage;
+    CheckBox mCheckBoxFoodProcessingAreaContaminationFromGarbage;
     @BindView(R.id.food_processing_area_contamination_from_hazards)
-    CheckBox mCheckBoxContaminationFromHazzards;
+    CheckBox mCheckBoxFoodProcessingAreaContaminationFromHazzards;
     @BindView(R.id.food_processing_area_contamination_from_sanitizers)
-    CheckBox mCheckBoxContaminationFromSanitires;
+    CheckBox mCheckBoxFoodProcessingAreaContaminationFromSanitires;
     @BindView(R.id.food_processing_area_contamination_from_toilets)
-    CheckBox mCheckBoxContaminationFromToilets;
+    CheckBox mCheckBoxFoodProcessingAreaContaminationFromToilets;
 
     /*Sanitation*/
     @BindView(R.id.marks_food_processing_area_sanitation)
@@ -140,7 +153,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
     @BindView(R.id.food_processing_area_clean_daily)
     CheckBox mCheckBoxCleaningDaily;
     @BindView(R.id.food_processing_area_clean_no_accumulation)
-    CheckBox mCheckBoxCleaninNoAccumilation;
+    CheckBox mCheckBoxCleaningNoAccumilation;
 
     /*Space*/
     @BindView(R.id.food_processing_area_marks_space)
@@ -210,8 +223,11 @@ public class FoodPreperationActivity extends AppCompatActivity {
         if (mFoodPreperationSuitabilityMarks.equals("2")) {
             mTextView.setTextColor(Color.GREEN);
             mTextView.setText(getString(R.string.adequate));
-        } else {
+        } else if(mFoodPreperationSuitabilityMarks.equals("1")){
             mTextView.setTextColor(Color.YELLOW);
+            mTextView.setText(getString(R.string.bearly_adequate));
+        }else{
+            mTextView.setTextColor(Color.RED);
             mTextView.setText(getString(R.string.inadequate));
         }
     }
@@ -228,41 +244,406 @@ public class FoodPreperationActivity extends AppCompatActivity {
         String mFoodPreperationCleanlinessMarks1, mFoodPreperationCleanlinessMarks2;
         String mFoodPreperationHouseKeepingMarksMarks1, mFoodPreperationHouseKeepingMarksMarks2;
         String mFoodPreperationPestControlMarks1, mFoodPreperationPestControlMarks2;
-        String mFoodPreperationCleaningMarks1, mFoodPreperationCleaningMarks2 ,mFoodPreperationCleaningMarks3, mFoodPreperationCleaningMarks4;
+        String mFoodPreperationCleaningMarks1, mFoodPreperationCleaningMarks2, mFoodPreperationCleaningMarks3, mFoodPreperationCleaningMarks4;
         String mFoodPreperationSpaceMarks1, mFoodPreperationSpaceMarks2;
         String mFoodPreperationDrainageMarks1, mFoodPreperationDrainageMarks2, mFoodPreperationDrainageMarks3, mFoodPreperationDrainageMarks4;
         String food_preperation_id = mDatabaseFoodSafe.push().getKey();
+        String mComment = mEditTextFoodProcessingAreaComments.getText().toString();
 
         /*Floor Structure*/
         if (mCheckBoxFoodProcessingAreaFloorStructureClean.isChecked()) {
             mFoodPreparationFloorStructureMarksINT = mFoodPreparationFloorStructureMarksINT + 1;
-            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFloorStructure);
+            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFoodProcessingAreaFloorStructure);
             mFoodPreperationFloorStructureMarks1 = "1";
         } else {
             mFoodPreperationFloorStructureMarks1 = "0";
         }
         if (mCheckBoxFoodProcessingAreaFloorStructureNoAccumilation.isChecked()) {
             mFoodPreparationFloorStructureMarksINT = mFoodPreparationFloorStructureMarksINT + 1;
-            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFloorStructure);
+            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFoodProcessingAreaFloorStructure);
             mFoodPreperationFloorStructureMarks2 = "1";
         } else {
             mFoodPreperationFloorStructureMarks2 = "0";
         }
         if (mCheckBoxFoodProcessingAreaFloorStructureNoContamination.isChecked()) {
             mFoodPreparationFloorStructureMarksINT = mFoodPreparationFloorStructureMarksINT + 1;
-            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFloorStructure);
+            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFoodProcessingAreaFloorStructure);
             mFoodPreperationFloorStructureMarks3 = "1";
         } else {
             mFoodPreperationFloorStructureMarks3 = "0";
         }
         if (mCheckBoxFoodProcessingAreaFloorStructureSuitable.isChecked()) {
             mFoodPreparationFloorStructureMarksINT = mFoodPreparationFloorStructureMarksINT + 1;
-            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFloorStructure);
+            setMarksFour(mFoodPreparationFloorStructureMarksINT, mTextViewMarksFoodProcessingAreaFloorStructure);
             mFoodPreperationFloorStructureMarks4 = "1";
         } else {
             mFoodPreperationFloorStructureMarks4 = "0";
         }
+        String mFoodPreparationFloorStructureMarks = Integer.valueOf(mFoodPreparationFloorStructureMarksINT).toString();
+        String mFoodPreparationFloorStructureReMarks = mTextViewMarksFoodProcessingAreaFloorStructure.getText().toString();
 
 
+        /*Ceiling Structure*/
+        if (mCheckBoxFoodProcessingAreaCelingStructureClean.isChecked()) {
+            mFoodPreparationCeilingStructureMarksINT = mFoodPreparationCeilingStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationCeilingStructureMarksINT, mTextViewMarksFoodProcessingAreaCelingStructure);
+            mFoodPreperationCeilingStructureMarks1 = "1";
+        } else {
+            mFoodPreperationCeilingStructureMarks1 = "0";
+        }
+
+        if (mCheckBoxFoodProcessingAreaCelingStructureNoAccumilation.isChecked()) {
+            mFoodPreparationCeilingStructureMarksINT = mFoodPreparationCeilingStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationCeilingStructureMarksINT, mTextViewMarksFoodProcessingAreaCelingStructure);
+            mFoodPreperationCeilingStructureMarks2 = "1";
+        } else {
+            mFoodPreperationCeilingStructureMarks2 = "0";
+        }
+
+        if (mCheckBoxFoodProcessingAreaCelingStructureSuitable.isChecked()) {
+            mFoodPreparationCeilingStructureMarksINT = mFoodPreparationCeilingStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationCeilingStructureMarksINT, mTextViewMarksFoodProcessingAreaCelingStructure);
+            mFoodPreperationCeilingStructureMarks3 = "1";
+        } else {
+            mFoodPreperationCeilingStructureMarks3 = "0";
+        }
+
+        if (mCheckBoxFoodProcessingAreaCelingStructureNoContamination.isChecked()) {
+            mFoodPreparationCeilingStructureMarksINT = mFoodPreparationCeilingStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationCeilingStructureMarksINT, mTextViewMarksFoodProcessingAreaCelingStructure);
+            mFoodPreperationCeilingStructureMarks4 = "1";
+        } else {
+            mFoodPreperationCeilingStructureMarks4 = "0";
+        }
+        String mFoodPreperationCeilingStructureMarks = Integer.valueOf(mFoodPreparationCeilingStructureMarksINT).toString();
+        String mFoodPreperationCeilingStructureReMarks = mTextViewMarksFoodProcessingAreaCelingStructure.getText().toString();
+
+
+        /*Wall maintenance*/
+        if (mCheckBoxFoodProcessingAreaWallMaintananceNoContamination.isChecked()) {
+            mFoodPreparationWallStructureMarksINT = mFoodPreparationWallStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationWallStructureMarksINT, mTextViewMarksFoodProcessingAreaWallMaintanance);
+            mFoodPreperationWallMaintanance1 = "1";
+        } else {
+            mFoodPreperationWallMaintanance1 = "0";
+        }
+
+        if (mCheckBoxFoodProcessingAreaWallMaintananceNoAccumilation.isChecked()) {
+            mFoodPreparationWallStructureMarksINT = mFoodPreparationWallStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationWallStructureMarksINT, mTextViewMarksFoodProcessingAreaWallMaintanance);
+            mFoodPreperationWallMaintanance2 = "1";
+        } else {
+            mFoodPreperationWallMaintanance2 = "0";
+        }
+        if (mCheckBoxFoodProcessingAreaWallMaintananceClean.isChecked()) {
+            mFoodPreparationWallStructureMarksINT = mFoodPreparationWallStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationWallStructureMarksINT, mTextViewMarksFoodProcessingAreaWallMaintanance);
+            mFoodPreperationWallMaintanance3 = "1";
+        } else {
+            mFoodPreperationWallMaintanance3 = "0";
+        }
+        if (mCheckBoxFoodProcessingAreaWallMaintananceSuitable.isChecked()) {
+            mFoodPreparationWallStructureMarksINT = mFoodPreparationWallStructureMarksINT + 1;
+            setMarksFour(mFoodPreparationWallStructureMarksINT, mTextViewMarksFoodProcessingAreaWallMaintanance);
+            mFoodPreperationWallMaintanance4 = "1";
+        } else {
+            mFoodPreperationWallMaintanance4 = "0";
+        }
+        String mFoodPreperationWallMaintananceMarks = Integer.valueOf(mFoodPreparationWallStructureMarksINT).toString();
+        String mFoodPreperationWallMaintananceRemarks = mTextViewMarksFoodProcessingAreaWallMaintanance.getText().toString();
+
+
+        /*Contamination*/
+        if (mCheckBoxFoodProcessingAreaContaminationFromGarbage.isChecked()) {
+            mFoodPreparationContaminationMarksINT = mFoodPreparationContaminationMarksINT + 1;
+            setMarksFour(mFoodPreparationContaminationMarksINT, mTextViewMarksFoodProcessingAreaContamination);
+            mFoodPreperationContaminationMarks1 = "1";
+        } else {
+            mFoodPreperationContaminationMarks1 = "0";
+        }
+        if (mCheckBoxFoodProcessingAreaContaminationFromHazzards.isChecked()) {
+            mFoodPreparationContaminationMarksINT = mFoodPreparationContaminationMarksINT + 1;
+            setMarksFour(mFoodPreparationContaminationMarksINT, mTextViewMarksFoodProcessingAreaContamination);
+            mFoodPreperationContaminationMarks2 = "1";
+        } else {
+            mFoodPreperationContaminationMarks2 = "0";
+        }
+        if (mCheckBoxFoodProcessingAreaContaminationFromSanitires.isChecked()) {
+            mFoodPreparationContaminationMarksINT = mFoodPreparationContaminationMarksINT + 1;
+            setMarksFour(mFoodPreparationContaminationMarksINT, mTextViewMarksFoodProcessingAreaContamination);
+            mFoodPreperationContaminationMarks3 = "1";
+        } else {
+            mFoodPreperationContaminationMarks3 = "0";
+        }
+        if (mCheckBoxFoodProcessingAreaContaminationFromToilets.isChecked()) {
+            mFoodPreparationContaminationMarksINT = mFoodPreparationContaminationMarksINT + 1;
+            setMarksFour(mFoodPreparationContaminationMarksINT, mTextViewMarksFoodProcessingAreaContamination);
+            mFoodPreperationContaminationMarks4 = "1";
+        } else {
+            mFoodPreperationContaminationMarks4 = "0";
+        }
+        String mFoodPreperationContaminationMarks = Integer.valueOf(mFoodPreparationContaminationMarksINT).toString();
+        String mFoodPreperationContaminationReMarks = mTextViewMarksFoodProcessingAreaContamination.getText().toString();
+
+
+        /*Light and ventilation*/
+        if (mCheckBoxLightsNVentilationAdequate.isChecked()) {
+            mFoodPreparationLightsAndVentilationMarksINT = mFoodPreparationLightsAndVentilationMarksINT + 1;
+            setMarksTwo(mFoodPreparationLightsAndVentilationMarksINT, mTextViewMarksLightsNVentilation);
+            mFoodPreperationLightAndVentilationMarks1 = "1";
+        } else {
+            mFoodPreperationLightAndVentilationMarks1 = "0";
+        }
+        if (mCheckBoxLightsNVentilationAppropriate.isChecked()) {
+            mFoodPreparationLightsAndVentilationMarksINT = mFoodPreparationLightsAndVentilationMarksINT + 1;
+            setMarksTwo(mFoodPreparationLightsAndVentilationMarksINT, mTextViewMarksLightsNVentilation);
+            mFoodPreperationLightAndVentilationMarks2 = "1";
+        } else {
+            mFoodPreperationLightAndVentilationMarks2 = "0";
+        }
+        String mFoodPreperationLightAndVentilationMarks = Integer.valueOf(mFoodPreparationLightsAndVentilationMarksINT).toString();
+        String mFoodPreperationLightAndVentilationReMarks = mTextViewMarksLightsNVentilation.getText().toString();
+
+
+
+        /*Cleanliness*/
+        if (mCheckBoxCleanlinessAdequate.isChecked()) {
+            mFoodPreparationCleanlinessMarksINT = mFoodPreparationCleanlinessMarksINT + 1;
+            setMarksTwo(mFoodPreparationCleanlinessMarksINT, mTextViewMarksCleanliness);
+            mFoodPreperationCleanlinessMarks1 = "1";
+        } else {
+            mFoodPreperationCleanlinessMarks1 = "0";
+        }
+        if (mCheckBoxCleanlinessAppropriate.isChecked()) {
+            mFoodPreparationCleanlinessMarksINT = mFoodPreparationCleanlinessMarksINT + 1;
+            setMarksTwo(mFoodPreparationCleanlinessMarksINT, mTextViewMarksCleanliness);
+            mFoodPreperationCleanlinessMarks2 = "1";
+        } else {
+            mFoodPreperationCleanlinessMarks2 = "0";
+        }
+        String mFoodPreperationCleanlinessMarks = Integer.valueOf(mFoodPreparationCleanlinessMarksINT).toString();
+        String mFoodPreperationCleanlinessReMarks = mTextViewMarksCleanliness.getText().toString();
+
+        /*HouseKeeping*/
+        if (mCheckBoxHouseKeepingsAdequate.isChecked()) {
+            mFoodPreparationHouseKeepingMarksINT = mFoodPreparationHouseKeepingMarksINT + 1;
+            setMarksTwo(mFoodPreparationHouseKeepingMarksINT, mTextViewMarksHouseKeeping);
+            mFoodPreperationHouseKeepingMarksMarks1 = "1";
+        } else {
+            mFoodPreperationHouseKeepingMarksMarks1 = "0";
+        }
+        if (mCheckBoxHouseKeepingAppropriate.isChecked()) {
+            mFoodPreparationHouseKeepingMarksINT = mFoodPreparationHouseKeepingMarksINT + 1;
+            setMarksTwo(mFoodPreparationHouseKeepingMarksINT, mTextViewMarksHouseKeeping);
+            mFoodPreperationHouseKeepingMarksMarks2 = "1";
+        } else {
+            mFoodPreperationHouseKeepingMarksMarks2 = "0";
+        }
+        String mFoodPreperationHouseKeepingMarksMarks = Integer.valueOf(mFoodPreparationHouseKeepingMarksINT).toString();
+        String mFoodPreperationHouseKeepingMarksReMarks = mTextViewMarksHouseKeeping.getText().toString();
+
+        /*Pest Control*/
+        if (mCheckBoxPestControlNoPests.isChecked()) {
+            mFoodPreparationPestControlMarksINT = mFoodPreparationPestControlMarksINT + 1;
+            setMarksTwo(mFoodPreparationPestControlMarksINT, mTextViewMarksPestControl);
+            mFoodPreperationPestControlMarks1 = "1";
+        } else {
+            mFoodPreperationPestControlMarks1 = "0";
+        }
+
+        if (mCheckBoxPestControlNoRodents.isChecked()) {
+            mFoodPreparationPestControlMarksINT = mFoodPreparationPestControlMarksINT + 1;
+            setMarksTwo(mFoodPreparationPestControlMarksINT, mTextViewMarksPestControl);
+            mFoodPreperationPestControlMarks2 = "1";
+        } else {
+            mFoodPreperationPestControlMarks2 = "0";
+        }
+        String mFoodPreperationPestControlMarks = Integer.valueOf(mFoodPreparationPestControlMarksINT).toString();
+        String mFoodPreperationPestControlReMarks = mTextViewMarksPestControl.getText().toString();
+
+
+        /*Cleaning*/
+        if (mCheckBoxCleaningAdequate.isChecked()) {
+            mFoodPreparationCleaningMarksINT = mFoodPreparationCleaningMarksINT + 1;
+            setMarksFour(mFoodPreparationCleaningMarksINT, mTextViewMarksCleaning);
+            mFoodPreperationCleaningMarks1 = "1";
+        } else {
+            mFoodPreperationCleaningMarks1 = "0";
+        }
+
+        if (mCheckBoxCleaningAppropriate.isChecked()) {
+            mFoodPreparationCleaningMarksINT = mFoodPreparationCleaningMarksINT + 1;
+            setMarksFour(mFoodPreparationCleaningMarksINT, mTextViewMarksCleaning);
+            mFoodPreperationCleaningMarks2 = "1";
+        } else {
+            mFoodPreperationCleaningMarks2 = "0";
+        }
+
+        if (mCheckBoxCleaningDaily.isChecked()) {
+            mFoodPreparationCleaningMarksINT = mFoodPreparationCleaningMarksINT + 1;
+            setMarksFour(mFoodPreparationCleaningMarksINT, mTextViewMarksCleaning);
+            mFoodPreperationCleaningMarks3 = "1";
+        } else {
+            mFoodPreperationCleaningMarks3 = "0";
+        }
+
+        if (mCheckBoxCleaningNoAccumilation.isChecked()) {
+            mFoodPreparationCleaningMarksINT = mFoodPreparationCleaningMarksINT + 1;
+            setMarksFour(mFoodPreparationCleaningMarksINT, mTextViewMarksCleaning);
+            mFoodPreperationCleaningMarks4 = "1";
+        } else {
+            mFoodPreperationCleaningMarks4 = "0";
+        }
+        String mFoodPreperationCleaningMarks = Integer.valueOf(mFoodPreparationCleaningMarksINT).toString();
+        String mFoodPreperationCleaningReMarks = mTextViewMarksPestControl.getText().toString();
+
+
+
+        /*space*/
+        if (mCheckBoxSpaceAdequate.isChecked()) {
+            mFoodPreparationSpaceMarksINT = mFoodPreparationSpaceMarksINT + 1;
+            setMarksTwo(mFoodPreparationSpaceMarksINT, mTextViewMarksSpace);
+            mFoodPreperationSpaceMarks1 = "1";
+        } else {
+            mFoodPreperationSpaceMarks1 = "0";
+        }
+
+        if (mCheckBoxSpaceAppropriate.isChecked()) {
+            mFoodPreparationSpaceMarksINT = mFoodPreparationSpaceMarksINT + 1;
+            setMarksTwo(mFoodPreparationSpaceMarksINT, mTextViewMarksSpace);
+            mFoodPreperationSpaceMarks2 = "1";
+        } else {
+            mFoodPreperationSpaceMarks2 = "0";
+        }
+        String mFoodPreperationSpaceMarks = Integer.valueOf(mFoodPreparationSpaceMarksINT).toString();
+        String mFoodPreperationSpaceReMarks = mTextViewMarksSpace.getText().toString();
+
+        /*sanitation*/
+        if (mCheckBoxSanitationAdequate.isChecked()) {
+            mFoodPreparationSanitationMarksINT = mFoodPreparationSanitationMarksINT + 1;
+            setMarksTwo(mFoodPreparationSanitationMarksINT, mTextViewMarksSanitation);
+            mFoodPreperationSanitationMarks1 = "1";
+        } else {
+            mFoodPreperationSanitationMarks1 = "0";
+        }
+        if (mCheckBoxSanitationAppropriate.isChecked()) {
+            mFoodPreparationSanitationMarksINT = mFoodPreparationSanitationMarksINT + 1;
+            setMarksTwo(mFoodPreparationSanitationMarksINT, mTextViewMarksSanitation);
+            mFoodPreperationSanitationMarks2 = "1";
+        } else {
+            mFoodPreperationSanitationMarks2 = "0";
+        }
+        String mFoodPreperationSanitationMarks = Integer.valueOf(mFoodPreparationSanitationMarksINT).toString();
+        String mFoodPreperationSanitationReMarks = mTextViewMarksSanitation.getText().toString();
+
+        /*drainage*/
+        if (mCheckBoxDrainageAdequate.isChecked()) {
+            mFoodPreparationDrainageMarksINT = mFoodPreparationDrainageMarksINT + 1;
+            setMarksFour(mFoodPreparationDrainageMarksINT, mTextViewMarksDrainage);
+            mFoodPreperationDrainageMarks1 = "1";
+        } else {
+            mFoodPreperationDrainageMarks1 = "0";
+        }
+
+        if (mCheckBoxDrainageNoAccumilation.isChecked()) {
+            mFoodPreparationDrainageMarksINT = mFoodPreparationDrainageMarksINT + 1;
+            setMarksFour(mFoodPreparationDrainageMarksINT, mTextViewMarksDrainage);
+            mFoodPreperationDrainageMarks2 = "1";
+        } else {
+            mFoodPreperationDrainageMarks2 = "0";
+        }
+
+        if (mCheckBoxDrainageSafe.isChecked()) {
+            mFoodPreparationDrainageMarksINT = mFoodPreparationDrainageMarksINT + 1;
+            setMarksFour(mFoodPreparationDrainageMarksINT, mTextViewMarksDrainage);
+            mFoodPreperationDrainageMarks3 = "1";
+        } else {
+            mFoodPreperationDrainageMarks3 = "0";
+        }
+
+        if (mCheckBoxDrainageSuitable.isChecked()) {
+            mFoodPreparationDrainageMarksINT = mFoodPreparationDrainageMarksINT + 1;
+            setMarksFour(mFoodPreparationDrainageMarksINT, mTextViewMarksDrainage);
+            mFoodPreperationDrainageMarks4 = "1";
+        } else {
+            mFoodPreperationDrainageMarks4 = "0";
+        }
+        String mFoodPreperationDrainageMarks = Integer.valueOf(mFoodPreparationDrainageMarksINT).toString();
+        String mFoodPreperationDrainageReMarks = mTextViewMarksDrainage.getText().toString();
+
+
+       mFoodPreparationFullMarksINT = mFoodPreparationFloorStructureMarksINT + mFoodPreparationCeilingStructureMarksINT +
+               mFoodPreparationWallStructureMarksINT + mFoodPreparationContaminationMarksINT
+               + mFoodPreparationSanitationMarksINT + mFoodPreparationLightsAndVentilationMarksINT
+               +mFoodPreparationCleanlinessMarksINT + mFoodPreparationHouseKeepingMarksINT
+               +mFoodPreparationSpaceMarksINT + mFoodPreparationPestControlMarksINT
+               + mFoodPreparationCleaningMarksINT +mFoodPreparationDrainageMarksINT ;
+
+        String mFoodPreparationFullMarks = Integer.valueOf(mFoodPreparationFullMarksINT).toString();
+
+
+        CeilingStructure ceilingStructure  = new CeilingStructure(mFoodPreperationCeilingStructureMarks1
+                ,mFoodPreperationCeilingStructureMarks,mFoodPreperationCeilingStructureMarks2,
+                mFoodPreperationCeilingStructureMarks3,mFoodPreperationCeilingStructureReMarks,
+                mFoodPreperationCeilingStructureMarks4);
+
+        Cleaning cleaning = new Cleaning(mFoodPreperationCleaningMarks1,mFoodPreperationCleaningMarks2
+                ,mFoodPreperationCleaningMarks3,mFoodPreperationCleaningMarks4,
+                mFoodPreperationCleaningMarks,mFoodPreperationCleaningReMarks);
+
+        Cleanlines cleanlines = new Cleanlines(mFoodPreperationCleanlinessMarks1,mFoodPreperationCleanlinessMarks2,
+                mFoodPreperationCleanlinessMarks,mFoodPreperationCleanlinessReMarks);
+
+        Contamination contamination = new Contamination(mFoodPreperationContaminationMarks1,
+                mFoodPreperationContaminationMarks2,mFoodPreperationContaminationMarks3,
+                mFoodPreperationContaminationMarks4,mFoodPreperationContaminationMarks,
+                mFoodPreperationContaminationReMarks);
+
+        Drainage drainage = new Drainage(mFoodPreperationDrainageMarks1,mFoodPreperationDrainageMarks2,
+                mFoodPreperationDrainageMarks3,mFoodPreperationDrainageMarks4,
+                mFoodPreperationDrainageMarks,mFoodPreperationDrainageReMarks);
+
+        FloorStructure floorStructure = new FloorStructure(mFoodPreperationFloorStructureMarks1,
+                mFoodPreperationFloorStructureMarks2,mFoodPreperationFloorStructureMarks3,
+                mFoodPreperationFloorStructureMarks4,mFoodPreparationFloorStructureMarks,
+                mFoodPreparationFloorStructureReMarks);
+
+        HouseKeeping houseKeeping = new HouseKeeping(mFoodPreperationHouseKeepingMarksMarks1,
+                mFoodPreperationHouseKeepingMarksMarks2,mFoodPreperationHouseKeepingMarksMarks,
+                mFoodPreperationHouseKeepingMarksReMarks);
+
+        LightNVentilation lightNVentilation = new LightNVentilation(mFoodPreperationLightAndVentilationMarks1,
+                mFoodPreperationLightAndVentilationMarks2,mFoodPreperationLightAndVentilationMarks,
+                mFoodPreperationLightAndVentilationReMarks);
+
+        PestControl pestControl = new PestControl(mFoodPreperationPestControlMarks1,
+                mFoodPreperationPestControlMarks2,mFoodPreperationPestControlMarks,
+                mFoodPreparationFloorStructureReMarks);
+        //RiskFactors riskFactors = new RiskFactors(m)
+        Sanitation sanitation = new Sanitation(mFoodPreperationSanitationMarks1,
+                mFoodPreperationSanitationMarks2,mFoodPreperationSanitationMarks
+        ,mFoodPreperationSanitationReMarks);
+        Space space = new Space(mFoodPreperationSpaceMarks1,mFoodPreperationSpaceMarks2,
+                mFoodPreperationSpaceMarks,mFoodPreperationSpaceReMarks);
+        //Structure structure = new Structure(mFoodPreperationCeilingStructureMarks1,)
+        WallMaintatance wallMaintatance = new WallMaintatance(mFoodPreperationWallMaintanance1,
+                mFoodPreperationWallMaintanance2,mFoodPreperationWallMaintanance3,mFoodPreperationWallMaintanance4,
+                mFoodPreperationWallMaintananceMarks,mFoodPreperationWallMaintananceRemarks);
+
+
+
+        FoodProcessingModel foodProcessingModel = new FoodProcessingModel(food_preperation_id,food_preperation_id,
+                ceilingStructure,cleaning,cleanlines,contamination,drainage,floorStructure,houseKeeping,
+                lightNVentilation,pestControl,sanitation,space,wallMaintatance,mFoodPreparationFullMarks,mComment
+                );
+
+        mDatabaseFoodSafe.child(food_preperation_id).setValue(foodProcessingModel);
+
+
+
+/*        FoodProcessingModel foodProcessingModel1 = new FoodProcessingModel("","","",
+                "","","","","","",
+                "","","","","","",
+                "");*/
     }
 }
