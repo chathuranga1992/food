@@ -21,7 +21,8 @@
         <activity android:name=".home.HomeActivity" />
         <activity android:name=".login.SignInActivity" />
         <activity android:name=".new_record_building.BuildingActivity" />
-        <activity android:name=".new_record_food_preperation.FoodPreperationActivity"></activity>
+        <activity android:name=".new_record_food_preperation.FoodPreperationActivity" />
+        <activity android:name=".result.ResultActivity"></activity>
     </application>
 
 </manifest>
