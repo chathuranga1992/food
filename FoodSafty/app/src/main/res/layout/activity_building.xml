@@ -344,8 +344,7 @@
             <LinearLayout
                 style="@style/linears"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/building_floor_structure_suitable"
