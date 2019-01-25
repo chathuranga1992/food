@@ -72,7 +72,6 @@
     <string name="total_marks">Total Marks</string>
     <string name="ceiling_structure">Ceiling Structure</string>
     <string name="floor_structure">Floor structure</string>
-    <string name="food_processing_area">Food Processing Area</string>
     <string name="contamination">Contamination</string>
     <string name="from_toilets">From Toilets</string>
     <string name="from_garbage">From Garbage</string>
@@ -160,5 +159,8 @@
     <string name="bearly_adequate">Bearly Adequate</string>
     <string name="space">Space</string>
 
+    <string name="food_processing_area">Food Processing Area</string>
+    <string name="result">Result</string>
+    <string name="final_grade">Final Grade</string>
 
 </resources>
