@@ -35,20 +35,21 @@
 
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/white_frame_bg"
                 android:foreground="@drawable/new_list"
                 android:id="@+id/new_record"
-                android:onClick="onNewCheck"/>
+                android:onClick="onNewCheck"
+                android:text="New Record"/>
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/white_frame_bg"
-                android:src="@drawable/new_list"
+                android:foreground="@drawable/restaurent_sign"
                 android:id="@+id/tips"
                 android:onClick="onTips"/>
 
@@ -64,22 +65,24 @@
             android:orientation="horizontal">
 
             <Button
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/white_frame_bg"
                 android:foreground="@drawable/pinterest_profile_image"
                 android:id="@+id/report"
-                android:onClick="onReport"/>
+                android:onClick="onReport"
+                android:text="Tips"/>
 
             <Button
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/white_frame_bg"
-                android:src="@drawable/new_list"
+                android:foreground="@drawable/wasteo"
                 android:id="@+id/settings"
-                android:onClick="onSettings"/>
+                android:onClick="onSettings"
+                android:text="Settings"/>
 
         </LinearLayout>
     </LinearLayout>
