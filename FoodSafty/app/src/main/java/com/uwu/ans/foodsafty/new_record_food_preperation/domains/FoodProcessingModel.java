@@ -8,6 +8,8 @@ public class FoodProcessingModel {
 
     private String mId;
     private String mRecordId;
+    private String mComment;
+    private String mTotalMarks;
     private CeilingStructure mCeilingStructure;
     private Cleaning mCleaning;
     private Cleanlines mCleanlines;
@@ -20,8 +22,6 @@ public class FoodProcessingModel {
     private Sanitation mSanitation;
     private Space mSpace;
     private WallMaintatance mWallMaintatance;
-    private String mTotalMarks;
-    private String mComment;
 
     public FoodProcessingModel(String mId, String mRecordId, CeilingStructure mCeilingStructure,
                                Cleaning mCleaning, Cleanlines mCleanlines, Contamination mContamination,
