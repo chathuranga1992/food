@@ -161,5 +161,6 @@
     <string name="food_processing_area">Food Processing Area</string>
     <string name="result">Result</string>
     <string name="final_grade">Final Grade</string>
+    <string name="finish">Finish</string>
 
 </resources>

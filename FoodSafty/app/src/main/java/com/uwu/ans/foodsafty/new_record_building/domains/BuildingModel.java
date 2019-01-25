@@ -5,42 +5,38 @@ package com.uwu.ans.foodsafty.new_record_building.domains;
 @SuppressWarnings("unused")
 public class BuildingModel {
 
-
-    private CeilingStructure mCeilingStructure;
-
-    private String mComment;
-
-    private FloorStructure mFloorStructure;
-
     private String mId;
-
-    private LightNVentilation mLightNVentilation;
-
     private String mRecordId;
-
+    private String mComment;
+    private String mTotalMarks;
+    private CeilingStructure mCeilingStructure;
+    private FloorStructure mFloorStructure;
+    private LightNVentilation mLightNVentilation;
     private RiskFactors mRiskFactors;
-
     private Space mSpace;
-
     private Structure mStructure;
-
     private WallMaintatance mWallMaintatance;
 
-    public BuildingModel(CeilingStructure mCeilingStructure, String mComment,
-                         FloorStructure mFloorStructure, String mId,
-                         LightNVentilation mLightNVentilation, String mRecordId,
-                         RiskFactors mRiskFactors, Space mSpace, Structure mStructure,
-                         WallMaintatance mWallMaintatance) {
-        this.mCeilingStructure = mCeilingStructure;
-        this.mComment = mComment;
-        this.mFloorStructure = mFloorStructure;
+    public BuildingModel(String mId, String mRecordId, String mComment, String mTotalMarks, CeilingStructure mCeilingStructure, FloorStructure mFloorStructure, LightNVentilation mLightNVentilation, RiskFactors mRiskFactors, Space mSpace, Structure mStructure, WallMaintatance mWallMaintatance) {
         this.mId = mId;
-        this.mLightNVentilation = mLightNVentilation;
         this.mRecordId = mRecordId;
+        this.mComment = mComment;
+        this.mTotalMarks = mTotalMarks;
+        this.mCeilingStructure = mCeilingStructure;
+        this.mFloorStructure = mFloorStructure;
+        this.mLightNVentilation = mLightNVentilation;
         this.mRiskFactors = mRiskFactors;
         this.mSpace = mSpace;
         this.mStructure = mStructure;
         this.mWallMaintatance = mWallMaintatance;
+    }
+
+    public String getTotalMarks() {
+        return mTotalMarks;
+    }
+
+    public void setTotalMarks(String mTotalMarks) {
+        this.mTotalMarks = mTotalMarks;
     }
 
     public CeilingStructure getCeilingStructure() {

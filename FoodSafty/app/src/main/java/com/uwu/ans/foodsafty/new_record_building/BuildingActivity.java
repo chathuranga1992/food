@@ -120,6 +120,7 @@ public class BuildingActivity extends AppCompatActivity {
     private int mBuildingRiskFactorsMarksINT = 0;
     private int mBuildingCeilingStructureMarksINT = 0;
     private int mBuildingSpaceMarksINT = 0;
+    private int mBuildingTotalMarksINT = 0;
     public ProgressDialog dialog;
 
     @Override
@@ -544,8 +545,16 @@ public class BuildingActivity extends AppCompatActivity {
                 mBuildingWallMaintanance4,mBuildingWallMaintanance3,mBuildingWallMaintanance2,
                 mBuildingWallmaintananceMarks, mBuildingWallmaintananceReMarks);
 
-        BuildingModel buildingModel = new BuildingModel(ceilingStructure, mComment, floorStructure,
-                building_id, lightNVentilation, building_id, riskFactors, space, structure, wallMaintatance);
+
+         mBuildingTotalMarksINT = mBuildingSpaceMarksINT+mBuildingCeilingStructureMarksINT+
+                mBuildingRiskFactorsMarksINT+mBuildingFloorStructureMarksINT+mBuildingWallmaintananceMarksINT
+                +mBuildingLightAndVentilationMarksINT+mBuildingStructureMarksINT;
+
+        String mBuildingTotalMarks = Integer.valueOf(mBuildingTotalMarksINT).toString();
+
+        BuildingModel buildingModel = new BuildingModel(building_id, building_id,mComment,
+                mBuildingTotalMarks, ceilingStructure, floorStructure, lightNVentilation,
+                riskFactors, space, structure, wallMaintatance);
 
 
 

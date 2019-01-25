@@ -862,7 +862,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
                     h.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(FoodPreperationActivity.this,FoodPreperationActivity.class));
+                            startActivity(new Intent(FoodPreperationActivity.this,ResultActivity.class));
                         }
                     }, 3000);
 
