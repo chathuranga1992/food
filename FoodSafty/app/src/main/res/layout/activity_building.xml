@@ -13,7 +13,6 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".new_record_building.BuildingActivity">
 
-
     <ProgressBar
         android:id="@+id/building_progress"
         style="?android:attr/progressBarStyleLarge"
@@ -88,12 +87,6 @@
                     android:gravity="end"
                     android:text="@string/suitable" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/building_suitability_safe"
@@ -247,14 +240,6 @@
                     android:gravity="end"
                     android:text="@string/no_contamination" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
                 <CheckBox
                     android:id="@+id/building_wall_maintenance_no_accumulation"
                     style="@style/checkbox"
@@ -361,7 +346,6 @@
                     android:gravity="end"
                     android:text="@string/no_contamination" />
 
-
             </LinearLayout>
 
             <LinearLayout
@@ -430,12 +414,7 @@
                     android:text="@string/no_contamination" />
 
 
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/building_ceiling_structure_no_accumulation"
@@ -458,7 +437,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
@@ -469,9 +447,8 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/add_comments_here"/>
                 </com.google.android.material.textfield.TextInputLayout>
-
-
             </LinearLayout>
+
             <LinearLayout
                 style="@style/linears"
                 android:layout_width="fill_parent"
@@ -491,7 +468,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end">
-
 
                 <Button
                     android:id="@+id/building_next"
