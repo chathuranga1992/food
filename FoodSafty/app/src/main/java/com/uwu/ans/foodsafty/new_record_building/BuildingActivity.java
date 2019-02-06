@@ -112,7 +112,7 @@ public class BuildingActivity extends AppCompatActivity {
     EditText mEditTextComments;
 
     public DatabaseReference mDatabaseFoodSafe;
-
+    public ProgressDialog dialog;
     private int mBuildingStructureMarksINT = 0;
     private int mBuildingLightAndVentilationMarksINT = 0;
     private int mBuildingWallmaintananceMarksINT = 0;
@@ -121,7 +121,7 @@ public class BuildingActivity extends AppCompatActivity {
     private int mBuildingCeilingStructureMarksINT = 0;
     private int mBuildingSpaceMarksINT = 0;
     private int mBuildingTotalMarksINT = 0;
-    public ProgressDialog dialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

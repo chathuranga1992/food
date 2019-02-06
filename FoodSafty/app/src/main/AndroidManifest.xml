@@ -26,7 +26,10 @@
         <activity android:name=".profile.ProfileActivity" />
         <activity android:name=".settings.SettingsActivity" />
         <activity android:name=".reports.ReportActivity" />
-        <activity android:name=".tips.TipsActivity"></activity>
+        <activity android:name=".tips.TipsActivity" />
+        <activity android:name=".new_record_storage.StorageActivity" />
+        <activity android:name=".new_record_food_handlers.FoodHandlersActivity" />
+        <activity android:name=".new_record_equipment_and_utensils.EquipmentsAndUtencilsActivity"></activity>
     </application>
 
 </manifest>

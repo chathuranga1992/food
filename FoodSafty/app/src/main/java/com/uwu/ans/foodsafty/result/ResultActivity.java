@@ -83,6 +83,7 @@ public class ResultActivity extends AppCompatActivity {
         dialog = high.create();
         mTextViewGrade.setTextColor(Color.YELLOW);
         mTextViewGrade.setText("C");
+        //dialog.set
         dialog.show();
 
 /*setData();*/
@@ -96,12 +97,14 @@ public class ResultActivity extends AppCompatActivity {
 
 
 // Attach a listener to read the data at our posts reference
-        ref.orderByKey().limitToLast(1).addListenerForSingleValueEvent((new ValueEventListener() {
+        ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 /*                Post post = dataSnapshot.getValue(Post.class);
                 System.out.println(post);*/
                 BuildingModel buildingModel = dataSnapshot.getValue(BuildingModel.class);
+                System.out.println(buildingModel);
+
 
                 BuildingCommet = buildingModel.getComment();
                 BuildingTotal = buildingModel.getTotalMarks();
@@ -142,15 +145,16 @@ public class ResultActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: building: " + databaseError.getCode());
             }
-        }));
+        });
 
         DatabaseReference ref1 = database.getReference("food_preparation");
         //Query lastchield = mDatabaseFoodSafe.child("food_preparation").orderByKey().limitToLast(1);
         //FoodProcessingModel foodProcessingModel = dataSnapshot.getValue(FoodProcessingModel.class);
-        ref1.orderByKey().limitToLast(1).addListenerForSingleValueEvent((new ValueEventListener() {
+        ref1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 FoodProcessingModel foodProcessingModel = dataSnapshot.getValue(FoodProcessingModel.class);
+                System.out.println(foodProcessingModel);
 
                 FoodProcessMarks = foodProcessingModel.getTotalMarks();
                 FoodProcessComments = foodProcessingModel.getComment();
@@ -222,7 +226,7 @@ public class ResultActivity extends AppCompatActivity {
 
                 System.out.println("The read failed:food_preparation:  " + databaseError.getCode());
             }
-        }));
+        });
     }
 
     public void setData() {
