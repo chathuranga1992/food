@@ -1,9 +1,264 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPageIndicatorD"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".new_record_water_supply.WaterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/water_supply_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="@dimen/activity_vertical_margin"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/water_supply_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/water_supply" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/water_source" />
+
+                <TextView
+                    android:id="@+id/marks_water_source"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/water_source_safe"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/safe" />
+
+                <CheckBox
+                    android:id="@+id/water_source_proper"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/proper" />
+
+                <CheckBox
+                    android:id="@+id/water_source_hygienic"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hygienic" />
+
+                <CheckBox
+                    android:id="@+id/water_source_no_contamination"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_contamination" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/water_supply" />
+
+                <TextView
+                    android:id="@+id/marks_water_supply"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/water_supply_contamination_toilets_garbage"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contamination_toilets_garbage" />
+
+                <CheckBox
+                    android:id="@+id/water_supply_enough"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/enough" />
+
+                <CheckBox
+                    android:id="@+id/water_supply_no_contamination"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_contamination" />
+
+                <CheckBox
+                    android:id="@+id/water_supply_separated"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/separated" />
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/water_sample_reports" />
+
+                <TextView
+                    android:id="@+id/marks_water_sample_reports"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/water_sample_reports_bacterial"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bacterial" />
+
+                <CheckBox
+                    android:id="@+id/water_sample_reports_chemical"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/chemical" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/water_supply_comment"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_comments_here"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/water_supply_Total_marks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_marks"
+                    android:layout_gravity="start"
+                    android:gravity="start"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+
+
+                <Button
+                    android:id="@+id/water_supply_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/next"
+                    android:layout_gravity="end"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
