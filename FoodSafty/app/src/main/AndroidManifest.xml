@@ -29,7 +29,8 @@
         <activity android:name=".tips.TipsActivity" />
         <activity android:name=".new_record_storage.StorageActivity" />
         <activity android:name=".new_record_food_handlers.FoodHandlersActivity" />
-        <activity android:name=".new_record_equipment_and_utensils.EquipmentsAndUtencilsActivity"></activity>
+        <activity android:name=".new_record_equipment_and_utensils.EquipmentsAndUtencilsActivity" />
+        <activity android:name=".new_record_LocationEnvironment.LocationEnvironmentActivity"></activity>
     </application>
 
 </manifest>

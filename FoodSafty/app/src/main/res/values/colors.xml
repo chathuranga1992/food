@@ -4,14 +4,14 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="colorTitleText">#FF535456</color>
+    <color name="colorTitleText">#ffffff</color>
     <color name="colorHintText">#FF98999D</color>
     <color name="white">#ffffff</color>
     <color name="fb">#3B5998</color>
     <color name="colorWhiteFrameFill">#FFFFFF</color>
     <color name="colorWhiteFrameStroke">#26000000</color>
     <color name="text">#000000</color>
-    <color name="colorBackground">#00ffffff</color>
+    <color name="colorBackground">#ffc000</color>
     <color name="colorText">#000000</color>
     <color name="colorTextHint">#51d8c7</color>
     <color name="color_bottom_link">#FF232426</color>

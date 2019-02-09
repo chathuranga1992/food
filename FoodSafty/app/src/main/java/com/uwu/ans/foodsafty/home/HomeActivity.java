@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.uwu.ans.foodsafty.R;
+import com.uwu.ans.foodsafty.new_record_LocationEnvironment.LocationEnvironmentActivity;
 import com.uwu.ans.foodsafty.new_record_building.BuildingActivity;
 import com.uwu.ans.foodsafty.settings.SettingsActivity;
 
@@ -30,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.new_record)
     public void onNewCheck(View view) {
-        startActivity(new Intent(this, BuildingActivity.class));
+        startActivity(new Intent(this, LocationEnvironmentActivity.class));
     }
     @OnClick(R.id.reports)
     public void onReport(View view) {

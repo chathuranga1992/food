@@ -17,6 +17,7 @@
     </style>
 
     <style name="TitleText">
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:padding">@dimen/title_padding</item>
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:textColor">@color/colorTitleText</item>
@@ -25,7 +26,6 @@
     </style>
 
     <style name="headers">
-        <item name="android:background">@drawable/gradient_btn</item>
         <item name="android:padding">@dimen/title_padding</item>
         <item name="android:layout_marginTop">@dimen/main_button_top_margin</item>
         <item name="android:gravity">fill_vertical</item>
@@ -34,13 +34,15 @@
     <style name="SectionTitleText">
         <item name="android:padding">@dimen/title_padding</item>
         <item name="android:textSize">@dimen/section_title_text</item>
-        <item name="android:textColor">@color/colorTitleText</item>
+        <item name="android:textColor">@color/text</item>
         <item name="android:paddingTop">@dimen/text_padding_title_top</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
     </style>
 
     <style name="edit_texts">
         <item name="android:textSize">@dimen/edit_text_size</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:textColorHint">@color/colorHintText</item>
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
@@ -48,6 +50,7 @@
     </style>
 
     <style name="checkbox">
+        <item name="colorAccent">#fff</item>
         <item name="android:textSize">@dimen/edit_text_size</item>
         <item name="android:textColorHint">@color/colorHintText</item>
         <item name="android:maxLines">1</item>

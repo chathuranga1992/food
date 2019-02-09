@@ -69,7 +69,7 @@
     <string name="hazards">Hazards</string>
     <string name="unsafe_structures">Unsafe Structures</string>
     <string name="risk_factors">Risk factors</string>
-    <string name="total_marks">Total Marks</string>
+    <string name="total_marks">Total Marks : </string>
     <string name="ceiling_structure">Ceiling Structure</string>
     <string name="floor_structure">Floor structure</string>
     <string name="contamination">Contamination</string>

@@ -5,11 +5,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -111,6 +111,10 @@ public class BuildingActivity extends AppCompatActivity {
     @BindView(R.id.building_comments)
     EditText mEditTextComments;
 
+    @BindView(R.id.building_total_marks)
+    TextView mTextViewTotal;
+
+
     public DatabaseReference mDatabaseFoodSafe;
     public ProgressDialog dialog;
     private int mBuildingStructureMarksINT = 0;
@@ -122,6 +126,21 @@ public class BuildingActivity extends AppCompatActivity {
     private int mBuildingSpaceMarksINT = 0;
     private int mBuildingTotalMarksINT = 0;
 
+    String mBuildingStructureMarks1;
+    String mBuildingStructureMarks2;
+    String mBuildingStructureMarks3;
+    String mBuildingStructureMarks4;
+    String mBuildingWallMaintanance1, mBuildingWallMaintanance2, mBuildingWallMaintanance3, mBuildingWallMaintanance4;
+    String mBuildingLightAndVentilationMarks1, mBuildingLightAndVentilationMarks2;
+    String mBuildingRiskFactorsMarks1, mBuildingRiskFactorsMarks2;
+    String mBuildingFoorStructureMarks1, mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4;
+    String mBuildingSpaceMarks1, mBuildingSpaceMarks2;
+    String mBuildingCeilingStructureMarks1, mBuildingCeilingStructureMarks2, mBuildingCeilingStructureMarks3, mBuildingCeilingStructureMarks4;
+
+    String mBuildingGrade = "F";
+
+    double LocationPrecent;
+    double BuildingPrecent=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,26 +155,176 @@ public class BuildingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference("building");
 
+        Intent intent=getIntent();
+        String loc = intent.getStringExtra("LocationPrecent");
+        LocationPrecent = Double.valueOf(loc);
+
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         //dialog.setTitle("Loading");
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
         dialog.setCanceledOnTouchOutside(false);
+
+        mCheckBoxBuildingStructureAdequate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                structureMarks();
+            }
+        });
+
+        mCheckBoxBuildingStructureSuitable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                structureMarks();
+            }
+        });
+
+        mCheckBoxBuildingStructurePermenant.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                structureMarks();
+            }
+        });
+
+        mCheckBoxBuildingStructureSafe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                structureMarks();
+            }
+        });
+
+
+        mCheckBoxBuildingLightandVentilationAttractive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                lightAndVentilationMarks();
+            }
+        });
+
+        mCheckBoxBuildingLightandVentilationBeautiful.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                lightAndVentilationMarks();
+            }
+        });
+
+
+        mCheckBoxBuildingSpaceAdequate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                spaceMarks();
+            }
+        });
+
+        mCheckBoxBuildingSpaceAppropriate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                spaceMarks();
+            }
+        });
+
+        mCheckBoxBuildingWallMaintananceClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                wallMaintananceMarks();
+            }
+        });
+
+        mCheckBoxBuildingWallMaintananceNoAccumilation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                wallMaintananceMarks();
+            }
+        });
+
+        mCheckBoxBuildingWallMaintananceNoContamination.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                wallMaintananceMarks();
+            }
+        });
+
+        mCheckBoxBuildingWallMaintananceSuitable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                wallMaintananceMarks();
+            }
+        });
+
+
+        mCheckBoxBuildingRiskFactorsHazzards.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                riskFactorsMarks();
+            }
+        });
+
+        mCheckBoxBuildingRiskFactorsUnsafeStructures.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                riskFactorsMarks();
+            }
+        });
+
+
+        mCheckBoxBuildingFloorStructureClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                floorStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingFloorStructureSuitable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                floorStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingFloorStructureNoContamination.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                floorStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingFloorStructureNoAccumilation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                floorStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingCeilingStructureClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ceilingStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingCeilingStructureNoAccumilation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ceilingStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingCeilingStructureNoContamination.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ceilingStructureMarks();
+            }
+        });
+
+        mCheckBoxBuildingCeilingStructureSuitable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                ceilingStructureMarks();
+            }
+        });
     }
 
-/*    public void setMarksFour(int marks, TextView mTextView) {
-        String mStringMarks = Integer.valueOf(marks).toString();
-        mTextView.setText(mStringMarks);
-        setMarkViewFour(mTextView, marks);
-    }
-
-    public void setMarksTwo(int marks, TextView mTextView) {
-        marks = marks + 1;
-        String mStringMarks = Integer.valueOf(marks).toString();
-        mTextView.setText(mStringMarks);
-        setMarkViewTwo(mTextView, marks);
-    }*/
 
     public void setMarkViewFour(TextView mTextView, String mMarks) {
         mTextView.setTextColor(Color.RED);
@@ -200,302 +369,22 @@ public class BuildingActivity extends AppCompatActivity {
     @OnClick(R.id.building_next)
     public void setBuilding(View view) {
 
-        String mBuildingStructureMarks1, mBuildingStructureMarks2, mBuildingStructureMarks3, mBuildingStructureMarks4;
-        String mBuildingWallMaintanance1, mBuildingWallMaintanance2, mBuildingWallMaintanance3, mBuildingWallMaintanance4;
-        String mBuildingLightAndVentilationMarks1, mBuildingLightAndVentilationMarks2;
-        String mBuildingRiskFactorsMarks1, mBuildingRiskFactorsMarks2;
-        String mBuildingFoorStructureMarks1, mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4;
-        String mBuildingSpaceMarks1, mBuildingSpaceMarks2;
-        String mBuildinCeilingStructureMarks1, mBuildingCeilingStructureMarks2, mBuildingCeilingStructureMarks3, mBuildingCeilingStructureMarks4;
-
         String building_id = mDatabaseFoodSafe.push().getKey();
 
-        /*Structure*/
-        if (mCheckBoxBuildingStructureAdequate.isChecked()) {
-            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            mTextViewMarksBuildingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            //setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
+        structureMarks();
 
-            mBuildingStructureMarks1 = "1";
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            mBuildingStructureMarks1 = "0";
-        }
-        if (mCheckBoxBuildingStructureSuitable.isChecked()) {
-            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            mTextViewMarksBuildingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            //setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
-            mBuildingStructureMarks2 = "1";
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            mBuildingStructureMarks2 = "0";
-        }
-        if (mCheckBoxBuildingStructurePermenant.isChecked()) {
-            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            mTextViewMarksBuildingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            //setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
-            mBuildingStructureMarks3 = "1";
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            mBuildingStructureMarks3 = "0";
-        }
-        if (mCheckBoxBuildingStructureSafe.isChecked()) {
-            mBuildingStructureMarksINT = mBuildingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            mTextViewMarksBuildingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            //setMarksFour(mBuildingStructureMarksINT, mTextViewMarksBuildingStructure);
-            mBuildingStructureMarks4 = "1";
-            Log.e("=============","============= "+mBuildingStructureMarksINT);
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
-            mBuildingStructureMarks4 = "0";
-        }
+        lightAndVentilationMarks();
 
-        /*Light and ventilation*/
-        if (mCheckBoxBuildingLightandVentilationAttractive.isChecked()) {
-            mBuildingLightAndVentilationMarksINT = mBuildingLightAndVentilationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingLightAndVentilationMarksINT).toString();
-            mTextViewMarksBuildingLightandVentilation.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingLightandVentilation, mStringMarks);
-            //setMarksTwo(mBuildingLightAndVentilationMarksINT, mTextViewMarksBuildingLightandVentilation);
-            mBuildingLightAndVentilationMarks1 = "1";
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mBuildingLightAndVentilationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingLightandVentilation, mStringMarks);
-            mBuildingLightAndVentilationMarks1 = "0";
-        }
-        if (mCheckBoxBuildingLightandVentilationBeautiful.isChecked()) {
-            mBuildingLightAndVentilationMarksINT = mBuildingLightAndVentilationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingLightAndVentilationMarksINT).toString();
-            mTextViewMarksBuildingLightandVentilation.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingLightandVentilation, mStringMarks);
-            //setMarksTwo(mBuildingLightAndVentilationMarksINT, mTextViewMarksBuildingLightandVentilation);
-            mBuildingLightAndVentilationMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingLightAndVentilationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingLightandVentilation, mStringMarks);
-            mBuildingLightAndVentilationMarks2 = "0";
-        }
+        spaceMarks();
 
-        /*Risk Factors*/
-        if (mCheckBoxBuildingRiskFactorsHazzards.isChecked()) {
-            mBuildingRiskFactorsMarksINT = mBuildingRiskFactorsMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingRiskFactorsMarksINT).toString();
-            mTextViewMarksBuildingRiskFactors.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingRiskFactors, mStringMarks);
-            //setMarksTwo(mBuildingRiskFactorsMarksINT, mTextViewMarksBuildingRiskFactors);
-            mBuildingRiskFactorsMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingRiskFactorsMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingRiskFactors, mStringMarks);
-            mBuildingRiskFactorsMarks1 = "0";
-        }
-        if (mCheckBoxBuildingRiskFactorsUnsafeStructures.isChecked()) {
-            mBuildingRiskFactorsMarksINT = mBuildingRiskFactorsMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingRiskFactorsMarksINT).toString();
-            mTextViewMarksBuildingRiskFactors.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingRiskFactors, mStringMarks);
-            //setMarksTwo(mBuildingRiskFactorsMarksINT, mTextViewMarksBuildingRiskFactors);
-            mBuildingRiskFactorsMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingRiskFactorsMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingRiskFactors, mStringMarks);
-            mBuildingRiskFactorsMarks2 = "0";
-        }
+        wallMaintananceMarks();
 
-        /*Wall maintenance*/
-        if (mCheckBoxBuildingWallMaintananceClean.isChecked()) {
-            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            mTextViewMarksBuildingWallMaintanance.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            //setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
-            mBuildingWallMaintanance1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            mBuildingWallMaintanance1 = "0";
-        }
-        if (mCheckBoxBuildingWallMaintananceSuitable.isChecked()) {
-            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            mTextViewMarksBuildingWallMaintanance.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            //setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
-            mBuildingWallMaintanance2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            mBuildingWallMaintanance2 = "0";
-        }
-        if (mCheckBoxBuildingWallMaintananceNoContamination.isChecked()) {
-            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            mTextViewMarksBuildingWallMaintanance.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            //setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
-            mBuildingWallMaintanance3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            mBuildingWallMaintanance3 = "0";
-        }
-        if (mCheckBoxBuildingWallMaintananceNoAccumilation.isChecked()) {
-            mBuildingWallmaintananceMarksINT = mBuildingWallmaintananceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            mTextViewMarksBuildingWallMaintanance.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            //setMarksFour(mBuildingWallmaintananceMarksINT, mTextViewMarksBuildingWallMaintanance);
-            mBuildingWallMaintanance4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
-            mBuildingWallMaintanance4 = "0";
-        }
+        riskFactorsMarks();
 
+        floorStructureMarks();
 
-        /*Floor Structure*/
-        if (mCheckBoxBuildingFloorStructureClean.isChecked()) {
-            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            mTextViewMarksBuildingFloorStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            //setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
-            mBuildingFoorStructureMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            mBuildingFoorStructureMarks1 = "0";
-        }
-        if (mCheckBoxBuildingFloorStructureNoAccumilation.isChecked()) {
-            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            mTextViewMarksBuildingFloorStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            //setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
-            mBuildingFoorStructureMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            mBuildingFoorStructureMarks2 = "0";
-        }
-        if (mCheckBoxBuildingFloorStructureNoContamination.isChecked()) {
-            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            mTextViewMarksBuildingFloorStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            //setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
-            mBuildingFoorStructureMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            mBuildingFoorStructureMarks3 = "0";
-        }
-        if (mCheckBoxBuildingFloorStructureSuitable.isChecked()) {
-            mBuildingFloorStructureMarksINT = mBuildingFloorStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            mTextViewMarksBuildingFloorStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            //setMarksFour(mBuildingFloorStructureMarksINT, mTextViewMarksBuildingFloorStructure);
-            mBuildingFoorStructureMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
-            mBuildingFoorStructureMarks4 = "0";
-        }
+        ceilingStructureMarks();
 
-
-        /*Space*/
-        if (mCheckBoxBuildingSpaceAdequate.isChecked()) {
-            mBuildingSpaceMarksINT = mBuildingSpaceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
-            mTextViewMarksBuildingSpace.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingSpace, mStringMarks);
-            //setMarksTwo(mBuildingSpaceMarksINT, mTextViewMarksBuildingSpace);
-            mBuildingSpaceMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingSpace, mStringMarks);
-            mBuildingSpaceMarks1 = "0";
-        }
-        if (mCheckBoxBuildingSpaceAppropriate.isChecked()) {
-            mBuildingSpaceMarksINT = mBuildingSpaceMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
-            mTextViewMarksBuildingSpace.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksBuildingSpace, mStringMarks);
-            //setMarksTwo(mBuildingSpaceMarksINT, mTextViewMarksBuildingSpace);
-            mBuildingSpaceMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksBuildingSpace, mStringMarks);
-            mBuildingSpaceMarks2 = "0";
-        }
-
-        /*Ceiling Structure*/
-        if (mCheckBoxBuildingCeilingStructureClean.isChecked()) {
-            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            mTextViewMarksBuildingCeilingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            //setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
-            mBuildinCeilingStructureMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            mBuildinCeilingStructureMarks1 = "0";
-        }
-        if (mCheckBoxBuildingCeilingStructureNoAccumilation.isChecked()) {
-            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            mTextViewMarksBuildingCeilingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            //setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
-            mBuildingCeilingStructureMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            mBuildingCeilingStructureMarks2 = "0";
-        }
-        if (mCheckBoxBuildingCeilingStructureNoContamination.isChecked()) {
-            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            mTextViewMarksBuildingCeilingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            //setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
-            mBuildingCeilingStructureMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            mBuildingCeilingStructureMarks3 = "0";
-        }
-        if (mCheckBoxBuildingCeilingStructureSuitable.isChecked()) {
-            mBuildingCeilingStructureMarksINT = mBuildingCeilingStructureMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            mTextViewMarksBuildingCeilingStructure.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            //setMarksFour(mBuildingCeilingStructureMarksINT, mTextViewMarksBuildingCeilingStructure);
-            mBuildingCeilingStructureMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
-            setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
-            mBuildingCeilingStructureMarks4 = "0";
-        }
 
         String mComment = mEditTextComments.getText().toString();
 
@@ -525,7 +414,7 @@ public class BuildingActivity extends AppCompatActivity {
                 mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4,
                 mBuildingFloorStructureMarks, mBuildingFloorStructureReMarks);
 
-        CeilingStructure ceilingStructure = new CeilingStructure(mBuildinCeilingStructureMarks1,
+        CeilingStructure ceilingStructure = new CeilingStructure(mBuildingCeilingStructureMarks1,
                 mBuildingCeilingStructureMarks2,mBuildingCeilingStructureMarks3, mBuildingCeilingStructureMarks4,
                 mBuildingCeilingStructuresMarks, mBuildingCeilingStructuresReMarks);
 
@@ -546,10 +435,6 @@ public class BuildingActivity extends AppCompatActivity {
                 mBuildingWallmaintananceMarks, mBuildingWallmaintananceReMarks);
 
 
-         mBuildingTotalMarksINT = mBuildingSpaceMarksINT+mBuildingCeilingStructureMarksINT+
-                mBuildingRiskFactorsMarksINT+mBuildingFloorStructureMarksINT+mBuildingWallmaintananceMarksINT
-                +mBuildingLightAndVentilationMarksINT+mBuildingStructureMarksINT;
-
         String mBuildingTotalMarks = Integer.valueOf(mBuildingTotalMarksINT).toString();
 
         BuildingModel buildingModel = new BuildingModel(building_id, building_id,mComment,
@@ -567,13 +452,16 @@ public class BuildingActivity extends AppCompatActivity {
                     System.out.println("Data could not be saved. " + databaseError.getMessage());
                 } else {
                     //System.out.println("Data saved successfully.");
-                    dialog.setTitle("Data Binding successful..");
+                    dialog.setTitle("Building Grade : " +mBuildingGrade);
                     dialog.show();
                     Handler h = new Handler();
                     h.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            startActivity(new Intent(BuildingActivity.this,FoodPreperationActivity.class));
+                            Intent intent = new Intent(BuildingActivity.this,FoodPreperationActivity.class);
+                            intent.putExtra("LocationPrecent",String.valueOf(LocationPrecent));
+                            intent.putExtra("BuildingPrecent",String.valueOf(BuildingPrecent));
+                            startActivity(intent);
                         }
                     }, 3000);
 
@@ -581,10 +469,212 @@ public class BuildingActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void ceilingStructureMarks() {
+        if (mCheckBoxBuildingCeilingStructureClean.isChecked()) {
+            mBuildingCeilingStructureMarks1 = "1";
+        } else {
+            mBuildingCeilingStructureMarks1 = "0";
+        }
+        if (mCheckBoxBuildingCeilingStructureNoAccumilation.isChecked()) {
+            mBuildingCeilingStructureMarks2 = "1";
+        } else {
+            mBuildingCeilingStructureMarks2 = "0";
+        }
+        if (mCheckBoxBuildingCeilingStructureNoContamination.isChecked()) {
+            mBuildingCeilingStructureMarks3 = "1";
+        } else {
+            mBuildingCeilingStructureMarks3 = "0";
+        }
+        if (mCheckBoxBuildingCeilingStructureSuitable.isChecked()) {
+            mBuildingCeilingStructureMarks4 = "1";
+        } else {
+            mBuildingCeilingStructureMarks4 = "0";
+        }
+
+        mBuildingCeilingStructureMarksINT = Integer.valueOf(mBuildingCeilingStructureMarks1) +Integer.valueOf(mBuildingCeilingStructureMarks2)+
+                Integer.valueOf(mBuildingCeilingStructureMarks3) + Integer.valueOf(mBuildingCeilingStructureMarks4);
+        String mStringMarks = Integer.valueOf(mBuildingCeilingStructureMarksINT).toString();
+        setMarkViewFour(mTextViewMarksBuildingCeilingStructure, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void floorStructureMarks() {
+        if (mCheckBoxBuildingFloorStructureClean.isChecked()) {
+            mBuildingFoorStructureMarks1 = "1";
+        } else {
+            mBuildingFoorStructureMarks1 = "0";
+        }
+        if (mCheckBoxBuildingFloorStructureNoAccumilation.isChecked()) {
+            mBuildingFoorStructureMarks2 = "1";
+        } else {
+            mBuildingFoorStructureMarks2 = "0";
+        }
+        if (mCheckBoxBuildingFloorStructureNoContamination.isChecked()) {
+            mBuildingFoorStructureMarks3 = "1";
+        } else {
+            mBuildingFoorStructureMarks3 = "0";
+        }
+        if (mCheckBoxBuildingFloorStructureSuitable.isChecked()) {
+            mBuildingFoorStructureMarks4 = "1";
+        } else {
+            mBuildingFoorStructureMarks4 = "0";
+        }
+
+        mBuildingFloorStructureMarksINT = Integer.valueOf(mBuildingFoorStructureMarks1) +Integer.valueOf(mBuildingFoorStructureMarks2)+
+                Integer.valueOf(mBuildingFoorStructureMarks3) + Integer.valueOf(mBuildingFoorStructureMarks4);
+        String mStringMarks = Integer.valueOf(mBuildingFloorStructureMarksINT).toString();
+        setMarkViewFour(mTextViewMarksBuildingFloorStructure, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void riskFactorsMarks() {
+        if (mCheckBoxBuildingRiskFactorsHazzards.isChecked()) {
+            mBuildingRiskFactorsMarks1 = "1";
+        } else {
+            mBuildingRiskFactorsMarks1 = "0";
+        }
+        if (mCheckBoxBuildingRiskFactorsUnsafeStructures.isChecked()) {
+            mBuildingRiskFactorsMarks2 = "1";
+        } else {
+            mBuildingRiskFactorsMarks2 = "0";
+        }
+
+        mBuildingRiskFactorsMarksINT = Integer.valueOf(mBuildingRiskFactorsMarks1) + Integer.valueOf(mBuildingRiskFactorsMarks2);
+        String mStringMarks = Integer.valueOf(mBuildingRiskFactorsMarksINT).toString();
+        setMarkViewTwo(mTextViewMarksBuildingRiskFactors, mStringMarks);
+
+        setTotalMarks();
+
+    }
+
+    private void wallMaintananceMarks() {
+        if (mCheckBoxBuildingWallMaintananceClean.isChecked()) {
+            mBuildingWallMaintanance1 = "1";
+        } else {
+            mBuildingWallMaintanance1 = "0";
+        }
+        if (mCheckBoxBuildingWallMaintananceSuitable.isChecked()) {
+            mBuildingWallMaintanance2 = "1";
+        } else {
+            mBuildingWallMaintanance2 = "0";
+        }
+        if (mCheckBoxBuildingWallMaintananceNoContamination.isChecked()) {
+            mBuildingWallMaintanance3 = "1";
+        } else {
+            mBuildingWallMaintanance3 = "0";
+        }
+        if (mCheckBoxBuildingWallMaintananceNoAccumilation.isChecked()) {
+            mBuildingWallMaintanance4 = "1";
+        } else {
+            mBuildingWallMaintanance4 = "0";
+        }
+
+        mBuildingWallmaintananceMarksINT = Integer.valueOf(mBuildingWallMaintanance1) +Integer.valueOf(mBuildingWallMaintanance2)+
+                Integer.valueOf(mBuildingWallMaintanance3) + Integer.valueOf(mBuildingWallMaintanance4);
+        String mStringMarks = Integer.valueOf(mBuildingWallmaintananceMarksINT).toString();
+        setMarkViewFour(mTextViewMarksBuildingWallMaintanance, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void spaceMarks() {
+        if (mCheckBoxBuildingSpaceAdequate.isChecked()) {
+            mBuildingSpaceMarks1 = "1";
+        } else {
+            mBuildingSpaceMarks1 = "0";
+        }
+        if (mCheckBoxBuildingSpaceAppropriate.isChecked()) {
+            mBuildingSpaceMarks2 = "1";
+        } else {
+            mBuildingSpaceMarks2 = "0";
+        }
+
+        mBuildingSpaceMarksINT = Integer.valueOf(mBuildingSpaceMarks1) + Integer.valueOf(mBuildingSpaceMarks2);
+        String mStringMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
+        setMarkViewTwo(mTextViewMarksBuildingSpace, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void lightAndVentilationMarks() {
+        if (mCheckBoxBuildingLightandVentilationAttractive.isChecked()) {
+            mBuildingLightAndVentilationMarks1 = "1";
+        } else {
+            mBuildingLightAndVentilationMarks1 = "0";
+        }
+        if (mCheckBoxBuildingLightandVentilationBeautiful.isChecked()) {
+            mBuildingLightAndVentilationMarks2 = "1";
+        } else {
+            mBuildingLightAndVentilationMarks2 = "0";
+        }
+
+        mBuildingLightAndVentilationMarksINT = Integer.valueOf(mBuildingLightAndVentilationMarks1) + Integer.valueOf(mBuildingLightAndVentilationMarks2);
+        String mStringMarks = Integer.valueOf(mBuildingLightAndVentilationMarksINT).toString();
+        setMarkViewTwo(mTextViewMarksBuildingLightandVentilation, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void structureMarks() {
+        /*Structure*/
+        if (mCheckBoxBuildingStructureAdequate.isChecked()) {
+            mBuildingStructureMarks1 = "1";
+        } else {
+            mBuildingStructureMarks1 = "0";
+        }
+        if (mCheckBoxBuildingStructureSuitable.isChecked()) {
+            mBuildingStructureMarks2 = "1";
+        } else {
+            mBuildingStructureMarks2 = "0";
+        }
+        if (mCheckBoxBuildingStructurePermenant.isChecked()) {
+            mBuildingStructureMarks3 = "1";
+        } else {
+            mBuildingStructureMarks3 = "0";
+        }
+        if (mCheckBoxBuildingStructureSafe.isChecked()) {
+            mBuildingStructureMarks4 = "1";
+        } else {
+            mBuildingStructureMarks4 = "0";
+        }
+
+        mBuildingStructureMarksINT = Integer.valueOf(mBuildingStructureMarks4) +Integer.valueOf(mBuildingStructureMarks3)+
+                Integer.valueOf(mBuildingStructureMarks2) + Integer.valueOf(mBuildingStructureMarks1);
+        String mStringMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
+        setMarkViewFour(mTextViewMarksBuildingStructure, mStringMarks);
+
+        setTotalMarks();
+    }
+
+    private void setTotalMarks() {
+        mBuildingTotalMarksINT = mBuildingSpaceMarksINT+mBuildingCeilingStructureMarksINT+
+                mBuildingRiskFactorsMarksINT+mBuildingFloorStructureMarksINT+mBuildingWallmaintananceMarksINT
+                +mBuildingLightAndVentilationMarksINT+mBuildingStructureMarksINT;
+        String mBuildingTotalMarks = Integer.valueOf(mBuildingTotalMarksINT).toString();
+        mTextViewTotal.setText(mBuildingTotalMarks);
+
+        BuildingPrecent = (Float.valueOf(mBuildingTotalMarksINT)/22)*100;
 
 
-
-
+        if(BuildingPrecent >= 75){
+            mBuildingGrade = "A";
+        }
+        else if(BuildingPrecent >= 65){
+            mBuildingGrade = "B";
+        }
+        else if(BuildingPrecent>=50){
+            mBuildingGrade = "C";
+        }
+        else if(BuildingPrecent>=35){
+            mBuildingGrade = "S";
+        }
+        else{
+            mBuildingGrade = "F";
+        }
     }
 
 

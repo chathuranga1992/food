@@ -33,6 +33,12 @@ public class ResultActivity extends AppCompatActivity {
     @BindView(R.id.result_grade)
     TextView mTextViewGrade;
 
+    @BindView(R.id.result_improve)
+    TextView mTextViewImprove;
+
+    @BindView(R.id.result_text)
+    TextView mTextViewResultText;
+
     String FoodProcessMarks, FoodProcessComments, FoodProcessCeilingSuitable, FoodProcessCeilingClean,
             FoodProcessCeilinggetNoAccutilation, FoodProcessCeilinggetNoContamination, FoodProcessCeilinggetRemarks,
             FoodProcessFloorClean, FoodProcessFloorSuitable, FoodProcessFloorNoAccutilation,
@@ -62,6 +68,10 @@ public class ResultActivity extends AppCompatActivity {
     int FinalGrade;
     AlertDialog dialog;
 
+    double FoodPreparationPrecent =0;
+    double LocationPrecent=0;
+    double BuildingPrecent=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,16 +85,59 @@ public class ResultActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_result);
         ButterKnife.bind(this);
-        AlertDialog.Builder high = new AlertDialog.Builder(this);
 
-        high.setMessage("Please Check for the Critical Factors ")
-                .setTitle("You Have High Risk");
+        Intent intent=getIntent();
+        String loc = intent.getStringExtra("LocationPrecent");
+        LocationPrecent = Double.valueOf(loc);
 
-        dialog = high.create();
-        mTextViewGrade.setTextColor(Color.YELLOW);
-        mTextViewGrade.setText("C");
-        //dialog.set
-        dialog.show();
+        String bul = intent.getStringExtra("BuildingPrecent");
+        BuildingPrecent = Double.valueOf(bul);
+
+        String fdpr = intent.getStringExtra("FoodPreparationPrecent");
+        FoodPreparationPrecent = Double.valueOf(fdpr);
+
+        double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent)/3;
+        String finalGrade;
+
+        if(Totalprecent >= 75){
+            finalGrade = "A";
+        }
+        else if(Totalprecent >= 65){
+            finalGrade = "B";
+        }
+        else if(Totalprecent >=50){
+            finalGrade = "C";
+        }
+        else if(Totalprecent >=35){
+            finalGrade = "S";
+        }
+        else{
+            finalGrade = "F";
+        }
+
+        mTextViewGrade.setText(finalGrade);
+
+        if(BuildingPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.YELLOW);
+            mTextViewResultText.setText("You Are in Low Risk");
+            mTextViewImprove.setVisibility(View.GONE);
+        }
+        if(LocationPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.rgb(255,165,0));
+            mTextViewResultText.setText("You Are in Medium Risk");
+            mTextViewImprove.setVisibility(View.VISIBLE);
+            mTextViewImprove.setText("Please Improve Location/Environment");
+        }
+        if(FoodPreparationPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.RED);
+            mTextViewResultText.setText("You Are in High Risk");
+            mTextViewImprove.setVisibility(View.VISIBLE);
+            mTextViewImprove.setText("Please Improve Food Processing");
+        }
+
 
 /*setData();*/
 
