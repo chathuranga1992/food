@@ -191,5 +191,30 @@
     <string name="separate_clean_unclean">Separate (clean/unclean)</string>
     <string name="chinaware">Chinaware</string>
     <string name="no_cracks">No Cracks</string>
+    <string name="packaging_materials_contaminated_substances">Packaging materials/contaminated substances</string>
+    <string name="separated_storage">Separated Storage</string>
+    <string name="safe_disposal">Safe disposal</string>
+    <string name="contaminated_substances">Contaminated substances ( pesticides, cleaning agents)</string>
+    <string name="packaging_materials">Packaging materials</string>
+    <!--<string name="sanitation_procedure">Sanitation Procedure</string>-->
+    <string name="wash_bins">Wash Bins</string>
+    <string name="cleaning_equipment">Cleaning Equipment</string>
+    <string name="record_keeping">Record keeping/certification/Information notice</string>
+    <string name="signs_display">Signs Display</string>
+    <string name="smoking">Smoking</string>
+    <string name="owners">Owners</string>
+    <string name="handlers">Handlers</string>
+    <string name="standards">Quality control/Standards</string>
+    <string name="deteriorated_food_storage">Deteriorated food storage</string>
+    <!--<string name="separated">Separated</string>-->
+    <!--<string name="safe_disposal">Safe disposal</string>-->
+    <string name="quality_of_raw_materials_foods">Quality Of Raw Materials/Foods</string>
+    <string name="have_standards">Have Standards</string>
+    <string name="optimum_shelf_life">Optimum Shelf Life</string>
+    <string name="foods_display">Foods Display</string>
+    <!--<string name="attractive">Attractive</string>-->
+    <!--<string name="refrigeration">Refrigeration</string>-->
+    <!--<string name="fifo_overstock">FIFO (overstock)</string>-->
+    <!--<string name="storage_facilities">Storage facilities</string>-->
 
 </resources>

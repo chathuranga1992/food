@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,10 +10,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".new_record_packaging_materials.PackagingMaterialActivity">
 
 
-   <!-- <ProgressBar
+    <ProgressBar
         android:id="@+id/location_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="@dimen/activity_vertical_margin"
@@ -21,7 +23,7 @@
         android:visibility="gone" />
 
     <ScrollView
-        android:id="@+id/location_form"
+        android:id="@+id/packaging_materials_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -39,7 +41,7 @@
                     style="@style/TitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Quality control/Standards" />
+                    android:text="@string/packaging_materials_contaminated_substances" />
             </LinearLayout>
 
             <LinearLayout
@@ -52,10 +54,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="@string/violations" />
+                    android:text="@string/empty_crates_cartons_containers" />
 
                 <TextView
-                    android:id="@+id/marks_floor_structure"
+                    android:id="@+id/marks_empty_crates_cartons_containers"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,22 +74,35 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/floor_structure_clean"
+                    android:id="@+id/empty_crates_cartons_containers_safe_disposal"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/no_on_labelling_rules" />
+                    android:text="@string/safe_disposal" />
 
                 <CheckBox
-                    android:id="@+id/floor_structure_no_accumulation"
+                    android:id="@+id/empty_crates_cartons_containers_separated_storage"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="@string/no_on_sanitation" />
+                    android:text="@string/separated_storage" />
+
+                <CheckBox
+                    android:id="@+id/empty_crates_cartons_containers_no_contamination"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_contamination" />
+
+                <CheckBox
+                    android:id="@+id/empty_crates_cartons_containers_enough"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enough" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 style="@style/headers"
@@ -99,10 +114,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="Deteriorated food storage" />
+                    android:text="@string/contaminated_substances" />
 
                 <TextView
-                    android:id="@+id/marks_ceiling_structure"
+                    android:id="@+id/marks_contaminated_substances"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,22 +135,35 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/ceiling_structure_clean"
+                    android:id="@+id/contaminated_substances_separated"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Separated" />
+                    android:text="@string/separated" />
 
                 <CheckBox
-                    android:id="@+id/ceiling_structure_no_accumulation"
+                    android:id="@+id/contaminated_substances_covered"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Safe disposal" />
+                    android:text="@string/covered" />
+
+                <CheckBox
+                    android:id="@+id/contaminated_substances_labelled"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/labelled" />
+
+                <CheckBox
+                    android:id="@+id/contaminated_substances_original_container"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/original_container" />
 
             </LinearLayout>
-
             <LinearLayout
                 style="@style/headers"
                 android:layout_width="fill_parent"
@@ -146,10 +174,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="Quality Of Raw Materials/Foods" />
+                    android:text="@string/packaging_materials" />
 
                 <TextView
-                    android:id="@+id/marks_contamination"
+                    android:id="@+id/marks_packaging_materials"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -165,68 +193,23 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/contamination_no_accumulation"
+                    android:id="@+id/packaging_materials_food_grade_polythene_hdpe_plastic_pp5"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Have Standards" />
+                    android:text="@string/food_grade_polythene_hdpe_plastic_pp5" />
 
                 <CheckBox
-                    android:id="@+id/contamination_no_dust"
+                    android:id="@+id/packaging_materials_no_contamination"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Optimum Shelf Life" />
+                    android:text="@string/no_contamination" />
 
 
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="Foods Display" />
-
-                <TextView
-                    android:id="@+id/marks_animals"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/animals_dominant"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Attractive" />
-
-                <CheckBox
-                    android:id="@+id/animals_other"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/clean" />
-
-            </LinearLayout>
 
 
             <LinearLayout
@@ -239,6 +222,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/packaging_materials_comment"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_comments_here"/>
@@ -252,6 +236,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/packaging_materials_total_marks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/total_marks"
@@ -267,6 +252,7 @@
 
 
                 <Button
+                    android:id="@+id/packaging_materials_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
@@ -275,5 +261,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>

@@ -12,8 +12,8 @@
     android:paddingBottom="@dimen/activity_vertical_margin">
 
 
-   <!-- <ProgressBar
-        android:id="@+id/location_progress"
+    <ProgressBar
+        android:id="@+id/record_keeping_progress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="@dimen/activity_vertical_margin"
         android:layout_height="@dimen/activity_horizontal_margin"
@@ -21,7 +21,7 @@
         android:visibility="gone" />
 
     <ScrollView
-        android:id="@+id/location_form"
+        android:id="@+id/record_keeping_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -39,7 +39,7 @@
                     style="@style/TitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Equipment &amp; utensils" />
+                    android:text="@string/record_keeping" />
             </LinearLayout>
 
             <LinearLayout
@@ -52,10 +52,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="Handling equipment" />
+                    android:text="@string/signs_display" />
 
                 <TextView
-                    android:id="@+id/marks_floor_structure"
+                    android:id="@+id/marks_signs_display"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,82 +72,14 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/floor_structure_clean"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Separated" />
-
-                <CheckBox
-                    android:id="@+id/floor_structure_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="Safe" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/floor_structure_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Enough" />
-
-                <CheckBox
-                    android:id="@+id/floor_structure_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/suitable" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/cleanliness" />
-
-                <TextView
-                    android:id="@+id/marks_ceiling_structure"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/ceiling_structure_clean"
+                    android:id="@+id/signs_display_adequate"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/adequate" />
 
                 <CheckBox
-                    android:id="@+id/ceiling_structure_no_accumulation"
+                    android:id="@+id/signs_display_appropriate"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,26 +88,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
-                <CheckBox
-                    android:id="@+id/ceiling_structure_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Proper maintenance" />
-
-                <CheckBox
-                    android:id="@+id/ceiling_structure_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hygienic" />
-
-            </LinearLayout>
             <LinearLayout
                 style="@style/headers"
                 android:layout_width="fill_parent"
@@ -186,10 +99,57 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="Chopping Boards" />
+                    android:text="@string/smoking" />
 
                 <TextView
-                    android:id="@+id/marks_temperature_maintenance"
+                    android:id="@+id/marks_smoking"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/smoking_separated"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/separated" />
+
+                <CheckBox
+                    android:id="@+id/smoking_proper"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/proper" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/food_safety_certifications" />
+
+                <TextView
+                    android:id="@+id/marks_food_safety_certifications"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -205,108 +165,20 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/temperature_maintenance_no_accumulation"
+                    android:id="@+id/food_safety_certifications_owners"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Separated(Meat, Vegetables)" />
+                    android:text="@string/owners" />
 
                 <CheckBox
-                    android:id="@+id/temperature_maintenance_no_dust"
+                    android:id="@+id/food_safety_certifications_handlers"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="Sanitized" />
+                    android:text="@string/handlers" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/temperature_maintenance_no_smoke"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Separated" />
-
-                <CheckBox
-                    android:id="@+id/temperature_maintenance_no_adverse_effect"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/clean" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/storage" />
-
-                <TextView
-                    android:id="@+id/marks_animals"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/animals_dominant"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Separate (clean/unclean)" />
-
-                <CheckBox
-                    android:id="@+id/animals_other"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="Hygienic" />
-
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/refrigeration_clean"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Safe" />
-
-                <CheckBox
-                    android:id="@+id/refrigeration_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_contamination" />
 
             </LinearLayout>
 
@@ -320,10 +192,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
-                    android:text="Chinaware" />
+                    android:text="@string/record_keeping_food_raw_ingredients" />
 
                 <TextView
-                    android:id="@+id/marks_light_amp_ventilation"
+                    android:id="@+id/marks_record_keeping_food_raw_ingredients"
                     style="@style/edit_texts"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -340,92 +212,36 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:id="@+id/light_amp_ventilation_adequate"
+                    android:id="@+id/record_keeping_food_raw_ingredients_selling"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Enough" />
+                    android:text="@string/selling" />
 
                 <CheckBox
-                    android:id="@+id/light_amp_ventilation_appropriate"
+                    android:id="@+id/record_keeping_food_raw_ingredients_receiving"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="No Cracks" />
-
-
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                    android:text="@string/receiving" />
 
                 <CheckBox
-                    android:id="@+id/light_amp_ventilation_hygienic"
+                    android:id="@+id/record_keeping_food_raw_ingredients_workers"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/hygienic" />
+                    android:text="@string/workers" />
 
                 <CheckBox
-                    android:id="@+id/light_amp_ventilation_sanitized"
+                    android:id="@+id/record_keeping_food_raw_ingredients_billing"
                     style="@style/checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:text="@string/sanitized" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="Furniture" />
-
-                <TextView
-                    android:id="@+id/marks_cleanliness"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/cleanliness_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/cleanliness_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/appropriate" />
-
+                    android:text="@string/billing" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -437,6 +253,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/record_keeping_comments"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_comments_here"/>
@@ -450,6 +267,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center">
                 <TextView
+                    android:id="@+id/record_keeping_total_marks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/total_marks"
@@ -465,6 +283,7 @@
 
 
                 <Button
+                    android:id="@+id/record_keeping_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
@@ -473,5 +292,5 @@
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>-->
+    </ScrollView>
 </LinearLayout>
