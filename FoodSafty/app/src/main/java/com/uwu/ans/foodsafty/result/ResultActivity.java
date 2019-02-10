@@ -33,6 +33,12 @@ public class ResultActivity extends AppCompatActivity {
     @BindView(R.id.result_grade)
     TextView mTextViewGrade;
 
+    @BindView(R.id.result_improve)
+    TextView mTextViewImprove;
+
+    @BindView(R.id.result_text)
+    TextView mTextViewResultText;
+
     String FoodProcessMarks, FoodProcessComments, FoodProcessCeilingSuitable, FoodProcessCeilingClean,
             FoodProcessCeilinggetNoAccutilation, FoodProcessCeilinggetNoContamination, FoodProcessCeilinggetRemarks,
             FoodProcessFloorClean, FoodProcessFloorSuitable, FoodProcessFloorNoAccutilation,
@@ -62,6 +68,13 @@ public class ResultActivity extends AppCompatActivity {
     int FinalGrade;
     AlertDialog dialog;
 
+    DatabaseReference rootRef;
+
+    double FoodPreparationPrecent =0;
+    double LocationPrecent=0;
+    double BuildingPrecent=0;
+
+    String RestKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,16 +88,68 @@ public class ResultActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_result);
         ButterKnife.bind(this);
-        AlertDialog.Builder high = new AlertDialog.Builder(this);
 
-        high.setMessage("Please Check for the Critical Factors ")
-                .setTitle("You Have High Risk");
+        rootRef = FirebaseDatabase.getInstance().getReference();
 
-        dialog = high.create();
-        mTextViewGrade.setTextColor(Color.YELLOW);
-        mTextViewGrade.setText("C");
-        //dialog.set
-        dialog.show();
+        RestKey = getIntent().getStringExtra("RestName");;
+
+        rootRef.child("Inspections").child(RestKey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                LocationPrecent = (Double) dataSnapshot.child("locationMarks").getValue();
+                BuildingPrecent = (Double) dataSnapshot.child("buildingMarks").getValue();
+                FoodPreparationPrecent = (Double) dataSnapshot.child("foodPreparationMarks").getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+        double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent)/3;
+        String finalGrade;
+
+        if(Totalprecent >= 75){
+            finalGrade = "A";
+        }
+        else if(Totalprecent >= 65){
+            finalGrade = "B";
+        }
+        else if(Totalprecent >=50){
+            finalGrade = "C";
+        }
+        else if(Totalprecent >=35){
+            finalGrade = "S";
+        }
+        else{
+            finalGrade = "F";
+        }
+
+        mTextViewGrade.setText(finalGrade);
+
+        if(BuildingPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.YELLOW);
+            mTextViewResultText.setText("You Are in Low Risk");
+            mTextViewImprove.setVisibility(View.GONE);
+        }
+        if(LocationPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.rgb(255,165,0));
+            mTextViewResultText.setText("You Are in Medium Risk");
+            mTextViewImprove.setVisibility(View.VISIBLE);
+            mTextViewImprove.setText("Please Improve Location/Environment");
+        }
+        if(FoodPreparationPrecent<59)
+        {
+            mTextViewResultText.setBackgroundColor(Color.RED);
+            mTextViewResultText.setText("You Are in High Risk");
+            mTextViewImprove.setVisibility(View.VISIBLE);
+            mTextViewImprove.setText("Please Improve Food Processing");
+        }
+
 
 /*setData();*/
 

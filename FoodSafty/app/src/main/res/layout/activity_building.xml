@@ -4,7 +4,7 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPageIndicatorD"
+    android:background="@color/colorBackground"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -32,15 +32,15 @@
             android:orientation="vertical">
 
             <LinearLayout
-                style="@style/linears"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
                     style="@style/TitleText"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/building" />
+                    android:text="@string/building"
+                    android:drawableEnd="@drawable/buidng"/>
             </LinearLayout>
 
             <LinearLayout
@@ -52,7 +52,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/structure" />
 
                 <TextView
@@ -113,7 +112,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/light_amp_ventilation" />
 
                 <TextView
@@ -159,7 +157,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/space" />
 
                 <TextView
@@ -205,7 +202,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/wall_maintenance" />
 
                 <TextView
@@ -265,7 +261,7 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
+
                     android:text="@string/risk_factors" />
 
                 <TextView
@@ -311,7 +307,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/floor_structure" />
 
                 <TextView
@@ -346,12 +341,7 @@
                     android:gravity="end"
                     android:text="@string/no_contamination" />
 
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/building_floor_structure_no_accumulation"
@@ -378,7 +368,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/ceiling_structure" />
 
                 <TextView
@@ -450,17 +439,26 @@
             </LinearLayout>
 
             <LinearLayout
-                style="@style/linears"
+                android:layout_marginTop="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="start">
                 <TextView
-                    android:id="@+id/building_total_marks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/total_marks"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
                     android:layout_gravity="start"
                     android:gravity="start"/>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/building_total_marks"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout

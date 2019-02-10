@@ -37,6 +37,7 @@
         <activity android:name=".new_record_standerds.StanderdsActivity" />
         <activity android:name=".new_record_waste_management.WasteManagementActivity" />
         <activity android:name=".new_record_water_supply.WaterActivity"></activity>
+        <activity android:name=".new_record_LocationEnvironment.LocationEnvironmentActivity"></activity>
     </application>
 
 </manifest>

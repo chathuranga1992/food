@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardElevation="5dp">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtOwnerName"
+            android:hint="Owner Name"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtPrivateAddress"
+            android:hint="Private address"
+            android:inputType="textMultiLine"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtNIC"
+            android:hint="NIC No"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtRestName"
+            android:hint="Restaurant Name"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtBRNo"
+            android:hint="Business Registration No"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtLANo"
+            android:hint="Local Authority No"
+            android:inputType="text"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/edtLAYear"
+            android:hint="Local authority Year"
+            android:inputType="number"
+            android:maxLength="4"
+            android:text=""
+            android:textColor="@color/text"
+            android:textColorHint="@color/text"
+            android:textSize="12sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/text"/>
+        
+    </LinearLayout>
+</ScrollView>
+
+</androidx.cardview.widget.CardView>
