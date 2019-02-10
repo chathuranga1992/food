@@ -139,8 +139,9 @@ public class BuildingActivity extends AppCompatActivity {
 
     String mBuildingGrade = "F";
 
-    double LocationPrecent;
     double BuildingPrecent=0;
+
+    String RestKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,11 +154,10 @@ public class BuildingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_building);
 
         ButterKnife.bind(this);
-        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference("building");
+        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference();
 
-        Intent intent=getIntent();
-        String loc = intent.getStringExtra("LocationPrecent");
-        LocationPrecent = Double.valueOf(loc);
+        RestKey = getIntent().getStringExtra("RestName");
+
 
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -443,7 +443,7 @@ public class BuildingActivity extends AppCompatActivity {
 
 
 
-        mDatabaseFoodSafe.child(building_id).setValue(buildingModel,new DatabaseReference.CompletionListener(){
+        mDatabaseFoodSafe.child("Inspections").child(RestKey).child("buildingMarks").setValue(BuildingPrecent,new DatabaseReference.CompletionListener(){
 
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -459,8 +459,7 @@ public class BuildingActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Intent intent = new Intent(BuildingActivity.this,FoodPreperationActivity.class);
-                            intent.putExtra("LocationPrecent",String.valueOf(LocationPrecent));
-                            intent.putExtra("BuildingPrecent",String.valueOf(BuildingPrecent));
+                            intent.putExtra("RestName",RestKey);
                             startActivity(intent);
                         }
                     }, 3000);

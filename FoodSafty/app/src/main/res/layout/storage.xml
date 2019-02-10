@@ -3,7 +3,7 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPageIndicatorD"
+    android:background="@color/colorBackground"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -51,7 +51,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="Storage" />
 
                 <TextView
@@ -86,12 +85,6 @@
                     android:gravity="end"
                     android:text="FIFO" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/floor_structure_suitable"
@@ -118,7 +111,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/separated" />
 
                 <TextView
@@ -154,12 +146,6 @@
                     android:gravity="end"
                     android:text="9” from wall" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/ceiling_structure_suitable"
@@ -254,7 +240,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="Refrigeration" />
 
                 <TextView
@@ -289,12 +274,6 @@
                     android:gravity="end"
                     android:text="FIFO (overstock)" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/refrigeration_clean"
@@ -322,7 +301,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="Storage facilities" />
 
                 <TextView
@@ -369,7 +347,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/light_amp_ventilation" />
 
                 <TextView
@@ -416,7 +393,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/frozen" />
 
                 <TextView
@@ -452,12 +428,6 @@
                     android:text="@string/fifo_overstock" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/frozen_no_contamination"
@@ -486,7 +456,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/contamination" />
 
                 <TextView
@@ -522,13 +491,6 @@
                     android:text="@string/from_garbage" />
 
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
                 <CheckBox
                     android:id="@+id/contamination_no_smoke"
                     style="@style/checkbox"
@@ -554,7 +516,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/pest_control" />
 
                 <TextView
@@ -600,7 +561,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/cleaning" />
 
                 <TextView
@@ -634,12 +594,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="@string/adequate" />
-            </LinearLayout>
 
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/clean_daily"
@@ -662,31 +617,41 @@
                 android:layout_height="wrap_content">
 
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/storage_comments"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/add_comments_here" />
-                </android.support.design.widget.TextInputLayout>
+                        android:hint="@string/add_comments_here"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             </LinearLayout>
 
             <LinearLayout
-                style="@style/linears"
+                android:layout_marginTop="10dp"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
-
+                android:gravity="start">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/total_marks"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
                     android:layout_gravity="start"
-                    android:gravity="start"
-                    android:text="@string/total_marks" />
+                    android:gravity="start"/>
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/food_storage_full_marks"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <LinearLayout
@@ -697,6 +662,7 @@
 
 
                 <Button
+                    android:id="@+id/foodStorage_next_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"

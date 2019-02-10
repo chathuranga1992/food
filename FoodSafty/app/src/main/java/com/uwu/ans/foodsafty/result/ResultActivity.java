@@ -68,10 +68,13 @@ public class ResultActivity extends AppCompatActivity {
     int FinalGrade;
     AlertDialog dialog;
 
+    DatabaseReference rootRef;
+
     double FoodPreparationPrecent =0;
     double LocationPrecent=0;
     double BuildingPrecent=0;
 
+    String RestKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,15 +89,24 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         ButterKnife.bind(this);
 
-        Intent intent=getIntent();
-        String loc = intent.getStringExtra("LocationPrecent");
-        LocationPrecent = Double.valueOf(loc);
+        rootRef = FirebaseDatabase.getInstance().getReference();
 
-        String bul = intent.getStringExtra("BuildingPrecent");
-        BuildingPrecent = Double.valueOf(bul);
+        RestKey = getIntent().getStringExtra("RestName");;
 
-        String fdpr = intent.getStringExtra("FoodPreparationPrecent");
-        FoodPreparationPrecent = Double.valueOf(fdpr);
+        rootRef.child("Inspections").child(RestKey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                LocationPrecent = (Double) dataSnapshot.child("locationMarks").getValue();
+                BuildingPrecent = (Double) dataSnapshot.child("buildingMarks").getValue();
+                FoodPreparationPrecent = (Double) dataSnapshot.child("foodPreparationMarks").getValue();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
 
         double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent)/3;
         String finalGrade;

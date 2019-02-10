@@ -31,6 +31,7 @@ import com.uwu.ans.foodsafty.new_record_food_preperation.domains.HouseKeeping;
 import com.uwu.ans.foodsafty.new_record_food_preperation.domains.LightNVentilation;
 import com.uwu.ans.foodsafty.new_record_food_preperation.domains.PestControl;
 import com.uwu.ans.foodsafty.new_record_food_preperation.domains.Sanitation;
+import com.uwu.ans.foodsafty.new_record_storage.StorageActivity;
 import com.uwu.ans.foodsafty.result.ResultActivity;
 
 import androidx.annotation.NonNull;
@@ -203,8 +204,8 @@ public class FoodPreperationActivity extends AppCompatActivity {
     String mFoodPreparationGrade ="F";
 
     double FoodPreparationPrecent =0;
-    double LocationPrecent=0;
-    double BuildingPrecent=0;
+
+    String RestKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,14 +218,10 @@ public class FoodPreperationActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_food_preperation);
         ButterKnife.bind(this);
-        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference("food_preparation");
+        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference();
 
-        Intent intent=getIntent();
-        String loc = intent.getStringExtra("LocationPrecent");
-        LocationPrecent = Double.valueOf(loc);
+        RestKey = getIntent().getStringExtra("RestName");
 
-        String bul = intent.getStringExtra("BuildingPrecent");
-        BuildingPrecent = Double.valueOf(bul);
 
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -645,7 +642,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
         //mDatabaseFoodSafe.child(food_preperation_id).setValue(foodProcessingModel);
 
         //startActivity(new Intent(FoodPreperationActivity.this,ResultActivity.class));
-        mDatabaseFoodSafe.child(food_preperation_id).setValue(foodProcessingModel,new DatabaseReference.CompletionListener(){
+        mDatabaseFoodSafe.child("Inspections").child(RestKey).child("foodPreparationMarks").setValue(FoodPreparationPrecent,new DatabaseReference.CompletionListener(){
 
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -660,10 +657,8 @@ public class FoodPreperationActivity extends AppCompatActivity {
                     h.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            Intent intent = new Intent(FoodPreperationActivity.this,ResultActivity.class);
-                            intent.putExtra("LocationPrecent",String.valueOf(LocationPrecent));
-                            intent.putExtra("BuildingPrecent",String.valueOf(BuildingPrecent));
-                            intent.putExtra("FoodPreparationPrecent",String.valueOf(FoodPreparationPrecent));
+                            Intent intent = new Intent(FoodPreperationActivity.this,StorageActivity.class);
+                            intent.putExtra("RestName",RestKey);
                             startActivity(intent);
                         }
                     }, 3000);

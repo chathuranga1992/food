@@ -1,22 +1,30 @@
 package com.uwu.ans.foodsafty.new_record_storage;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Handler;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uwu.ans.foodsafty.R;
+import com.uwu.ans.foodsafty.new_record_building.BuildingActivity;
+import com.uwu.ans.foodsafty.new_record_equipment_and_utensils.EquipmentsAndUtencilsActivity;
+import com.uwu.ans.foodsafty.new_record_food_preperation.FoodPreperationActivity;
 
 public class StorageActivity extends AppCompatActivity {
     
@@ -122,6 +130,11 @@ public class StorageActivity extends AppCompatActivity {
     @BindView(R.id.storage_comments)
     EditText mEditTextComments;
 
+    @BindView(R.id.food_storage_full_marks)
+    TextView mTextViewTotal;
+
+
+
     private int mStorageMarksINT = 0;
     private int mStorageLightAndVentilationMarksINT = 0;
     private int mStorageSeperatedMarksINT = 0;
@@ -132,6 +145,10 @@ public class StorageActivity extends AppCompatActivity {
     private int mStoragePestControlMarksINT = 0;
     private int mStorageCleanMarksINT = 0;
     private int mStorageTotalMarksINT = 0;
+
+    double StoragePrecent =0;
+    String mStorageGrade ="F";
+    String RestKey;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +157,9 @@ public class StorageActivity extends AppCompatActivity {
 
 
         ButterKnife.bind(this);
-        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference("building");
+        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference();
+
+        RestKey = getIntent().getStringExtra("RestName");
 
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -148,6 +167,601 @@ public class StorageActivity extends AppCompatActivity {
         dialog.setMessage("Loading. Please wait...");
         dialog.setIndeterminate(true);
         dialog.setCanceledOnTouchOutside(false);
+
+
+        mCheckBoxStorageSeperated.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageSeperated.isChecked()) {
+                    mStorageMarksINT = mStorageMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageMarksINT = mStorageMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStorageFIFO.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFIFO.isChecked()) {
+                    mStorageMarksINT = mStorageMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageMarksINT = mStorageMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStoragePerishable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStoragePerishable.isChecked()) {
+                    mStorageMarksINT = mStorageMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageMarksINT = mStorageMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStorageNonPerishable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageNonPerishable.isChecked()) {
+                    mStorageMarksINT = mStorageMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageMarksINT = mStorageMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
+                    mTextViewMarksStorage.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorage, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+
+        mCheckBoxStorageLightNVentilationAdequate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageLightNVentilationAdequate.isChecked()) {
+                    mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
+                    mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
+                    mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStorageLightNVentilationAppropriate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageLightNVentilationAppropriate.isChecked()) {
+                    mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
+                    mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
+                    mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+
+        mCheckBoxStorage_18_h_from_floor_level.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorage_18_h_from_floor_level.isChecked()) {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStorageClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageClean.isChecked()) {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageProper.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageProper.isChecked()) {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorage_9_from_wall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorage_9_from_wall.isChecked()) {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageSeperatedMarksINT = mStorageSeperatedMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
+                    mTextViewMarksStorageSeperated.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStorageRefridgerationAccurate_thermometers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageRefridgerationAccurate_thermometers.isChecked()) {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageRefridgerationStorage_refrigeration_fifo_overstock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageRefridgerationStorage_refrigeration_fifo_overstock.isChecked()) {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageRefridgerationClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageRefridgerationClean.isChecked()) {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageRefridgerationNoContamination.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageRefridgerationNoContamination.isChecked()) {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
+                    mTextViewMarksStorageRefridgeration.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+        mCheckBoxStorageFrozenAccurate_thermometers.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFrozenAccurate_thermometers.isChecked()) {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageFrozennStorage_refrigeration_fifo_overstock.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFrozennStorage_refrigeration_fifo_overstock.isChecked()) {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageFrozenClean.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFrozenClean.isChecked()) {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageFrozenNoContamination.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFrozenNoContamination.isChecked()) {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageFrozenMarksINT = mStorageFrozenMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
+                    mTextViewMarksStorageFrozen.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+        mCheckBoxStorageFacilitiesAdequate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFacilitiesAdequate.isChecked()) {
+                    mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
+                    mTextViewMarksStorageFacilities.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFacilities, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
+                    mTextViewMarksStorageFacilities.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageFacilities, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageFacilitiesAppropriate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageFacilitiesAppropriate.isChecked()) {
+                    mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
+                    mTextViewMarksStorageFacilities.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageFacilities, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
+                    mTextViewMarksStorageFacilities.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStorageFacilities, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+        mCheckBoxStorageCleanAppropriate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageCleanAppropriate.isChecked()) {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageCleanAdequate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageCleanAdequate.isChecked()) {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageCleanDaily.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageCleanDaily.isChecked()) {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageCleanNoAccumilation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageCleanNoAccumilation.isChecked()) {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageCleanMarksINT = mStorageCleanMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
+                    mTextViewMarksStorageClean.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
+
+        mCheckBoxStorageContaminationFromToilets.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageContaminationFromToilets.isChecked()) {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageContaminationFromGarbage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageContaminationFromGarbage.isChecked()) {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageContaminationFromSanitires.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageContaminationFromSanitires.isChecked()) {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStorageContaminationFromHzards.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStorageContaminationFromHzards.isChecked()) {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStorageContaminationMarksINT = mStorageContaminationMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
+                    mTextViewMarksStorageContamination.setText(mStringMarks);
+                    setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+        mCheckBoxStoragePestControlNoRodents.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStoragePestControlNoRodents.isChecked()) {
+                    mStoragePestControlMarksINT = mStoragePestControlMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
+                    setMarkViewTwo(mTextViewMarksStoragePestControl, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStoragePestControlMarksINT = mStoragePestControlMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
+                    mTextViewMarksStoragePestControl.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStoragePestControl, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+        mCheckBoxStoragePestControlNoPets.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (mCheckBoxStoragePestControlNoPets.isChecked()) {
+                    mStoragePestControlMarksINT = mStoragePestControlMarksINT + 1;
+                    String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
+                    mTextViewMarksStoragePestControl.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStoragePestControl, mStringMarks);
+                    setTotalMarks();
+
+                } else {
+                    mStoragePestControlMarksINT = mStoragePestControlMarksINT - 1;
+                    String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
+                    mTextViewMarksStoragePestControl.setText(mStringMarks);
+                    setMarkViewTwo(mTextViewMarksStoragePestControl, mStringMarks);
+                    setTotalMarks();
+                }
+            }
+        });
+
+
     }
 
     public void setMarkViewFour(TextView mTextView, String mMarks) {
@@ -189,407 +803,61 @@ public class StorageActivity extends AppCompatActivity {
         }
     }
     
-    @OnClick(R.id.building_next)
+    @OnClick(R.id.foodStorage_next_btn)
     public void setStorage(View view) {
-        String mStorageMarks1, mStorageMarks2, mStorageMarks3, mStorageMarks4;
-        String mStorageSeperatedMarks1, mStorageSeperatedMarks2, mStorageSeperatedMarks3, mStorageSeperatedMarks4;
-        String mStorageLightAndVentilationMarks1, mStorageLightAndVentilationMarks2;
-        String mStorageFacilitiesMarks1, mStorageFacilitiesMarks2;
-        String mStorageRefridgerationMarks1, mStorageRefridgerationMarks2, mStorageRefridgerationMarks3, mStorageRefridgerationMarks4;
-        String mBuildingSpaceMarks1, mBuildingSpaceMarks2;
-        String mStorageFrozenMarks1, mStorageFrozenMarks2, mStorageFrozenMarks3, mStorageFrozenMarks4;
-        String mStorageContaminationMarks1, mStorageContaminationMarks2, mStorageContaminationMarks3, mStorageContaminationMarks4;
-        String mStoragePestControlMarks1, mStoragePestControlMarks2;
-        String mStorageCleanMarks1, mStorageCleanMarks2, mStorageCleanMarks3, mStorageCleanMarks4;
 
-        String Storage_id = mDatabaseFoodSafe.push().getKey();
+        mDatabaseFoodSafe.child("Inspections").child(RestKey).child("foodStorageMarks").setValue(StoragePrecent,new DatabaseReference.CompletionListener(){
 
-        /*Storage*/
-        if (mCheckBoxStorageSeperated.isChecked()) {
-            mStorageMarksINT = mStorageMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            mTextViewMarksStorage.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            //setMarksFour(mStorageMarksINT, mTextViewMarksStorage);
+            @Override
+            public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
 
-            mStorageMarks1 = "1";
-        } else {
-            //mStorageMarksINT = mStorageMarksINT;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            mStorageMarks1 = "0";
-        }
-        if (mCheckBoxStorageFIFO.isChecked()) {
-            mStorageMarksINT = mStorageMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            mTextViewMarksStorage.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            //setMarksFour(mStorageMarksINT, mTextViewMarksStorage);
-            mStorageMarks2 = "1";
-        } else {
-            //mStorageMarksINT = mStorageMarksINT;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            mStorageMarks2 = "0";
-        }
-        if (mCheckBoxStoragePerishable.isChecked()) {
-            mStorageMarksINT = mStorageMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            mTextViewMarksStorage.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            //setMarksFour(mStorageMarksINT, mTextViewMarksStorage);
-            mStorageMarks3 = "1";
-        } else {
-            //mStorageMarksINT = mStorageMarksINT;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            mStorageMarks3 = "0";
-        }
-        if (mCheckBoxStorageNonPerishable.isChecked()) {
-            mStorageMarksINT = mStorageMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            mTextViewMarksStorage.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            //setMarksFour(mStorageMarksINT, mTextViewMarksStorage);
-            mStorageMarks4 = "1";
-            Log.e("=============","============= "+mStorageMarksINT);
-        } else {
-            //mStorageMarksINT = mStorageMarksINT;
-            String mStringMarks = Integer.valueOf(mStorageMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorage, mStringMarks);
-            mStorageMarks4 = "0";
-        }
+                if (databaseError != null) {
+                    System.out.println("Data could not be saved. " + databaseError.getMessage());
+                } else {
+                    //System.out.println("Data saved successfully.");
+                    dialog.setTitle("Food Storage Grade : " + mStorageGrade);
+                    dialog.show();
+                    Handler h = new Handler();
+                    h.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(StorageActivity.this,EquipmentsAndUtencilsActivity.class);
+                            intent.putExtra("RestName",RestKey);
+                            startActivity(intent);
+                        }
+                    }, 3000);
 
-        /*Light and ventilation*/
-        if (mCheckBoxStorageLightNVentilationAdequate.isChecked()) {
-            mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
-            mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
-            //setMarksTwo(mStorageLightAndVentilationMarksINT, mTextViewMarksStorageLightNVentilation);
-            mStorageLightAndVentilationMarks1 = "1";
-        } else {
-            //mBuildingStructureMarksINT = mBuildingStructureMarksINT;
-            String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
-            mStorageLightAndVentilationMarks1 = "0";
-        }
-        if (mCheckBoxStorageLightNVentilationAppropriate.isChecked()) {
-            mStorageLightAndVentilationMarksINT = mStorageLightAndVentilationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
-            mTextViewMarksStorageLightNVentilation.setText(mStringMarks);
-            setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
-            //setMarksTwo(mStorageLightAndVentilationMarksINT, mTextViewMarksStorageLightNVentilation);
-            mStorageLightAndVentilationMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageLightAndVentilationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageLightNVentilation, mStringMarks);
-            mStorageLightAndVentilationMarks2 = "0";
-        }
-
-        /*Storage Separated*/
-        if (mCheckBoxStorage_18_h_from_floor_level.isChecked()) {
-            mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            mTextViewMarksStorageSeperated.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            //setMarksFour(mStorageSeperatedMarksINT, mTextViewMarksStorageSeperated);
-            mStorageSeperatedMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageSeperated, mStringMarks);
-            mStorageSeperatedMarks1 = "0";
-        }
-        if (mCheckBoxStorage_9_from_wall.isChecked()) {
-            mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            mTextViewMarksStorageSeperated.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            //setMarksFour(mStorageSeperatedMarksINT, mTextViewMarksStorageSeperated);
-            mStorageSeperatedMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            mStorageSeperatedMarks2 = "0";
-        }
-        if (mCheckBoxStorageClean.isChecked()) {
-            mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            mTextViewMarksStorageSeperated.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            //setMarksFour(mStorageSeperatedMarksINT, mTextViewMarksStorageSeperated);
-            mStorageSeperatedMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            mStorageSeperatedMarks3 = "0";
-        }
-        if (mCheckBoxStorageProper.isChecked()) {
-            mStorageSeperatedMarksINT = mStorageSeperatedMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            mTextViewMarksStorageSeperated.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            //setMarksFour(mStorageSeperatedMarksINT, mTextViewMarksStorageSeperated);
-            mStorageSeperatedMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageSeperatedMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageSeperated, mStringMarks);
-            mStorageSeperatedMarks4 = "0";
-        }
-
-        /*Wall maintenance*/
-        if (mCheckBoxStorageRefridgerationAccurate_thermometers.isChecked()) {
-            mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            mTextViewMarksStorageRefridgeration.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            //setMarksFour(mStorageRefrigerationMarksINT, mTextViewMarksStorageRefridgeration);
-            mStorageRefridgerationMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageRefridgeration, mStringMarks);
-            mStorageRefridgerationMarks1 = "0";
-        }
-        if (mCheckBoxStorageRefridgerationStorage_refrigeration_fifo_overstock.isChecked()) {
-            mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            mTextViewMarksStorageRefridgeration.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            //setMarksFour(mStorageRefrigerationMarksINT, mTextViewMarksStorageRefridgeration);
-            mStorageRefridgerationMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            mStorageRefridgerationMarks2 = "0";
-        }
-        if (mCheckBoxStorageRefridgerationClean.isChecked()) {
-            mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            mTextViewMarksStorageRefridgeration.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            //setMarksFour(mStorageRefrigerationMarksINT, mTextViewMarksStorageRefridgeration);
-            mStorageRefridgerationMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            mStorageRefridgerationMarks3 = "0";
-        }
-        if (mCheckBoxStorageRefridgerationNoContamination.isChecked()) {
-            mStorageRefrigerationMarksINT = mStorageRefrigerationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            mTextViewMarksStorageRefridgeration.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            //setMarksFour(mStorageRefrigerationMarksINT, mTextViewMarksStorageRefridgeration);
-            mStorageRefridgerationMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageRefrigerationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageRefridgeration, mStringMarks);
-            mStorageRefridgerationMarks4 = "0";
-        }
-
-        /*Wall maintenance*/
-        if (mCheckBoxStorageFrozenAccurate_thermometers.isChecked()) {
-            mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            mTextViewMarksStorageFrozen.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            //setMarksFour(mStorageFrozenMarksINT, mTextViewMarksStorageFrozen);
-            mStorageFrozenMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageFrozen, mStringMarks);
-            mStorageFrozenMarks1 = "0";
-        }
-        if (mCheckBoxStorageFrozennStorage_refrigeration_fifo_overstock.isChecked()) {
-            mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            mTextViewMarksStorageFrozen.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            //setMarksFour(mStorageFrozenMarksINT, mTextViewMarksStorageFrozen);
-            mStorageFrozenMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            mStorageFrozenMarks2 = "0";
-        }
-        if (mCheckBoxStorageFrozenClean.isChecked()) {
-            mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            mTextViewMarksStorageFrozen.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            //setMarksFour(mStorageFrozenMarksINT, mTextViewMarksStorageFrozen);
-            mStorageFrozenMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            mStorageFrozenMarks3 = "0";
-        }
-        if (mCheckBoxStorageFrozenNoContamination.isChecked()) {
-            mStorageFrozenMarksINT = mStorageFrozenMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            mTextViewMarksStorageFrozen.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            //setMarksFour(mStorageFrozenMarksINT, mTextViewMarksStorageFrozen);
-            mStorageFrozenMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageFrozenMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageFrozen, mStringMarks);
-            mStorageFrozenMarks4 = "0";
-        }
-
-        /*Storage Facilities*/
-        if (mCheckBoxStorageFacilitiesAdequate.isChecked()) {
-            mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
-            mTextViewMarksStorageFacilities.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFacilities, mStringMarks);
-            //setMarksFour(mStorageStorageFacilitiesMarksINT, mTextViewMarksStorageFacilities);
-            mStorageFacilitiesMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageFacilities, mStringMarks);
-            mStorageFacilitiesMarks1 = "0";
-        }
-        if (mCheckBoxStorageFacilitiesAppropriate.isChecked()) {
-            mStorageStorageFacilitiesMarksINT = mStorageStorageFacilitiesMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
-            mTextViewMarksStorageFacilities.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageFacilities, mStringMarks);
-            //setMarksFour(mStorageStorageFacilitiesMarksINT, mTextViewMarksStorageFacilities);
-            mStorageFacilitiesMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageStorageFacilitiesMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageFacilities, mStringMarks);
-            mStorageFacilitiesMarks2 = "0";
-        }
-
-        /*StorageClean*/
-        if (mCheckBoxStorageCleanAppropriate.isChecked()) {
-            mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            mTextViewMarksStorageClean.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            //setMarksFour(mStorageCleanMarksINT, mTextViewMarksStorageClean);
-            mStorageCleanMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageClean, mStringMarks);
-            mStorageCleanMarks1 = "0";
-        }
-        if (mCheckBoxStorageCleanAdequate.isChecked()) {
-            mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            mTextViewMarksStorageClean.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            //setMarksFour(mStorageCleanMarksINT, mTextViewMarksStorageClean);
-            mStorageCleanMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            mStorageCleanMarks2 = "0";
-        }
-        if (mCheckBoxStorageCleanDaily.isChecked()) {
-            mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            mTextViewMarksStorageClean.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            //setMarksFour(mStorageCleanMarksINT, mTextViewMarksStorageClean);
-            mStorageCleanMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            mStorageCleanMarks3 = "0";
-        }
-        if (mCheckBoxStorageCleanNoAccumilation.isChecked()) {
-            mStorageCleanMarksINT = mStorageCleanMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            mTextViewMarksStorageClean.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            //setMarksFour(mStorageCleanMarksINT, mTextViewMarksStorageClean);
-            mStorageCleanMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageCleanMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageClean, mStringMarks);
-            mStorageCleanMarks4 = "0";
-        }
-
-        /*Wall maintenance*/
-        if (mCheckBoxStorageContaminationFromToilets.isChecked()) {
-            mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            mTextViewMarksStorageContamination.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            //setMarksFour(mStorageContaminationMarksINT, mTextViewMarksStorageContamination);
-            mStorageContaminationMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStorageContamination, mStringMarks);
-            mStorageContaminationMarks1 = "0";
-        }
-        if (mCheckBoxStorageContaminationFromGarbage.isChecked()) {
-            mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            mTextViewMarksStorageContamination.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            //setMarksFour(mStorageContaminationMarksINT, mTextViewMarksStorageContamination);
-            mStorageContaminationMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            mStorageContaminationMarks2 = "0";
-        }
-        if (mCheckBoxStorageContaminationFromSanitires.isChecked()) {
-            mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            mTextViewMarksStorageContamination.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            //setMarksFour(mStorageContaminationMarksINT, mTextViewMarksStorageContamination);
-            mStorageContaminationMarks3 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            mStorageContaminationMarks3 = "0";
-        }
-        if (mCheckBoxStorageContaminationFromHzards.isChecked()) {
-            mStorageContaminationMarksINT = mStorageContaminationMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            mTextViewMarksStorageContamination.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            //setMarksFour(mStorageContaminationMarksINT, mTextViewMarksStorageContamination);
-            mStorageContaminationMarks4 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStorageContaminationMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStorageContamination, mStringMarks);
-            mStorageContaminationMarks4 = "0";
-        }
-
-        /*pest Control*/
-        if (mCheckBoxStoragePestControlNoRodents.isChecked()) {
-            mStoragePestControlMarksINT = mStoragePestControlMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
-            mTextViewMarksStoragePestControl.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStoragePestControl, mStringMarks);
-            //setMarksFour(mStoragePestControlMarksINT, mTextViewMarksStoragePestControl);
-            mStoragePestControlMarks1 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
-            setMarkViewTwo(mTextViewMarksStoragePestControl, mStringMarks);
-            mStoragePestControlMarks1 = "0";
-        }
-        if (mCheckBoxStoragePestControlNoPets.isChecked()) {
-            mStoragePestControlMarksINT = mStoragePestControlMarksINT + 1;
-            String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
-            mTextViewMarksStoragePestControl.setText(mStringMarks);
-            setMarkViewFour(mTextViewMarksStoragePestControl, mStringMarks);
-            //setMarksFour(mStoragePestControlMarksINT, mTextViewMarksStoragePestControl);
-            mStoragePestControlMarks2 = "1";
-        } else {
-            String mStringMarks = Integer.valueOf(mStoragePestControlMarksINT).toString();
-            setMarkViewFour(mTextViewMarksStoragePestControl, mStringMarks);
-            mStoragePestControlMarks2 = "0";
-        }
+                }
+            }
+        });
 
 
+    }
 
+
+    private void setTotalMarks() {
+
+        mStorageTotalMarksINT = mStorageMarksINT + mStorageLightAndVentilationMarksINT+mStorageCleanMarksINT+mStoragePestControlMarksINT+mStoragePestControlMarksINT+mStorageContaminationMarksINT+mStorageContaminationMarksINT+mStorageFrozenMarksINT+mStorageStorageFacilitiesMarksINT +mStorageSeperatedMarksINT+mStorageRefrigerationMarksINT ;
+        String mBuildingTotalMarks = Integer.valueOf(mStorageTotalMarksINT).toString();
+        mTextViewTotal.setText(mBuildingTotalMarks);
+
+        StoragePrecent = (Float.valueOf(mStorageTotalMarksINT)/22)*100;
+
+
+        if(StoragePrecent >= 75){
+            mStorageGrade = "A";
+        }
+        else if(StoragePrecent >= 65){
+            mStorageGrade = "B";
+        }
+        else if(StoragePrecent >=50){
+            mStorageGrade = "C";
+        }
+        else if(StoragePrecent >=35){
+            mStorageGrade = "S";
+        }
+        else{
+            mStorageGrade = "F";
+        }
     }
 }

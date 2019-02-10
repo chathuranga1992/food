@@ -13,8 +13,10 @@ public class LocationModel {
     private Appearance mAppearance;
     private Pollution mPollution;
     private Animals mAnimals;
+    private String locationMarks;
 
-    public LocationModel(String mId, String mRecordId, String mComment, String mTotalMarks, Suitability mSuitability, Appearance mAppearance, Pollution mPollution, Animals mAnimals) {
+
+    public LocationModel(String mId, String mRecordId, String mComment, String mTotalMarks, Suitability mSuitability, Appearance mAppearance, Pollution mPollution, Animals mAnimals, String locationMarks) {
         this.mId = mId;
         this.mRecordId = mRecordId;
         this.mComment = mComment;
@@ -23,6 +25,15 @@ public class LocationModel {
         this.mAppearance = mAppearance;
         this.mPollution = mPollution;
         this.mAnimals = mAnimals;
+        this.locationMarks = locationMarks;
+    }
+
+    public String getLocationMarks() {
+        return locationMarks;
+    }
+
+    public void setLocationMarks(String locationMarks) {
+        this.locationMarks = locationMarks;
     }
 
     public String getmId() {

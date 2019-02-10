@@ -104,6 +104,7 @@ public class LocationEnvironmentActivity extends AppCompatActivity {
 
     String mLocationGrade= "F";
     double mLocationPrecent=0;
+    String RestKey;
 
 
     @Override
@@ -117,7 +118,10 @@ public class LocationEnvironmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location_environment);
 
         ButterKnife.bind(this);
-        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference("location");
+
+        RestKey = getIntent().getStringExtra("RestName");
+
+        mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference();
 
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -306,11 +310,9 @@ public class LocationEnvironmentActivity extends AppCompatActivity {
         String mLocationTotalMarks = Integer.valueOf(mLocationTotalMarksINT).toString();
 
         LocationModel locationModel = new LocationModel(location_id, location_id,mComment,
-                mLocationTotalMarks, suitability,appearance,pollution,animals);
+                mLocationTotalMarks, suitability,appearance,pollution,animals, String.valueOf(mLocationPrecent));
 
-
-
-        mDatabaseFoodSafe.child(location_id).setValue(locationModel,new DatabaseReference.CompletionListener(){
+        mDatabaseFoodSafe.child("Inspections").child(RestKey).child("locationMarks").setValue(mLocationPrecent,new DatabaseReference.CompletionListener(){
 
             @Override
             public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -327,6 +329,7 @@ public class LocationEnvironmentActivity extends AppCompatActivity {
                         public void run() {
                             Intent intent = new Intent(LocationEnvironmentActivity.this,BuildingActivity.class);
                             intent.putExtra("LocationPrecent",String.valueOf(mLocationPrecent));
+                            intent.putExtra("RestName",RestKey);
                             startActivity(intent);
                         }
                     }, 3000);
