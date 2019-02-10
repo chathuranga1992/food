@@ -125,7 +125,7 @@ public class EquipmentsAndUtencilsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         RestKey = getIntent().getStringExtra("RestName");
-        
+
         mDatabaseFoodSafe = FirebaseDatabase.getInstance().getReference();
         dialog = new ProgressDialog(this); // this = YourActivity
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
