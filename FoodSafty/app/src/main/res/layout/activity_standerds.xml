@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLinearLayoutLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPageIndicatorD"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".new_record_standerds.StanderdsActivity">
+
+
+    <ProgressBar
+        android:id="@+id/standards_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="@dimen/activity_vertical_margin"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/standards_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/standards" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/violations" />
+
+                <TextView
+                    android:id="@+id/marks_violations"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/violations_no_on_labelling_rules"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_on_labelling_rules" />
+
+                <CheckBox
+                    android:id="@+id/violations_no_on_sanitation"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/no_on_sanitation" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/deteriorated_food_storage" />
+
+                <TextView
+                    android:id="@+id/marks_deteriorated_food_storage"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/deteriorated_food_storage_separated"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/separated" />
+
+                <CheckBox
+                    android:id="@+id/deteriorated_food_storage_safe_disposal"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/safe_disposal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/quality_of_raw_materials_foods" />
+
+                <TextView
+                    android:id="@+id/marks_quality_of_raw_materials_foods"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/quality_of_raw_materials_foods_have_standards"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/have_standards" />
+
+                <CheckBox
+                    android:id="@+id/quality_of_raw_materials_foods_optimum_shelf_life"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/optimum_shelf_life" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/headers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/SectionTitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/foods_display" />
+
+                <TextView
+                    android:id="@+id/marks_foods_display"
+                    style="@style/edit_texts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="60dp"
+                    android:gravity="end"
+                    android:paddingTop="10dp"
+                    android:text="@string/marks" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/foods_display_attractive"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/attractive" />
+
+                <CheckBox
+                    android:id="@+id/foods_display_clean"
+                    style="@style/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/clean" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/standard_commets"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_comments_here"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/standard_total_marks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total_marks"
+                    android:layout_gravity="start"
+                    android:gravity="start"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/linears"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end">
+                
+                <Button
+                    android:id="@+id/standard_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_btn"
+                    android:text="@string/next"
+                    android:layout_gravity="end"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

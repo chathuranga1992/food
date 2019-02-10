@@ -86,13 +86,6 @@
                     android:gravity="end"
                     android:text="@string/no_accumulation" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
                 <CheckBox
                     android:id="@+id/food_processing_area_floor_structure_suitable"
                     style="@style/checkbox"
@@ -151,14 +144,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="@string/no_contamination" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/food_processing_area_wall_maintenance_no_accumulation"
@@ -222,13 +207,6 @@
                     android:gravity="end"
                     android:text="@string/no_accumulation" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
                 <CheckBox
                     android:id="@+id/food_processing_area_ceiling_structure_suitable"
                     style="@style/checkbox"
@@ -286,14 +264,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="@string/from_garbage" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/food_processing_area_contamination_from_sanitizers"
@@ -586,12 +556,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="@string/adequate" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/food_processing_area_clean_daily"
@@ -695,12 +659,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="end"
                     android:text="@string/adequate" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
 
                 <CheckBox
                     android:id="@+id/food_processing_area_drainage_safe"

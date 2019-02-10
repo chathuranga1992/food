@@ -22,7 +22,21 @@
         <activity android:name=".login.SignInActivity" />
         <activity android:name=".new_record_building.BuildingActivity" />
         <activity android:name=".new_record_food_preperation.FoodPreperationActivity" />
-        <activity android:name=".result.ResultActivity"></activity>
+        <activity android:name=".result.ResultActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".settings.SettingsActivity" />
+        <activity android:name=".reports.ReportActivity" />
+        <activity android:name=".tips.TipsActivity" />
+        <activity android:name=".new_record_storage.StorageActivity" />
+        <activity android:name=".new_record_food_handlers.FoodHandlersActivity" />
+        <activity android:name=".new_record_equipment_and_utensils.EquipmentsAndUtencilsActivity" />
+        <activity android:name=".new_record_location.LocationActivity" />
+        <activity android:name=".new_record_packaging_materials.PackagingMaterialActivity" />
+        <activity android:name=".new_record_saniations.SanitationActivity" />
+        <activity android:name=".new_record_record_keeping.RecordKeepingActivity" />
+        <activity android:name=".new_record_standerds.StanderdsActivity" />
+        <activity android:name=".new_record_waste_management.WasteManagementActivity" />
+        <activity android:name=".new_record_water_supply.WaterActivity"></activity>
     </application>
 
 </manifest>
