@@ -6,8 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Precenttt" />
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="info" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
@@ -38,41 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ResultActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResultActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/result/ResultActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1720">
-              <caret line="157" selection-start-line="157" selection-end-line="157" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/HomeActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1369">
-              <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationEnvironmentActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/LocationEnvironmentActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-32">
-              <caret line="314" column="110" selection-start-line="314" selection-start-column="110" selection-end-line="314" selection-end-column="110" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FoodPreperationActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_food_preperation/FoodPreperationActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7223">
-              <caret line="222" column="57" selection-start-line="222" selection-start-column="57" selection-end-line="222" selection-end-column="57" />
+            <state relative-caret-position="381">
+              <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="131" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -80,11 +49,32 @@
       <file leaf-file-name="StorageActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_storage/StorageActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="823" column="105" selection-start-line="823" selection-start-column="105" selection-end-line="823" selection-end-column="105" />
+            <state relative-caret-position="147">
+              <caret line="843" column="65" selection-start-line="843" selection-start-column="65" selection-end-line="843" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReportDetailsActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/ReportDetailsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FoodPreperationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_food_preperation/FoodPreperationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="996" column="45" selection-start-line="996" selection-start-column="45" selection-end-line="996" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -92,23 +82,69 @@
       <file leaf-file-name="EquipmentsAndUtencilsActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_equipment_and_utensils/EquipmentsAndUtencilsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
+            <state relative-caret-position="-536">
               <caret line="544" column="99" selection-start-line="544" selection-start-column="77" selection-end-line="544" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#25702#26492#0" />
-                <element signature="e#26498#27151#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BuildingActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_building/BuildingActivity.java">
+      <file leaf-file-name="activity_equipments_and_utencils.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_equipments_and_utencils.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4775">
-              <caret line="166" column="48" selection-start-line="161" selection-start-column="7" selection-end-line="166" selection-end-column="48" />
+            <state relative-caret-position="129">
+              <caret line="437" column="57" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="57" />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationEnvironmentActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/LocationEnvironmentActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2233">
+              <caret line="314" column="110" selection-start-line="314" selection-start-column="110" selection-end-line="314" selection-end-column="110" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_report.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_report.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_storage.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_storage.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="672" selection-start-line="672" selection-end-line="672" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reporter_item.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/reporter_item.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="81">
+              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -2423,7 +2459,6 @@
         <option value="$PROJECT_DIR$/src/main/res/drawable/resultframe.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_food_preperation.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_result.xml" />
-        <option value="$USER_HOME$/.gradle/gradle.properties" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_home.xml" />
         <option value="$PROJECT_DIR$/../build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/NewRecord.java" />
@@ -2431,15 +2466,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/domains/LocationModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/LocationEnvironmentActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/storage.xml" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_storage.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_food_preperation/FoodPreperationActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/HomeActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_equipments_and_utencils.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_building/BuildingActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_storage/StorageActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_equipment_and_utensils/EquipmentsAndUtencilsActivity.java" />
+        <option value="$USER_HOME$/.gradle/gradle.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/Report.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/ReportActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_report_details.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/reporter_item.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_report.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_storage/StorageActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/result/ResultActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/ReportDetailsActivity.java" />
       </list>
     </option>
   </component>
@@ -2477,21 +2519,21 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="foodsafty" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="new_record_food_preperation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="foodsafty" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="new_record_equipment_and_utensils" type="462c0819:PsiDirectoryNode" />
+              <item name="new_record_LocationEnvironment" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="foodsafty" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="new_record_storage" type="462c0819:PsiDirectoryNode" />
+              <item name="reports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -2504,6 +2546,12 @@
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="app" type="1abcf292:AndroidViewProjectNode" />
@@ -2520,12 +2568,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="Nexus_10_API_27" />
+    <property name="device.picker.selection" value="84RDU16B09000907" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../vx/food-master/FoodSafty" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
+      <recent name="com.uwu.ans.foodsafty.reports" />
       <recent name="com.uwu.ans.foodsafty.new_record_LocationEnvironment" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -2663,6 +2712,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2670,9 +2720,9 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50075644" side_tool="true" weight="0.32954547" />
       <window_info anchor="right" id="Preview" order="3" weight="0.32980332" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32954547" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Logcat" order="7" weight="0.32954547" />
@@ -2681,7 +2731,7 @@
       <window_info id="Designer" order="2" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
@@ -2700,53 +2750,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/widget/TextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="4659" selection-start-line="4659" selection-end-line="4659" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values-xxhdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values-xhdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values-mdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values-hdpi/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -2862,16 +2865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_result.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
@@ -2995,103 +2988,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-145">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.gradle/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_storage.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="671" column="27" lean-forward="true" selection-start-line="615" selection-start-column="11" selection-end-line="671" selection-end-column="27" />
-          <folding>
-            <element signature="e#435#470#0" expanded="true" />
-            <element signature="e#494#527#0" expanded="true" />
-            <element signature="e#553#588#0" expanded="true" />
-            <element signature="e#615#648#0" expanded="true" />
-            <element signature="e#849#882#0" expanded="true" />
-            <element signature="e#913#948#0" expanded="true" />
-            <element signature="e#1727#1749#0" expanded="true" />
-            <element signature="e#2177#2194#0" expanded="true" />
-            <element signature="e#2660#2675#0" expanded="true" />
-            <element signature="e#3151#3170#0" expanded="true" />
-            <element signature="e#3484#3498#0" expanded="true" />
-            <element signature="e#3777#3797#0" expanded="true" />
-            <element signature="e#4078#4101#0" expanded="true" />
-            <element signature="e#4530#4549#0" expanded="true" />
-            <element signature="e#5025#5040#0" expanded="true" />
-            <element signature="e#5529#5561#0" expanded="true" />
-            <element signature="e#5882#5904#0" expanded="true" />
-            <element signature="e#6178#6193#0" expanded="true" />
-            <element signature="e#6467#6483#0" expanded="true" />
-            <element signature="e#9630#9653#0" expanded="true" />
-            <element signature="e#10133#10148#0" expanded="true" />
-            <element signature="e#10650#10681#0" expanded="true" />
-            <element signature="e#11019#11043#0" expanded="true" />
-            <element signature="e#11331#11346#0" expanded="true" />
-            <element signature="e#11686#11712#0" expanded="true" />
-            <element signature="e#12141#12169#0" expanded="true" />
-            <element signature="e#12654#12669#0" expanded="true" />
-            <element signature="e#13163#13181#0" expanded="true" />
-            <element signature="e#13521#13542#0" expanded="true" />
-            <element signature="e#13972#14003#0" expanded="true" />
-            <element signature="e#14491#14506#0" expanded="true" />
-            <element signature="e#15003#15021#0" expanded="true" />
-            <element signature="e#15364#15385#0" expanded="true" />
-            <element signature="e#15815#15831#0" expanded="true" />
-            <element signature="e#16304#16319#0" expanded="true" />
-            <element signature="e#16814#16845#0" expanded="true" />
-            <element signature="e#17176#17200#0" expanded="true" />
-            <element signature="e#17492#17518#0" expanded="true" />
-            <element signature="e#17840#17855#0" expanded="true" />
-            <element signature="e#18285#18308#0" expanded="true" />
-            <element signature="e#18788#18803#0" expanded="true" />
-            <element signature="e#19296#19318#0" expanded="true" />
-            <element signature="e#19654#19676#0" expanded="true" />
-            <element signature="e#19975#20000#0" expanded="true" />
-            <element signature="e#20336#20358#0" expanded="true" />
-            <element signature="e#20786#20808#0" expanded="true" />
-            <element signature="e#21287#21302#0" expanded="true" />
-            <element signature="e#21792#21812#0" expanded="true" />
-            <element signature="e#22142#22159#0" expanded="true" />
-            <element signature="e#22568#22586#0" expanded="true" />
-            <element signature="e#23061#23076#0" expanded="true" />
-            <element signature="e#23560#23581#0" expanded="true" />
-            <element signature="e#23905#23923#0" expanded="true" />
-            <element signature="e#24203#24218#0" expanded="true" />
-            <element signature="e#24549#24574#0" expanded="true" />
-            <element signature="e#25303#26034#0" />
-            <element signature="e#25901#25928#0" expanded="true" />
-            <element signature="e#26048#27084#0" />
-            <element signature="e#26426#26447#0" expanded="true" />
-            <element signature="e#27098#27683#0" />
-            <element signature="e#27637#27651#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_food_preperation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -3102,39 +2998,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_equipments_and_utencils.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="437" column="57" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="57" />
-          <folding>
-            <element signature="e#15718#16449#0" />
-            <element signature="e#16316#16343#0" expanded="true" />
-            <element signature="e#16841#16862#0" expanded="true" />
-            <element signature="e#18052#18066#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/HomeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1369">
-          <caret line="62" column="8" selection-start-line="62" selection-start-column="8" selection-end-line="62" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/LocationEnvironmentActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="314" column="110" selection-start-line="314" selection-start-column="110" selection-end-line="314" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_building/BuildingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4775">
@@ -3142,39 +3005,194 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_food_preperation/FoodPreperationActivity.java">
+    <entry file="file://$PROJECT_DIR$/proguard-rules.pro">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7223">
-          <caret line="222" column="57" selection-start-line="222" selection-start-column="57" selection-end-line="222" selection-end-column="57" />
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_storage/StorageActivity.java">
+    <entry file="file://$PROJECT_DIR$/../settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="823" column="105" selection-start-line="823" selection-start-column="105" selection-end-line="823" selection-end-column="105" />
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/login/SignInActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="35" lean-forward="true" selection-start-line="31" selection-start-column="4" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_result.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="70" column="19" selection-start-line="15" selection-start-column="4" selection-end-line="70" selection-end-column="19" />
+          <folding>
+            <element signature="e#702#2875#0" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/Report.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding>
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#612#613#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="51" column="62" selection-start-line="51" selection-start-column="62" selection-end-line="51" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/home/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2703">
+          <caret line="192" column="62" selection-start-line="192" selection-start-column="62" selection-end-line="192" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8849#8850#0" expanded="true" />
+            <element signature="e#8918#8919#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/ReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_report_details.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#2725#3510#0" />
+            <element signature="e#4197#4950#0" />
+            <element signature="e#6600#7464#0" />
+            <element signature="e#8336#9179#0" />
+            <element signature="e#12193#12214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/reporter_item.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_report.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="27" column="33" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_storage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="672" selection-start-line="672" selection-end-line="672" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_equipment_and_utensils/EquipmentsAndUtencilsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
+        <state relative-caret-position="-536">
           <caret line="544" column="99" selection-start-line="544" selection-start-column="77" selection-end-line="544" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#25702#26492#0" />
-            <element signature="e#26498#27151#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_equipments_and_utencils.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="437" column="57" selection-start-line="437" selection-start-column="37" selection-end-line="437" selection-end-column="57" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_LocationEnvironment/LocationEnvironmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2233">
+          <caret line="314" column="110" selection-start-line="314" selection-start-column="110" selection-end-line="314" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_food_preperation/FoodPreperationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="996" column="45" selection-start-line="996" selection-start-column="45" selection-end-line="996" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/result/ResultActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1720">
-          <caret line="157" selection-start-line="157" selection-end-line="157" />
+        <state relative-caret-position="381">
+          <caret line="129" column="37" selection-start-line="129" selection-start-column="37" selection-end-line="131" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/new_record_storage/StorageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="843" column="65" selection-start-line="843" selection-start-column="65" selection-end-line="843" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/uwu/ans/foodsafty/reports/ReportDetailsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

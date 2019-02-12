@@ -39,7 +39,7 @@ public class ResultActivity extends AppCompatActivity {
     @BindView(R.id.result_text)
     TextView mTextViewResultText;
 
-    String FoodProcessMarks, FoodProcessComments, FoodProcessCeilingSuitable, FoodProcessCeilingClean,
+    /*String FoodProcessMarks, FoodProcessComments, FoodProcessCeilingSuitable, FoodProcessCeilingClean,
             FoodProcessCeilinggetNoAccutilation, FoodProcessCeilinggetNoContamination, FoodProcessCeilinggetRemarks,
             FoodProcessFloorClean, FoodProcessFloorSuitable, FoodProcessFloorNoAccutilation,
             FoodProcessFloorgetNoContamination, FoodProcessFloorgetRemarks, FoodProcessWallSuitable,
@@ -62,7 +62,7 @@ public class ResultActivity extends AppCompatActivity {
             BuildingStructurePermanant, BuildingStructureSafe, BuildingStructureRemarks,
             BuildingLnVAdequte, BuildingLnVAppropriate, BuildingLnVRemarks, BuildingRiskFactorHazzards,
             BuildingRiskFactorUnsafeStructure, BuildingRiskFactorRemarks, BuildingSpaceAdequate,
-            BuildingSpaceUnsafeStructure, BuildingSpaceRemarks;
+            BuildingSpaceUnsafeStructure, BuildingSpaceRemarks;*/
 
 
     int FinalGrade;
@@ -74,6 +74,7 @@ public class ResultActivity extends AppCompatActivity {
     double LocationPrecent=0;
     double BuildingPrecent=0;
     double EqPrecent = 0;
+    double FsPrecent = 0;
 
     String RestKey;
 
@@ -101,6 +102,47 @@ public class ResultActivity extends AppCompatActivity {
                 BuildingPrecent = (Double) dataSnapshot.child("buildingMarks").getValue();
                 FoodPreparationPrecent = (Double) dataSnapshot.child("foodPreparationMarks").getValue();
                 EqPrecent = (Double) dataSnapshot.child("equipmentUtencilsMarks").getValue();
+                FsPrecent = (Double) dataSnapshot.child("foodStorageMarks").getValue();
+
+                double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent+EqPrecent+FsPrecent)/5;
+                String finalGrade;
+
+                if(Totalprecent >= 75){
+                    finalGrade = "A";
+                    mTextViewResultText.setBackgroundColor(Color.YELLOW);
+                    mTextViewResultText.setText("You Are in Low Risk");
+                    mTextViewImprove.setVisibility(View.GONE);
+                }
+                else if(Totalprecent >= 65){
+                    finalGrade = "B";
+                    mTextViewResultText.setBackgroundColor(Color.YELLOW);
+                    mTextViewResultText.setText("You Are in Low Risk");
+                    mTextViewImprove.setVisibility(View.GONE);
+                }
+                else if(Totalprecent >=50){
+                    finalGrade = "C";
+                    mTextViewResultText.setBackgroundColor(Color.rgb(255,165,0));
+                    mTextViewResultText.setText("You Are in Medium Risk");
+                    mTextViewImprove.setVisibility(View.VISIBLE);
+                    mTextViewImprove.setText("Please Improve");
+                }
+                else if(Totalprecent >=35){
+                    finalGrade = "S";
+                    mTextViewResultText.setBackgroundColor(Color.RED);
+                    mTextViewResultText.setText("You Are in High Risk");
+                    mTextViewImprove.setVisibility(View.VISIBLE);
+                    mTextViewImprove.setText("Please Improve");
+                }
+                else{
+                    finalGrade = "F";
+                    mTextViewResultText.setBackgroundColor(Color.RED);
+                    mTextViewResultText.setText("You Are in High Risk");
+                    mTextViewImprove.setVisibility(View.VISIBLE);
+                    mTextViewImprove.setText("Please Improve");
+                }
+
+                mTextViewGrade.setText(finalGrade);
+
             }
 
             @Override
@@ -110,44 +152,6 @@ public class ResultActivity extends AppCompatActivity {
         });
 
 
-        double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent+EqPrecent)/4;
-        String finalGrade;
-
-        if(Totalprecent >= 75){
-            finalGrade = "A";
-            mTextViewResultText.setBackgroundColor(Color.YELLOW);
-            mTextViewResultText.setText("You Are in Low Risk");
-            mTextViewImprove.setVisibility(View.GONE);
-        }
-        else if(Totalprecent >= 65){
-            finalGrade = "B";
-            mTextViewResultText.setBackgroundColor(Color.YELLOW);
-            mTextViewResultText.setText("You Are in Low Risk");
-            mTextViewImprove.setVisibility(View.GONE);
-        }
-        else if(Totalprecent >=50){
-            finalGrade = "C";
-            mTextViewResultText.setBackgroundColor(Color.rgb(255,165,0));
-            mTextViewResultText.setText("You Are in Medium Risk");
-            mTextViewImprove.setVisibility(View.VISIBLE);
-            mTextViewImprove.setText("Please Improve");
-        }
-        else if(Totalprecent >=35){
-            finalGrade = "S";
-            mTextViewResultText.setBackgroundColor(Color.rgb(255,165,0));
-            mTextViewResultText.setText("You Are in Medium Risk");
-            mTextViewImprove.setVisibility(View.VISIBLE);
-            mTextViewImprove.setText("Please Improve");
-        }
-        else{
-            finalGrade = "F";
-            mTextViewResultText.setBackgroundColor(Color.RED);
-            mTextViewResultText.setText("You Are in High Risk");
-            mTextViewImprove.setVisibility(View.VISIBLE);
-            mTextViewImprove.setText("Please Improve");
-        }
-
-        mTextViewGrade.setText(finalGrade);
 
 
 

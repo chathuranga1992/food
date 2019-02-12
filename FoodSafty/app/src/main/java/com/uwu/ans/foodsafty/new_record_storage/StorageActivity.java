@@ -841,7 +841,7 @@ public class StorageActivity extends AppCompatActivity {
         String mBuildingTotalMarks = Integer.valueOf(mStorageTotalMarksINT).toString();
         mTextViewTotal.setText(mBuildingTotalMarks);
 
-        StoragePrecent = (Float.valueOf(mStorageTotalMarksINT)/22)*100;
+        StoragePrecent = (Float.valueOf(mStorageTotalMarksINT)/30)*100;
 
 
         if(StoragePrecent >= 75){
