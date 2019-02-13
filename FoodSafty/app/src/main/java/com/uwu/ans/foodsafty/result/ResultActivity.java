@@ -70,11 +70,11 @@ public class ResultActivity extends AppCompatActivity {
 
     DatabaseReference rootRef;
 
-    double FoodPreparationPrecent =0;
-    double LocationPrecent=0;
-    double BuildingPrecent=0;
-    double EqPrecent = 0;
-    double FsPrecent = 0;
+    long FoodPreparationPrecent =0;
+    long LocationPrecent=0;
+    long BuildingPrecent=0;
+    long EqPrecent = 0;
+    long FsPrecent = 0;
 
     String RestKey;
 
@@ -98,11 +98,11 @@ public class ResultActivity extends AppCompatActivity {
         rootRef.child("Inspections").child(RestKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                LocationPrecent = (Double) dataSnapshot.child("locationMarks").getValue();
-                BuildingPrecent = (Double) dataSnapshot.child("buildingMarks").getValue();
-                FoodPreparationPrecent = (Double) dataSnapshot.child("foodPreparationMarks").getValue();
-                EqPrecent = (Double) dataSnapshot.child("equipmentUtencilsMarks").getValue();
-                FsPrecent = (Double) dataSnapshot.child("foodStorageMarks").getValue();
+                LocationPrecent = (long) dataSnapshot.child("locationMarks").getValue();
+                BuildingPrecent = (long) dataSnapshot.child("buildingMarks").getValue();
+                FoodPreparationPrecent = (long) dataSnapshot.child("foodPreparationMarks").getValue();
+                EqPrecent = (long) dataSnapshot.child("equipmentUtencilsMarks").getValue();
+                FsPrecent = (long) dataSnapshot.child("foodStorageMarks").getValue();
 
                 double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent+EqPrecent+FsPrecent)/5;
                 String finalGrade;

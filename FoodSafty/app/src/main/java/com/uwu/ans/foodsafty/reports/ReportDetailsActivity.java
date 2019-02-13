@@ -95,20 +95,20 @@ public class ReportDetailsActivity extends AppCompatActivity {
                         dBuildMarks = Math.round(dBuildMarks * 100D) / 100D;
                         BuildMarks.setText(String.valueOf(dBuildMarks)+"%");
 
-                        double dLocMarks = ds.child("locationMarks").getValue(double.class);
-                        dLocMarks = Math.round(dLocMarks * 100D) / 100D;
+                        long dLocMarks = ds.child("locationMarks").getValue(long.class);
+                        dLocMarks = Math.round(dLocMarks * 100L) / 100L;
                         LocMarks.setText(String.valueOf(dLocMarks)+"%");
 
-                        double dFpMarks = ds.child("foodPreparationMarks").getValue(double.class);
-                        dFpMarks = Math.round(dFpMarks * 100D) / 100D;
+                        long dFpMarks = ds.child("foodPreparationMarks").getValue(long.class);
+                        dFpMarks = Math.round(dFpMarks * 100L) / 100L;
                         FpMarks.setText(String.valueOf(dFpMarks)+"%");
 
-                        double dFstorageMarks = ds.child("foodStorageMarks").getValue(double.class);
-                        dFstorageMarks = Math.round(dFstorageMarks * 100D) / 100D;
+                        long dFstorageMarks = ds.child("foodStorageMarks").getValue(long.class);
+                        dFstorageMarks = Math.round(dFstorageMarks * 100L) / 100L;
                         FstorageMarks.setText(String.valueOf(dFstorageMarks)+"%");
 
-                        double dEqMarks = ds.child("equipmentUtencilsMarks").getValue(double.class);
-                        dEqMarks = Math.round(dEqMarks * 100D) / 100D;
+                        long dEqMarks = ds.child("equipmentUtencilsMarks").getValue(long.class);
+                        dEqMarks = Math.round(dEqMarks * 100L) / 100L;
                         EqMarks.setText(String.valueOf(dEqMarks)+"%");
 
                         double tot = (dBuildMarks+dLocMarks+dFpMarks+dFstorageMarks+dEqMarks)/5;
