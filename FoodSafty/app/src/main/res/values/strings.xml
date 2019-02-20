@@ -258,6 +258,10 @@
     <string name="optimum_shelf_life">Optimum Shelf Life</string>
     <string name="foods_display">Foods Display</string>
     <string name="water_source">Water Source</string>
+    <string name="dustbin_maintenance">Dustbin Maintenance</string>
+    <string name="dustbin_with_lids">Dustbin With Lids</string>
+    <string name="waste_removing">Waste Removing</string>
+    <string name="dustbin">Dustbin</string>
     <!--<string name="attractive">Attractive</string>-->
 
 </resources>

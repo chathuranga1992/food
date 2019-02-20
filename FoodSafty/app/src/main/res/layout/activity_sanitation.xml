@@ -608,7 +608,7 @@
                 android:layout_height="wrap_content">
 
 
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
@@ -617,7 +617,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/add_comments_here"/>
-                </android.support.design.widget.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             </LinearLayout>
@@ -648,7 +648,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/gradient_btn"
                     android:text="@string/next"
-                    android:layout_gravity="end"/>
+                    android:layout_gravity="end"
+                    android:onClick="nextSanitation"/>
             </LinearLayout>
 
         </LinearLayout>

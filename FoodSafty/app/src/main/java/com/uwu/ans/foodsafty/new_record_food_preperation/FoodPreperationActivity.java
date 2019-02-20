@@ -661,7 +661,7 @@ public class FoodPreperationActivity extends AppCompatActivity {
                             intent.putExtra("RestName",RestKey);
                             startActivity(intent);
                         }
-                    }, 3000);
+                    }, 2000);
 
                 }
             }

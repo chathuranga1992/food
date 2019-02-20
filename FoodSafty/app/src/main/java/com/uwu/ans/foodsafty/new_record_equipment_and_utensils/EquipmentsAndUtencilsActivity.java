@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.uwu.ans.foodsafty.R;
 import com.uwu.ans.foodsafty.new_record_building.BuildingActivity;
+import com.uwu.ans.foodsafty.new_record_food_handlers.FoodHandlersActivity;
 import com.uwu.ans.foodsafty.new_record_food_preperation.FoodPreperationActivity;
 import com.uwu.ans.foodsafty.result.ResultActivity;
 
@@ -542,7 +543,7 @@ public class EquipmentsAndUtencilsActivity extends AppCompatActivity {
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabaseFoodSafe.child("Inspections").child(RestKey).child("equipmentUtencilsMarks").setValue(EqPrecent,new DatabaseReference.CompletionListener(){
+                mDatabaseFoodSafe.child("Inspections").child(RestKey).child("equipmentUtensilsMarks").setValue(EqPrecent,new DatabaseReference.CompletionListener(){
 
                     @Override
                     public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
@@ -557,11 +558,11 @@ public class EquipmentsAndUtencilsActivity extends AppCompatActivity {
                             h.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Intent intent = new Intent(EquipmentsAndUtencilsActivity.this,ResultActivity.class);
+                                    Intent intent = new Intent(EquipmentsAndUtencilsActivity.this,FoodHandlersActivity.class);
                                     intent.putExtra("RestName",RestKey);
                                     startActivity(intent);
                                 }
-                            }, 3000);
+                            }, 2000);
 
                         }
                     }

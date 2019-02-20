@@ -74,7 +74,7 @@ public class ResultActivity extends AppCompatActivity {
     long LocationPrecent=0;
     long BuildingPrecent=0;
     long EqPrecent = 0;
-    long FsPrecent = 0;
+    long FsPrecent = 0,FoodHandlerPrecent = 0;
 
     String RestKey;
 
@@ -101,8 +101,9 @@ public class ResultActivity extends AppCompatActivity {
                 LocationPrecent = (long) dataSnapshot.child("locationMarks").getValue();
                 BuildingPrecent = (long) dataSnapshot.child("buildingMarks").getValue();
                 FoodPreparationPrecent = (long) dataSnapshot.child("foodPreparationMarks").getValue();
-                EqPrecent = (long) dataSnapshot.child("equipmentUtencilsMarks").getValue();
+                EqPrecent = (long) dataSnapshot.child("equipmentUtensilsMarks").getValue();
                 FsPrecent = (long) dataSnapshot.child("foodStorageMarks").getValue();
+                FoodHandlerPrecent = (long) dataSnapshot.child("foodHandlerMarks").getValue();
 
                 double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent+EqPrecent+FsPrecent)/5;
                 String finalGrade;
