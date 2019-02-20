@@ -3,6 +3,7 @@ package com.uwu.ans.foodsafty.reports;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -40,17 +41,45 @@ public class ReportDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.BuldMarks)
     TextView BuildMarks;
+
     @BindView(R.id.LocMarks)
     TextView LocMarks;
+
     @BindView(R.id.FpMarks)
     TextView FpMarks;
+
     @BindView(R.id.FstorageMarks)
     TextView FstorageMarks;
+
     @BindView(R.id.EqMarks)
     TextView EqMarks;
 
+    @BindView(R.id.FoodHandlerMarks)
+    TextView FoodHandlerMarks;
+
+    @BindView(R.id.PackagingMaterialMarks)
+    TextView PackagingMaterialMarks;
+
+    @BindView(R.id.RecordKeepingMarks)
+    TextView RecordKeepingMarks;
+
+    @BindView(R.id.SanitationMarks)
+    TextView SanitationMarks;
+
+    @BindView(R.id.StanderdsMarks)
+    TextView StanderdsMarks;
+
+    @BindView(R.id.WastManagementMarks)
+    TextView WastManagementMarks;
+
+    @BindView(R.id.WaterSupplyMarks)
+    TextView WaterSupplyMarks;
+
+
     @BindView(R.id.TotMarks)
     TextView TotalMarks;
+
+
 
     @BindView(R.id.report_grade)
     TextView FinalGradeText;
@@ -91,27 +120,106 @@ public class ReportDetailsActivity extends AppCompatActivity {
                         OwnerName.setText(ds.child("owner").getValue().toString());
                         OwnerNic.setText(ds.child("nic").getValue().toString());
 
-                        double dBuildMarks = ds.child("buildingMarks").getValue(double.class);
-                        dBuildMarks = Math.round(dBuildMarks * 100D) / 100D;
+
+                        long dBuildMarks = 0;
+                        dBuildMarks = ds.child("buildingMarks").getValue(long.class);
+                        if (Long.valueOf(dBuildMarks).toString().equals(null)){
+                            dBuildMarks = 0;
+                        }
+                        dBuildMarks = Math.round(dBuildMarks * 100L) / 100L;
                         BuildMarks.setText(String.valueOf(dBuildMarks)+"%");
 
-                        long dLocMarks = ds.child("locationMarks").getValue(long.class);
+                        long dLocMarks = 0;
+                        dLocMarks = ds.child("locationMarks").getValue(long.class);
+                        if (Long.valueOf(dLocMarks).toString().equals(null)){
+                            dLocMarks = 0;
+                        }
                         dLocMarks = Math.round(dLocMarks * 100L) / 100L;
                         LocMarks.setText(String.valueOf(dLocMarks)+"%");
 
-                        long dFpMarks = ds.child("foodPreparationMarks").getValue(long.class);
+                        long dFpMarks = 0;
+                        dFpMarks = ds.child("foodPreparationMarks").getValue(long.class);
+                        if (Long.valueOf(dFpMarks).toString().equals(null)){
+                            dFpMarks = 0;
+                        }
                         dFpMarks = Math.round(dFpMarks * 100L) / 100L;
                         FpMarks.setText(String.valueOf(dFpMarks)+"%");
 
-                        long dFstorageMarks = ds.child("foodStorageMarks").getValue(long.class);
+                        long dFstorageMarks = 0;
+                        dFstorageMarks = ds.child("foodStorageMarks").getValue(long.class);
+                        if (Long.valueOf(dFstorageMarks).toString().equals(null)){
+                            dFstorageMarks = 0;
+                        }
                         dFstorageMarks = Math.round(dFstorageMarks * 100L) / 100L;
                         FstorageMarks.setText(String.valueOf(dFstorageMarks)+"%");
 
-                        long dEqMarks = ds.child("equipmentUtencilsMarks").getValue(long.class);
+                        long dEqMarks =0;
+                        dEqMarks = ds.child("equipmentUtensilsMarks").getValue(long.class);
+                        if (Long.valueOf(dEqMarks).toString().equals(null)){
+                            dEqMarks = 0;
+                        }
                         dEqMarks = Math.round(dEqMarks * 100L) / 100L;
                         EqMarks.setText(String.valueOf(dEqMarks)+"%");
 
-                        double tot = (dBuildMarks+dLocMarks+dFpMarks+dFstorageMarks+dEqMarks)/5;
+                        long FoodHandlerPrecent =0;
+                        FoodHandlerPrecent = ds.child("foodHandlerMarks").getValue(long.class);
+                        if (Long.valueOf(FoodHandlerPrecent).toString().equals(null)){
+                            FoodHandlerPrecent = 0;
+                        }
+                        FoodHandlerPrecent = Math.round(dLocMarks * 100L) / 100L;
+                        FoodHandlerMarks.setText(String.valueOf(FoodHandlerPrecent)+"%");
+
+                        long packagingMaterial =0;
+                        packagingMaterial = ds.child("packagingMaterialMarks").getValue(long.class);
+                        if (Long.valueOf(packagingMaterial).toString().equals(null)){
+                            packagingMaterial = 0;
+                        }
+                        packagingMaterial = Math.round(dLocMarks * 100L) / 100L;
+                        PackagingMaterialMarks.setText(String.valueOf(packagingMaterial)+"%");
+
+                        long recordKeeping =0;
+                        recordKeeping = ds.child("recordKeepingMarks").getValue(long.class);
+                        if (Long.valueOf(recordKeeping).toString().equals(null)){
+                            recordKeeping = 0;
+                        }
+                        recordKeeping = Math.round(dLocMarks * 100L) / 100L;
+                        RecordKeepingMarks.setText(String.valueOf(recordKeeping)+"%");
+
+                        long SanitationActivity =0;
+                        SanitationActivity = ds.child("sanitationMarks").getValue(long.class);
+                        if (Long.valueOf(SanitationActivity).toString().equals(null)){
+                            SanitationActivity = 0;
+                        }
+                        SanitationActivity = Math.round(dLocMarks * 100L) / 100L;
+                        SanitationMarks.setText(String.valueOf(SanitationActivity)+"%");
+
+                        long StanderdsActivity = 0;
+                        StanderdsActivity = ds.child("standardsMarks").getValue(long.class);
+                        if (Long.valueOf(StanderdsActivity).toString().equals(null)){
+                            StanderdsActivity = 0;
+                        }
+                        StanderdsActivity = Math.round(dLocMarks * 100L) / 100L;
+                        StanderdsMarks.setText(String.valueOf(StanderdsActivity)+"%");
+
+                        long WasteMAnagement = 0;
+                        WasteMAnagement = ds.child("wasteManagementMarks").getValue(long.class);
+                        if (Long.valueOf(WasteMAnagement).toString().equals(null)){
+                            WasteMAnagement = 0;
+                        }
+                        WasteMAnagement = Math.round(dLocMarks * 100L) / 100L;
+                        WastManagementMarks.setText(String.valueOf(WasteMAnagement)+"%");
+
+                        long WaterSupply = 0;
+                        WaterSupply = ds.child("waterMarks").getValue(long.class);
+                        if (Long.valueOf(WaterSupply).toString().equals(null)){
+                            WaterSupply = 0;
+                        }
+                        WaterSupply = Math.round(dLocMarks * 100L) / 100L;
+                        WaterSupplyMarks.setText(String.valueOf(WaterSupply)+"%");
+
+                        double tot = (dBuildMarks+dLocMarks+dFpMarks+dFstorageMarks+dEqMarks+FoodHandlerPrecent+
+                                packagingMaterial+recordKeeping+SanitationActivity+StanderdsActivity
+                        +WasteMAnagement+WasteMAnagement)/12;
                         tot = Math.round(tot * 100D) / 100D;
                         TotalMarks.setText(String.valueOf(tot)+"%");
 

@@ -74,7 +74,8 @@ public class ResultActivity extends AppCompatActivity {
     long LocationPrecent=0;
     long BuildingPrecent=0;
     long EqPrecent = 0;
-    long FsPrecent = 0,FoodHandlerPrecent = 0;
+    long FsPrecent = 0, FoodHandlerPrecent = 0, packagingMaterial = 0, recordKeeping = 0,
+            SanitationActivity = 0, StanderdsActivity = 0, WasteMAnagement = 0, WaterSupply = 0;
 
     String RestKey;
 
@@ -103,9 +104,19 @@ public class ResultActivity extends AppCompatActivity {
                 FoodPreparationPrecent = (long) dataSnapshot.child("foodPreparationMarks").getValue();
                 EqPrecent = (long) dataSnapshot.child("equipmentUtensilsMarks").getValue();
                 FsPrecent = (long) dataSnapshot.child("foodStorageMarks").getValue();
-                FoodHandlerPrecent = (long) dataSnapshot.child("foodHandlerMarks").getValue();
 
-                double Totalprecent = (LocationPrecent + BuildingPrecent + FoodPreparationPrecent+EqPrecent+FsPrecent)/5;
+                FoodHandlerPrecent = (long) dataSnapshot.child("foodHandlerMarks").getValue();
+                packagingMaterial = (long) dataSnapshot.child("packagingMaterialMarks").getValue();
+                recordKeeping = (long) dataSnapshot.child("recordKeepingMarks").getValue();
+                SanitationActivity = (long) dataSnapshot.child("sanitationMarks").getValue();
+                StanderdsActivity = (long) dataSnapshot.child("standardsMarks").getValue();
+                WasteMAnagement = (long) dataSnapshot.child("wasteManagementMarks").getValue();
+                WaterSupply = (long) dataSnapshot.child("waterMarks").getValue();
+
+                double Totalprecent = ( LocationPrecent + BuildingPrecent + FoodPreparationPrecent
+                        + EqPrecent + FsPrecent + FoodHandlerPrecent + packagingMaterial +
+                        recordKeeping + SanitationActivity + StanderdsActivity + WasteMAnagement +
+                        WaterSupply) / 12;
                 String finalGrade;
 
                 if(Totalprecent >= 75){
@@ -151,11 +162,6 @@ public class ResultActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
 
 /*setData();*/
 
