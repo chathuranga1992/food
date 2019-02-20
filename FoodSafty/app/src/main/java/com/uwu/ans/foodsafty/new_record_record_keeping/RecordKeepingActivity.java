@@ -177,7 +177,7 @@ public class RecordKeepingActivity extends AppCompatActivity {
                     System.out.println("Data could not be saved. " + databaseError.getMessage());
                 } else {
                     //System.out.println("Data saved successfully.");
-                    dialog.setTitle("Packaging Material Grade : " +RecordKeepingGrade);
+                    dialog.setTitle("Record Keeping Grade : " +RecordKeepingGrade);
                     dialog.show();
                     Handler h = new Handler();
                     h.postDelayed(new Runnable() {

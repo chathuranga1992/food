@@ -173,7 +173,7 @@ public class WaterActivity extends AppCompatActivity {
                     System.out.println("Data could not be saved. " + databaseError.getMessage());
                 } else {
                     //System.out.println("Data saved successfully.");
-                    dialog.setTitle("Water Grade : " +waterGrade);
+                    dialog.setTitle("Water Supply Grade : " +waterGrade);
                     dialog.show();
                     Handler h = new Handler();
                     h.postDelayed(new Runnable() {
