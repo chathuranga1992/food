@@ -4,7 +4,7 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPageIndicatorD"
+    android:background="@color/colorBackground"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -53,7 +53,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/violations" />
 
                 <TextView
@@ -100,7 +99,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/deteriorated_food_storage" />
 
                 <TextView
@@ -147,7 +145,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/quality_of_raw_materials_foods" />
 
                 <TextView
@@ -193,7 +190,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/foods_display" />
 
                 <TextView

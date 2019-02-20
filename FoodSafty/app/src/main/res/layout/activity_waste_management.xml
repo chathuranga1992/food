@@ -53,7 +53,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/dustbin" />
 
                 <TextView
@@ -114,7 +113,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/dustbin_with_lids" />
 
                 <TextView
@@ -161,7 +159,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/dustbin_maintenance" />
 
                 <TextView
@@ -208,7 +205,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/waste_classification" />
 
                 <TextView
@@ -270,7 +266,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/waste_removing" />
 
                 <TextView
@@ -331,7 +326,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/toilet_pit" />
 
                 <TextView
@@ -377,7 +371,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/toilets" />
 
                 <TextView
@@ -437,7 +430,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/drainage_system" />
 
                 <TextView

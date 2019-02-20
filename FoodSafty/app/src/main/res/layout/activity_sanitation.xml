@@ -4,7 +4,7 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPageIndicatorD"
+    android:background="@color/colorBackground"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -53,7 +53,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/wash_bins" />
 
                 <TextView
@@ -113,7 +112,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/cleaning_equipment" />
 
                 <TextView
@@ -173,7 +171,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/sanitation_procedure" />
 
                 <TextView
@@ -232,7 +229,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/refrigeration" />
 
                 <TextView
@@ -293,7 +289,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/storage_facilities" />
 
                 <TextView
@@ -340,7 +335,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/light_amp_ventilation" />
 
                 <TextView
@@ -387,7 +381,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/frozen" />
 
                 <TextView
@@ -448,7 +441,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/contamination" />
 
                 <TextView
@@ -507,7 +499,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/pest_control" />
 
                 <TextView
@@ -553,7 +544,6 @@
                     style="@style/SectionTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
                     android:text="@string/cleaning" />
 
                 <TextView
