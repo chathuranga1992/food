@@ -217,6 +217,11 @@
     <string name="sample_token">0000</string>
     <string name="server_error">Server Error</string>
     <string name="no_connection_msg">No Connection</string>
+
+    <string name="dustbin_maintenance">Dustbin Maintenance</string>
+    <string name="dustbin_with_lids">Dustbin With Lids</string>
+    <string name="waste_removing">Waste Removing</string>
+    <string name="dustbin">Dustbin</string>
     <!--<string name="attractive">Attractive</string>-->
     <!--<string name="refrigeration">Refrigeration</string>-->
     <!--<string name="fifo_overstock">FIFO (overstock)</string>-->

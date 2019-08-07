@@ -70,11 +70,11 @@ public class ResultActivity extends AppCompatActivity {
 
     DatabaseReference rootRef;
 
-    long FoodPreparationPrecent =0;
-    long LocationPrecent=0;
-    long BuildingPrecent=0;
-    long EqPrecent = 0;
-    long FsPrecent = 0, FoodHandlerPrecent = 0, packagingMaterial = 0, recordKeeping = 0,
+    double FoodPreparationPrecent =0;
+    double LocationPrecent=0;
+    double BuildingPrecent=0;
+    double EqPrecent = 0;
+    double FsPrecent = 0, FoodHandlerPrecent = 0, packagingMaterial = 0, recordKeeping = 0,
             SanitationActivity = 0, StanderdsActivity = 0, WasteMAnagement = 0, WaterSupply = 0;
 
     String RestKey;
@@ -94,24 +94,24 @@ public class ResultActivity extends AppCompatActivity {
 
         rootRef = FirebaseDatabase.getInstance().getReference();
 
-        RestKey = getIntent().getStringExtra("RestName");;
+        RestKey = getIntent().getStringExtra("RestName");
 
         rootRef.child("Inspections").child(RestKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                LocationPrecent = (long) dataSnapshot.child("locationMarks").getValue();
-                BuildingPrecent = (long) dataSnapshot.child("buildingMarks").getValue();
-                FoodPreparationPrecent = (long) dataSnapshot.child("foodPreparationMarks").getValue();
-                EqPrecent = (long) dataSnapshot.child("equipmentUtensilsMarks").getValue();
-                FsPrecent = (long) dataSnapshot.child("foodStorageMarks").getValue();
+                LocationPrecent = (double) dataSnapshot.child("locationMarks").getValue();
+                BuildingPrecent = (double) dataSnapshot.child("buildingMarks").getValue();
+                FoodPreparationPrecent = (double) dataSnapshot.child("foodPreparationMarks").getValue();
+                EqPrecent = (double) dataSnapshot.child("equipmentUtensilsMarks").getValue();
+                FsPrecent = (double) dataSnapshot.child("foodStorageMarks").getValue();
 
-                FoodHandlerPrecent = (long) dataSnapshot.child("foodHandlerMarks").getValue();
-                packagingMaterial = (long) dataSnapshot.child("packagingMaterialMarks").getValue();
-                recordKeeping = (long) dataSnapshot.child("recordKeepingMarks").getValue();
-                SanitationActivity = (long) dataSnapshot.child("sanitationMarks").getValue();
-                StanderdsActivity = (long) dataSnapshot.child("standardsMarks").getValue();
-                WasteMAnagement = (long) dataSnapshot.child("wasteManagementMarks").getValue();
-                WaterSupply = (long) dataSnapshot.child("waterMarks").getValue();
+                FoodHandlerPrecent = (double) dataSnapshot.child("foodHandlerMarks").getValue();
+                packagingMaterial = (double) dataSnapshot.child("packagingMaterialMarks").getValue();
+                recordKeeping = (double) dataSnapshot.child("recordKeepingMarks").getValue();
+                SanitationActivity = (double) dataSnapshot.child("sanitationMarks").getValue();
+                StanderdsActivity = (double) dataSnapshot.child("standardsMarks").getValue();
+                WasteMAnagement = (double) dataSnapshot.child("wasteManagementMarks").getValue();
+                WaterSupply = (double) dataSnapshot.child("waterMarks").getValue();
 
                 double Totalprecent = ( LocationPrecent + BuildingPrecent + FoodPreparationPrecent
                         + EqPrecent + FsPrecent + FoodHandlerPrecent + packagingMaterial +

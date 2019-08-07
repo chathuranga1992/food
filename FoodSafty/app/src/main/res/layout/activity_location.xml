@@ -320,18 +320,15 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
-
-                <android.support.design.widget.TextInputLayout
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
-
-                    <TextView
-
-                        android:id="@+id/location_comments"
+                    <EditText
+                        android:id="@+id/packaging_materials_comment"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Add Comments Here"/>
-                </android.support.design.widget.TextInputLayout>
+                        android:hint="@string/add_comments_here"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             </LinearLayout>
