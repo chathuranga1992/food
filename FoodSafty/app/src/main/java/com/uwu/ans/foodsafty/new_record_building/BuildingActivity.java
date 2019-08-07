@@ -369,7 +369,7 @@ public class BuildingActivity extends AppCompatActivity {
     @OnClick(R.id.building_next)
     public void setBuilding(View view) {
 
-        String building_id = mDatabaseFoodSafe.push().getKey();
+        //String building_id = mDatabaseFoodSafe.push().getKey();
 
         structureMarks();
 
@@ -386,7 +386,7 @@ public class BuildingActivity extends AppCompatActivity {
         ceilingStructureMarks();
 
 
-        String mComment = mEditTextComments.getText().toString();
+/*        String mComment = mEditTextComments.getText().toString();
 
         String mBuildingStructureMarks = Integer.valueOf(mBuildingStructureMarksINT).toString();
         String mBuildingStructureReMarks = mTextViewMarksBuildingStructure.getText().toString();
@@ -407,10 +407,10 @@ public class BuildingActivity extends AppCompatActivity {
         String mBuildingCeilingStructuresReMarks = mTextViewMarksBuildingCeilingStructure.getText().toString();
 
         String mBuildingSpaceMarks = Integer.valueOf(mBuildingSpaceMarksINT).toString();
-        String mBuildingSpaceReMarks = mTextViewMarksBuildingSpace.getText().toString();
+        String mBuildingSpaceReMarks = mTextViewMarksBuildingSpace.getText().toString();*/
 
 
-        FloorStructure floorStructure = new FloorStructure(mBuildingFoorStructureMarks1,
+/*        FloorStructure floorStructure = new FloorStructure(mBuildingFoorStructureMarks1,
                 mBuildingFoorStructureMarks2, mBuildingFoorStructureMarks3, mBuildingFoorStructureMarks4,
                 mBuildingFloorStructureMarks, mBuildingFloorStructureReMarks);
 
@@ -439,7 +439,7 @@ public class BuildingActivity extends AppCompatActivity {
 
         BuildingModel buildingModel = new BuildingModel(building_id, building_id,mComment,
                 mBuildingTotalMarks, ceilingStructure, floorStructure, lightNVentilation,
-                riskFactors, space, structure, wallMaintatance);
+                riskFactors, space, structure, wallMaintatance);*/
 
 
 
@@ -462,7 +462,7 @@ public class BuildingActivity extends AppCompatActivity {
                             intent.putExtra("RestName",RestKey);
                             startActivity(intent);
                         }
-                    }, 3000);
+                    }, 2000);
 
                 }
             }

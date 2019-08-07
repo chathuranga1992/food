@@ -26,6 +26,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.uwu.ans.foodsafty.R;
 import com.uwu.ans.foodsafty.new_record_LocationEnvironment.LocationEnvironmentActivity;
 import com.uwu.ans.foodsafty.new_record_storage.StorageActivity;
+import com.uwu.ans.foodsafty.reports.ReportActivity;
 import com.uwu.ans.foodsafty.settings.SettingsActivity;
 
 import java.util.Random;
@@ -189,8 +190,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.reports)
     public void onReport(View view) {
-        //startActivity(new Intent(this, BuildingActivity.class));
-        Toast.makeText(this, "Reports Developing", Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, ReportActivity.class));
     }
     @OnClick(R.id.settings)
     public void onTips(View view) {

@@ -3,6 +3,9 @@
     package="com.uwu.ans.foodsafty">
 
     <application
+        android:name=".FoodApplication"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:replace="android:icon"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

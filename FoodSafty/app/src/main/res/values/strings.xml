@@ -9,11 +9,11 @@
     <string name="register_via">Register Via</string>
     <string name="facebook">FACEBOOK</string>
     <string name="google">GOOGLE</string>
-    <string name="new_register">New to AirBrands?</string>
+    <string name="new_register">New User?</string>
     <string name="have_an_account">Have an Account?</string>
     <string name="register">Register</string>
     <string name="re_enter_password"> Re Enter Password</string>
-    <string name="name">Full Name</string>
+    <string name="name">Name</string>
     <string name="hi">Hi</string>
     <string name="need_help">Need Help?</string>
     <string name="go_to">Go to</string>
@@ -214,6 +214,9 @@
     <string name="optimum_shelf_life">Optimum Shelf Life</string>
     <string name="foods_display">Foods Display</string>
     <string name="water_source">Water Source</string>
+    <string name="sample_token">0000</string>
+    <string name="server_error">Server Error</string>
+    <string name="no_connection_msg">No Connection</string>
     <!--<string name="attractive">Attractive</string>-->
     <!--<string name="refrigeration">Refrigeration</string>-->
     <!--<string name="fifo_overstock">FIFO (overstock)</string>-->

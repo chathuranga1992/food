@@ -1,6 +1,8 @@
 package com.uwu.ans.foodsafty.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -9,13 +11,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.uwu.ans.foodsafty.R;
 import com.uwu.ans.foodsafty.login.SignInActivity;
 import com.uwu.ans.foodsafty.register.RegisterActivity;
+import com.uwu.ans.foodsafty.util.UIUtils;
 
 public class SplashActivity extends AppCompatActivity {
 
+
+    @BindView(R.id.iv_animate_chef)
+    ImageView mIVChef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +37,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         ButterKnife.bind(this);
+
+        Glide.with(this)
+                .load(UIUtils.getDrawable(R.drawable.chef_main))
+                .into(mIVChef);
     }
 
     @OnClick(R.id.button_activity_splash)
