@@ -70,12 +70,9 @@ public class ResultActivity extends AppCompatActivity {
 
     DatabaseReference rootRef;
 
-    double FoodPreparationPrecent =0;
-    double LocationPrecent=0;
-    double BuildingPrecent=0;
-    double EqPrecent = 0;
-    double FsPrecent = 0, FoodHandlerPrecent = 0, packagingMaterial = 0, recordKeeping = 0,
-            SanitationActivity = 0, StanderdsActivity = 0, WasteMAnagement = 0, WaterSupply = 0;
+    long FoodPreparationPrecent =0L,LocationPrecent=0L,BuildingPrecent=0L,EqPrecent = 0L, FsPrecent = 0L,
+            FoodHandlerPrecent = 0L, packagingMaterial = 0L, recordKeeping = 0L, SanitationActivity = 0L,
+            StanderdsActivity = 0L, WasteMAnagement = 0L, WaterSupply = 0L;
 
     String RestKey;
 
@@ -99,24 +96,24 @@ public class ResultActivity extends AppCompatActivity {
         rootRef.child("Inspections").child(RestKey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                LocationPrecent = (double) dataSnapshot.child("locationMarks").getValue();
-                BuildingPrecent = (double) dataSnapshot.child("buildingMarks").getValue();
-                FoodPreparationPrecent = (double) dataSnapshot.child("foodPreparationMarks").getValue();
-                EqPrecent = (double) dataSnapshot.child("equipmentUtensilsMarks").getValue();
-                FsPrecent = (double) dataSnapshot.child("foodStorageMarks").getValue();
+                LocationPrecent =  dataSnapshot.child("locationMarks").getValue(long.class);
+                BuildingPrecent =  dataSnapshot.child("buildingMarks").getValue(long.class);
+                FoodPreparationPrecent = dataSnapshot.child("foodPreparationMarks").getValue(long.class);
+                EqPrecent = dataSnapshot.child("equipmentUtensilsMarks").getValue(long.class);
+                FsPrecent = dataSnapshot.child("foodStorageMarks").getValue(long.class);
 
-                FoodHandlerPrecent = (double) dataSnapshot.child("foodHandlerMarks").getValue();
-                packagingMaterial = (double) dataSnapshot.child("packagingMaterialMarks").getValue();
-                recordKeeping = (double) dataSnapshot.child("recordKeepingMarks").getValue();
-                SanitationActivity = (double) dataSnapshot.child("sanitationMarks").getValue();
-                StanderdsActivity = (double) dataSnapshot.child("standardsMarks").getValue();
-                WasteMAnagement = (double) dataSnapshot.child("wasteManagementMarks").getValue();
-                WaterSupply = (double) dataSnapshot.child("waterMarks").getValue();
+                FoodHandlerPrecent = dataSnapshot.child("foodHandlerMarks").getValue(long.class);
+                packagingMaterial = dataSnapshot.child("packagingMaterialMarks").getValue(long.class);
+                recordKeeping = dataSnapshot.child("recordKeepingMarks").getValue(long.class);
+                SanitationActivity = dataSnapshot.child("sanitationMarks").getValue(long.class);
+                StanderdsActivity = dataSnapshot.child("standardsMarks").getValue(long.class);
+                WasteMAnagement = dataSnapshot.child("wasteManagementMarks").getValue(long.class);
+                WaterSupply = dataSnapshot.child("waterMarks").getValue(long.class);
 
-                double Totalprecent = ( LocationPrecent + BuildingPrecent + FoodPreparationPrecent
+                double Totalprecent = (( LocationPrecent + BuildingPrecent + FoodPreparationPrecent
                         + EqPrecent + FsPrecent + FoodHandlerPrecent + packagingMaterial +
                         recordKeeping + SanitationActivity + StanderdsActivity + WasteMAnagement +
-                        WaterSupply) / 12;
+                        WaterSupply) / 12);
                 String finalGrade;
 
                 if(Totalprecent >= 75){
@@ -175,3 +172,19 @@ public class ResultActivity extends AppCompatActivity {
         startActivity(new Intent(ResultActivity.this, HomeActivity.class));
     }
 }
+///*
+// E/AndroidRuntime: FATAL EXCEPTION: main
+//    Process: com.uwu.ans.foodsafty, PID: 25661
+//    java.lang.ClassCastException: java.lang.Double cannot be cast to java.lang.Long
+//        at com.uwu.ans.foodsafty.result.ResultActivity$1.onDataChange(ResultActivity.java:99)
+//        at com.google.firebase.database.zzp.onDataChange(Unknown Source:7)
+//        at com.google.android.gms.internal.firebase_database.zzfc.zza(Unknown Source:13)
+//        at com.google.android.gms.internal.firebase_database.zzgx.zzdr(Unknown Source:2)
+//        at com.google.android.gms.internal.firebase_database.zzhd.run(Unknown Source:71)
+//        at android.os.Handler.handleCallback(Handler.java:907)
+//        at android.os.Handler.dispatchMessage(Handler.java:105)
+//        at android.os.Looper.loop(Looper.java:216)
+//        at android.app.ActivityThread.main(ActivityThread.java:7593)
+//        at java.lang.reflect.Method.invoke(Native Method)
+//        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:524)
+//        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:987)*/

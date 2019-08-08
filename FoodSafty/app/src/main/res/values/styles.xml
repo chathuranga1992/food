@@ -17,7 +17,7 @@
     </style>
 
     <style name="TitleText">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">#013563</item>
         <item name="android:padding">@dimen/title_padding</item>
         <item name="android:textSize">@dimen/title_text_size</item>
         <item name="android:textColor">@color/colorTitleText</item>
