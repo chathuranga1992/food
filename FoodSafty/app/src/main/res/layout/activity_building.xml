@@ -4,13 +4,9 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/food_s"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".new_record_building.BuildingActivity">
 
     <ProgressBar
@@ -21,6 +17,19 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/building"
+                    android:drawableEnd="@drawable/buidng"/>
+            </LinearLayout>
     <ScrollView
         android:id="@+id/building_form"
         android:layout_width="match_parent"
@@ -30,19 +39,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/TitleText"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/building"
-                    android:drawableEnd="@drawable/buidng"/>
-            </LinearLayout>
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
             <LinearLayout
                 style="@style/headers"
                 android:layout_width="fill_parent"
@@ -102,6 +106,15 @@
                     android:text="@string/adequate" />
 
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
                 style="@style/headers"
@@ -147,7 +160,15 @@
                     android:text="@string/beautiful" />
 
             </LinearLayout>
-
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
             <LinearLayout
                 style="@style/headers"
                 android:layout_width="fill_parent"
@@ -192,9 +213,18 @@
                     android:text="@string/appropriate" />
 
             </LinearLayout>
-
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
             <LinearLayout
                 style="@style/headers"
+                android:background="@drawable/bg_header_top_rounded_rectangle"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
@@ -251,8 +281,18 @@
                     android:gravity="end"
                     android:text="@string/clean" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
+                android:background="@drawable/bg_header_top_rounded_rectangle"
                 style="@style/headers"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
@@ -297,8 +337,18 @@
                     android:text="@string/unsafe_structures" />
 
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
+                android:background="@drawable/bg_header_top_rounded_rectangle"
                 style="@style/headers"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
@@ -358,8 +408,18 @@
                     android:gravity="end"
                     android:text="@string/clean" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
             <LinearLayout
+                android:background="@drawable/bg_header_top_rounded_rectangle"
                 style="@style/headers"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
@@ -420,6 +480,15 @@
                     android:gravity="end"
                     android:text="@string/clean" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_rounded_white_rectangle"
+            android:elevation="8dp"
+            android:orientation="vertical"
+            android:padding="8dp">
 
 
             <LinearLayout
@@ -437,6 +506,7 @@
                         android:hint="@string/add_comments_here"/>
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
+        </LinearLayout>
 
             <LinearLayout
                 android:layout_marginTop="10dp"
@@ -471,7 +541,7 @@
                     android:id="@+id/building_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
+                    android:background="@drawable/social_google_btn"
                     android:text="@string/next"
                     android:layout_gravity="end"
                     android:onClick="setBuilding"/>

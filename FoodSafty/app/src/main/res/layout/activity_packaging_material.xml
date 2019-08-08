@@ -4,13 +4,9 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/food_s"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".new_record_packaging_materials.PackagingMaterialActivity">
 
     <ProgressBar
@@ -18,238 +14,294 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="@dimen/activity_vertical_margin"
         android:layout_height="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/packaging_materials_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TitleText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="8dp"
+            android:text="@string/packaging_materials_contaminated_substances" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ScrollView
+            android:id="@+id/packaging_materials_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <TextView
-                    style="@style/TitleText"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/packaging_materials_contaminated_substances" />
-            </LinearLayout>
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_rounded_white_rectangle"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
 
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/empty_crates_cartons_containers" />
-
-                <TextView
-                    android:id="@+id/marks_empty_crates_cartons_containers"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/empty_crates_cartons_containers_safe_disposal"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/safe_disposal" />
-
-                <CheckBox
-                    android:id="@+id/empty_crates_cartons_containers_separated_storage"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/separated_storage" />
-
-                <CheckBox
-                    android:id="@+id/empty_crates_cartons_containers_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_contamination" />
-
-                <CheckBox
-                    android:id="@+id/empty_crates_cartons_containers_enough"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/enough" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/contaminated_substances" />
-
-                <TextView
-                    android:id="@+id/marks_contaminated_substances"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/contaminated_substances_separated"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/separated" />
-
-                <CheckBox
-                    android:id="@+id/contaminated_substances_covered"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/covered" />
-
-                <CheckBox
-                    android:id="@+id/contaminated_substances_labelled"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/labelled" />
-
-                <CheckBox
-                    android:id="@+id/contaminated_substances_original_container"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/original_container" />
-
-            </LinearLayout>
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/packaging_materials" />
-
-                <TextView
-                    android:id="@+id/marks_packaging_materials"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/packaging_materials_food_grade_polythene_hdpe_plastic_pp5"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_grade_polythene_hdpe_plastic_pp5" />
-
-                <CheckBox
-                    android:id="@+id/packaging_materials_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_contamination" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
-                    <EditText
-                        android:id="@+id/packaging_materials_comment"
+                    <LinearLayout
+                        style="@style/headers"
                         android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/SectionTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_header_top_rounded_rectangle"
+                            android:text="@string/empty_crates_cartons_containers" />
+
+                        <TextView
+                            android:id="@+id/marks_empty_crates_cartons_containers"
+                            style="@style/edit_texts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="60dp"
+                            android:gravity="end"
+                            android:paddingTop="10dp"
+                            android:text="@string/marks" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/linears"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/empty_crates_cartons_containers_safe_disposal"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/safe_disposal" />
+
+                        <CheckBox
+                            android:id="@+id/empty_crates_cartons_containers_separated_storage"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/separated_storage" />
+
+                        <CheckBox
+                            android:id="@+id/empty_crates_cartons_containers_no_contamination"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/no_contamination" />
+
+                        <CheckBox
+                            android:id="@+id/empty_crates_cartons_containers_enough"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/enough" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_rounded_white_rectangle"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        style="@style/headers"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/SectionTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_header_top_rounded_rectangle"
+                            android:text="@string/contaminated_substances" />
+
+                        <TextView
+                            android:id="@+id/marks_contaminated_substances"
+                            style="@style/edit_texts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="60dp"
+                            android:gravity="end"
+                            android:paddingTop="10dp"
+                            android:text="@string/marks" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        style="@style/linears"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/contaminated_substances_separated"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/separated" />
+
+                        <CheckBox
+                            android:id="@+id/contaminated_substances_covered"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/covered" />
+
+                        <CheckBox
+                            android:id="@+id/contaminated_substances_labelled"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/labelled" />
+
+                        <CheckBox
+                            android:id="@+id/contaminated_substances_original_container"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/original_container" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_rounded_white_rectangle"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        style="@style/headers"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            style="@style/SectionTitleText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_header_top_rounded_rectangle"
+                            android:text="@string/packaging_materials" />
+
+                        <TextView
+                            android:id="@+id/marks_packaging_materials"
+                            style="@style/edit_texts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginStart="60dp"
+                            android:gravity="end"
+                            android:paddingTop="10dp"
+                            android:text="@string/marks" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="@style/linears"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <CheckBox
+                            android:id="@+id/packaging_materials_food_grade_polythene_hdpe_plastic_pp5"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/food_grade_polythene_hdpe_plastic_pp5" />
+
+                        <CheckBox
+                            android:id="@+id/packaging_materials_no_contamination"
+                            style="@style/checkbox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@string/no_contamination" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_rounded_white_rectangle"
+                    android:elevation="8dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/packaging_materials_comment"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/add_comments_here" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/packaging_materials_total_marks"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/add_comments_here"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="@string/total_marks" />
+                </LinearLayout>
 
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/packaging_materials_total_marks"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/total_marks"
-                    android:layout_gravity="start"
-                    android:gravity="start"/>
-            </LinearLayout>
+                    android:gravity="end">
 
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end">
-                <Button
-                    android:id="@+id/packaging_materials_next"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/next"
-                    android:layout_gravity="end"/>
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/packaging_materials_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:background="@drawable/social_google_btn"
+                        android:text="@string/next" />
+                </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>

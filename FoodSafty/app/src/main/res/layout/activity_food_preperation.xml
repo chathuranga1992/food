@@ -3,13 +3,9 @@
     android:id="@+id/rootLinearLayoutLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@drawable/food_s"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    android:orientation="vertical">
 
 
     <ProgressBar
@@ -20,710 +16,845 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
-    <ScrollView
-        android:id="@+id/food_processing_area_form"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:drawableEnd="@drawable/location"
+            android:text="@string/food_processing_area"
+            android:padding="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
+
+        <ScrollView
+            android:id="@+id/food_processing_area_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/TitleText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_processing_area"
-                    android:drawableEnd="@drawable/location"/>
-            </LinearLayout>
-
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
             <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/floor_structure" />
-
-                <TextView
-                    android:id="@+id/food_processing_area_marks_floor_structure"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_floor_structure_clean"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/clean" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_floor_structure_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_accumulation" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_floor_structure_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/suitable" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_floor_structure_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_contamination" />
-
-            </LinearLayout>
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/wall_maintenance" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_wall_maintenance"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_wall_maintenance_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/suitable" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_wall_maintenance_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_contamination" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_wall_maintenance_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_accumulation" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_wall_maintenance_clean"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/clean" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ceiling_structure" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_ceiling_structure"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_ceiling_structure_clean"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/clean" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_ceiling_structure_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_accumulation" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_ceiling_structure_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/suitable" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_ceiling_structure_no_contamination"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_contamination" />
-
-            </LinearLayout>
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/contamination" />
-
-                <TextView
-                    android:id="@+id/food_processing_area_marks_contamination"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_contamination_from_toilets"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/from_toilets" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_contamination_from_garbage"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/from_garbage" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_contamination_from_sanitizers"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/from_sanitizers" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_contamination_from_hazards"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/from_hazards" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/sanitation" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_sanitation"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_sanitation_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_sanitation_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/appropriate" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/light_amp_ventilation" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_light_amp_ventilation"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_light_amp_ventilation_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_light_amp_ventilation_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/appropriate" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cleanliness" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_cleanliness"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_cleanliness_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_cleanliness_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/appropriate" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/house_keeping" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_house_keeping"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_house_keeping_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_house_keeping_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/appropriate" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pest_control" />
-
-                <TextView
-                    android:id="@+id/marks_food_processing_area_pest_control"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_pest_control_no_rodents"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/no_rodents" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_pest_control_no_pets"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_pets" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cleaning" />
-
-                <TextView
-                    android:id="@+id/food_processing_area_marks_cleaning"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_clean_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/appropriate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_clean_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_clean_daily"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/daily" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_clean_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_accumulation" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/space" />
-
-                <TextView
-                    android:id="@+id/food_processing_area_marks_space"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_space_appropriate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/appropriate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_space_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/adequate" />
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/headers"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/SectionTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/drainage" />
-
-                <TextView
-                    android:id="@+id/food_processing_area_marks_drainage"
-                    style="@style/edit_texts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="60dp"
-                    android:gravity="end"
-                    android:paddingTop="10dp"
-                    android:text="@string/marks" />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_drainage_suitable"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/suitable" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_drainage_adequate"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/adequate" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_drainage_safe"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/safe" />
-
-                <CheckBox
-                    android:id="@+id/food_processing_area_drainage_no_accumulation"
-                    style="@style/checkbox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/no_accumulation" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-
-                <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/food_processing_area_comments"
-                        android:layout_width="fill_parent"
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/add_comments_here"/>
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="@string/floor_structure" />
 
+                    <TextView
+                        android:id="@+id/food_processing_area_marks_floor_structure"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
 
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_floor_structure_clean"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clean" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_floor_structure_no_accumulation"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_accumulation" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_floor_structure_suitable"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suitable" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_floor_structure_no_contamination"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_contamination" />
+
+                </LinearLayout>
             </LinearLayout>
-
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="start">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/total_marks"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:layout_gravity="start"
-                    android:gravity="start"/>
-                <TextView
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/food_processing_area_full_marks"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wall_maintenance" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_wall_maintenance"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_wall_maintenance_suitable"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suitable" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_wall_maintenance_no_contamination"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_contamination" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_wall_maintenance_no_accumulation"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_accumulation" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_wall_maintenance_clean"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/clean" />
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
-                style="@style/linears"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end">
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ceiling_structure" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_ceiling_structure"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
 
 
-                <Button
-                    android:id="@+id/food_processing_area_next_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/gradient_btn"
-                    android:text="@string/next"
-                    android:layout_gravity="end"
-                    android:onClick="setFoodPreparation"/>
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_ceiling_structure_clean"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clean" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_ceiling_structure_no_accumulation"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_accumulation" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_ceiling_structure_suitable"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suitable" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_ceiling_structure_no_contamination"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_contamination" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contamination" />
+
+                    <TextView
+                        android:id="@+id/food_processing_area_marks_contamination"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_contamination_from_toilets"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/from_toilets" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_contamination_from_garbage"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/from_garbage" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_contamination_from_sanitizers"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/from_sanitizers" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_contamination_from_hazards"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/from_hazards" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sanitation" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_sanitation"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_sanitation_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_sanitation_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/appropriate" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/light_amp_ventilation" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_light_amp_ventilation"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_light_amp_ventilation_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_light_amp_ventilation_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/appropriate" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleanliness" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_cleanliness"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_cleanliness_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_cleanliness_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/appropriate" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/house_keeping" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_house_keeping"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_house_keeping_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_house_keeping_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/appropriate" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pest_control" />
+
+                    <TextView
+                        android:id="@+id/marks_food_processing_area_pest_control"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_pest_control_no_rodents"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no_rodents" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_pest_control_no_pets"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_pets" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cleaning" />
+
+                    <TextView
+                        android:id="@+id/food_processing_area_marks_cleaning"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_clean_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/appropriate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_clean_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_clean_daily"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/daily" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_clean_no_accumulation"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_accumulation" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/space" />
+
+                    <TextView
+                        android:id="@+id/food_processing_area_marks_space"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_space_appropriate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/appropriate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_space_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/adequate" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    style="@style/headers"
+                    android:background="@drawable/bg_header_top_rounded_rectangle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/SectionTitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/drainage" />
+
+                    <TextView
+                        android:id="@+id/food_processing_area_marks_drainage"
+                        style="@style/edit_texts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="60dp"
+                        android:gravity="end"
+                        android:paddingTop="10dp"
+                        android:text="@string/marks" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_drainage_suitable"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/suitable" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_drainage_adequate"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/adequate" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_drainage_safe"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/safe" />
+
+                    <CheckBox
+                        android:id="@+id/food_processing_area_drainage_no_accumulation"
+                        style="@style/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/no_accumulation" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:background="@drawable/bg_rounded_white_rectangle"
+                android:elevation="8dp"
+                android:orientation="vertical"
+                android:padding="8dp">
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/food_processing_area_comments"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/add_comments_here" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="start">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:gravity="start"
+                        android:text="@string/total_marks"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/food_processing_area_full_marks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/linears"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end">
+
+
+                    <Button
+                        android:id="@+id/food_processing_area_next_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:background="@drawable/social_google_btn"
+                        android:onClick="setFoodPreparation"
+                        android:text="@string/next" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>
