@@ -67,7 +67,7 @@ public class ReportActivity extends AppCompatActivity {
     }
 
 
-    private static class ReportViewHolder extends RecyclerView.ViewHolder
+    public static class ReportViewHolder extends RecyclerView.ViewHolder
     {
         View mView;
 

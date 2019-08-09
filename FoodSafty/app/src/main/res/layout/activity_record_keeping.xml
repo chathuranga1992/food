@@ -23,7 +23,7 @@
 
         <TextView
             style="@style/TitleText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/record_keeping" />
     </LinearLayout>
@@ -343,7 +343,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:background="@drawable/gradient_btn"
+                        android:background="@drawable/social_google_btn"
                         android:text="@string/next" />
                 </LinearLayout>
 

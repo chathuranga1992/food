@@ -7,13 +7,23 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            debuggable true
+            buildConfigField('String', 'API_REST_HOST', '\"http://ec2-18-222-71-181.us-east-2.compute.amazonaws.com:3001/api/v1/\"')
+            buildConfigField('String', 'CHAT_API_REST_HOST', '"https://ceil-aardvark-7858.twil.io/"')
+//            applicationVariants.all { variant ->
+//                variant.outputs.all { output ->
+//                    variant.packageApplicationProvider.get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+//                    def fileName = "food_safe-v${defaultConfig.versionName}_r${defaultConfig.versionCode}.apk"
+//                    output.outputFileName = fileName
+//                }
+//            }
         }
 
         debug {
@@ -21,8 +31,15 @@ android {
             debuggable true
             buildConfigField('String', 'API_REST_HOST', '\"http://ec2-18-222-71-181.us-east-2.compute.amazonaws.com:3001/api/v1/\"')
             buildConfigField('String', 'CHAT_API_REST_HOST', '"https://ceil-aardvark-7858.twil.io/"')
-
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    //variant.packageApplicationProvider.get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+                    def fileName = "food_safe-v${defaultConfig.versionName}_d${defaultConfig.versionCode}.apk"
+                    output.outputFileName = fileName
+                }
+            }
         }
+
 
     }
     compileOptions {
